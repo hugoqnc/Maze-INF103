@@ -1,3 +1,4 @@
+package tp04;
 
 public class Box 
 	implements VertexInterface
