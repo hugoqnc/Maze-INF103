@@ -3,7 +3,7 @@ package tp04;
 public class MainTest {
 
 	public static void main(String[] args) {
-		Maze maze = new Maze();
+		Maze maze = new Maze("data/labyrinthe.txt");
 		maze.initFromTextFile("data/labyrinthe.txt");
 		
 

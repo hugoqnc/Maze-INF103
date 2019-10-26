@@ -19,6 +19,10 @@ public class Box
 	public boolean empty() {
 		return false;}
 	
+	public ArrayList<Box> voisin(){//a definir
+		if coordinate 
+	}
+	
 
 
 }

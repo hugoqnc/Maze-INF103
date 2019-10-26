@@ -12,6 +12,20 @@ public class Maze
 	private ArrayList<Box> maze ;
 	private int longeur;
 	private int largeur;
+	private DBox depart;
+	private ABox arrive;
+	
+	
+	
+	private ArrayList<String> caractere(){//liste des caractères acceptes
+		//trouver un endroit plus pertinent pour editer cette fonction et modifier constructeur de maze en consequence
+		ArrayList<String> caractere = new ArrayList<String>();
+		caractere.add("A");
+		caractere.add("W");
+		caractere.add("E");
+		caractere.add("D");
+		return caractere;}
+	
 
 	public Maze(String fileName){//constructeur de la classe_A COMPLETER
 		//BufferedReader reader = new BufferedReader(new FileReader("data/labyrinthe.txt"));
@@ -26,30 +40,36 @@ public class Maze
 		//si lecteur est conforme :
 		longeur = longeurTest;
 		largeur = largeurTest;
-		Iterator<String> inter = lecteur.iterator();
-		while (inter.hasNext()) {
-			String currentLigne = inter.next();
-			for(int i=0; i<largeur; i++) {
-				String designation= currentLigne.substring(i);
-				//créer méthode dans Box
-				
-				
+		for (int i=0; i<longeur; i++) {			
+			for(int j=0; j<largeur; j++) {
+				String designation= lecteur.get(i).substring(j);
+				//ATTENTION : CECI N'EST PAS TROP TROP ORIENTE OBJET :
+				if (designation.contentEquals("E")){
+					EBox box = new eBox(i,j);
+				}
+				else if (designation.contentEquals("W")) {
+					WBox box = new wBox(i,j);
+				}
+				else if (designation.contentEquals("A")) {
+					ABox box = new aBox(i,j);
+					arrive = box;
+				}
+
+				else if (designation.contentEquals("D")) {
+					DBox box = new dBox(i,j);
+					depart = box;
+				}
+				maze.add(box);
 			}
 			
+		
 		}
 		
 		
 		
 		}
 	
-	private ArrayList<String> caractere(){//liste des caractères acceptes
-		//trouver un endroit plus pertinent pour editer cette fonction et modifier constructeur de maze en consequence
-		ArrayList<String> caractere = new ArrayList<String>();
-		caractere.add("A");
-		caractere.add("W");
-		caractere.add("E");
-		caractere.add("D");
-		return caractere;}
+
 	
 	public int getLongeur() {
 		return longeur;
