@@ -3,7 +3,7 @@ package tp04;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
-
+import java.io.IOException;
 
 public class Maze 
 	implements GraphInterface
@@ -12,11 +12,9 @@ public class Maze
 	private int longeur;
 	private int largeur;
 
-	public Maze(){//constructeur de la classe
-		BufferedReader reader = new BufferedReader(new FileReader("data/labyrinthe.txt"));
+	public Maze(){//constructeur de la classe_A COMPLETER
+		//BufferedReader reader = new BufferedReader(new FileReader("data/labyrinthe.txt"));
 		maze = new ArrayList<Box>();
-		this.longeur = longeur;
-		this.largeur = largeur;
 		}
 	
 	public int getLongeur() {
@@ -35,21 +33,26 @@ public class Maze
 				allVertices.add(iter.next());}
 		return(allVertices);}}
 	
-	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex){
-		EBox box = (EBox)vertex ;
+	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex){//a completer
+		Box box = (Box)vertex ;
 
 	}
 	
-	public int getWeight(VertexInterface src,VertexInterface dst) {
-		EBox boxSrc = (EBox)src ;
-		EBox boxDst = (EBox)dst ;
+	public int getWeight(VertexInterface src,VertexInterface dst) {// a completer
+		Box boxSrc = (Box)src ;
+		Box boxDst = (Box)dst ;
 	}
 	
-	public final void initFromTextFile(String fileName) {//A FAIRE : GERER LES EXCEPTIONS
-		BufferedReader reader = new BufferedReader(fileName);
-		while ((strCurrentLine = bufferedreader.readLine()) != null) {
-		    System.out.println(strCurrentLine);
-		}
+	public final void initFromTextFile(String fileName) {//permet de lire ligne par ligne les fichiers txt de data
+	    // https://waytolearnx.com/2018/11/comment-lire-un-fichier-en-java-avec-bufferedreader.html
+		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
+	        String strCurrentLine;
+	        while ((strCurrentLine = bufferedreader.readLine()) != null) {
+	          System.out.println(strCurrentLine);
+	        }
+	      } catch (IOException ioe) {
+	        ioe.printStackTrace();
+	      }
 		
 	}
 		   
