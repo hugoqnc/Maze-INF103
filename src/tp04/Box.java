@@ -1,5 +1,7 @@
 package tp04;
 
+import java.util.ArrayList;
+
 public class Box 
 	implements VertexInterface
 	{
@@ -16,5 +18,7 @@ public class Box
 	
 	public boolean empty() {
 		return false;}
+	
+
 
 }
