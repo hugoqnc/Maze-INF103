@@ -37,7 +37,7 @@ public class Dijkstra {
 			VertexInterface minY2 = null;
 			VertexInterface y2InA = null;
 			for (int l=0; l<n ; l++) {
-				int c = 0; //compteur qui ne sert qu'à repérer la premiere entrée dans le if
+				int c = 0; //compteur qui ne sert qu'a� reperer la premiere entree dans le if
 				if (a.isInA(sommets.get(l)) == false) {
 					VertexInterface y2 = sommets.get(l);
 					piY2 = pi.getValue(y2);
@@ -45,7 +45,7 @@ public class Dijkstra {
 					c++;
 				}
 				if (c==1) {
-					minPi = piY2; //à la premiere entrée dans le if, on peut initialiser minPi
+					minPi = piY2; //a la premiere entree dans le if, on peut initialiser minPi
 				}
 				if (piY2 < minPi) {
 					minPi = piY2;
