@@ -2,11 +2,11 @@ package tp04;
 
 import java.util.ArrayList;
 
-public class Box 
+public abstract class Box 
 	implements VertexInterface
 	{
-	private final int coordinateI;
-	private final int coordinateJ;
+	private int coordinateI;
+	private int coordinateJ;
 	
 	public Box(int coordinateI, int coordinateJ) {
 		this.coordinateI = coordinateI;

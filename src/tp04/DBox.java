@@ -2,10 +2,10 @@ package tp04;
 
 public class DBox extends Box{
 
-	private final int coordinateI;
-	private final int coordinateJ;
+	private int coordinateI;
+	private int coordinateJ;
 	
-	private dBox(int coordinateI, int coordinateJ) {//constructeur de ABox
+	public DBox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
 		}
 	

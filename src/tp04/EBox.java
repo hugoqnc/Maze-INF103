@@ -2,10 +2,10 @@ package tp04;
 
 public class EBox extends Box{
 
-	private final int coordinateI;
-	private final int coordinateJ;
+	private int coordinateI;
+	private int coordinateJ;
 	
-	private eBox(int coordinateI, int coordinateJ) {//constructeur de ABox
+	public EBox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
 		}
 	

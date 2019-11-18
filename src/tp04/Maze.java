@@ -34,7 +34,7 @@ public class Maze
 		ArrayList<String> lecteur = lecteur(fileName);
 		int longeurTest = lecteur.size();
 		int largeurTest = lecteur.get(0).length();
-		ArrayList<String> caractere = maze.caractere();
+		ArrayList<String> caractere = caractere();
 		//il faut faire des exception ici
 		
 		//si lecteur est conforme :
@@ -44,20 +44,21 @@ public class Maze
 			for(int j=0; j<largeur; j++) {
 				String designation= lecteur.get(i).substring(j);
 				//ATTENTION : CECI N'EST PAS TROP TROP ORIENTE OBJET :
+				Box box = null;
 				if (designation.contentEquals("E")){
-					EBox box = new eBox(i,j);
+					box = new EBox(i,j);
 				}
 				else if (designation.contentEquals("W")) {
-					WBox box = new wBox(i,j);
+					box = new WBox(i,j);
 				}
 				else if (designation.contentEquals("A")) {
-					ABox box = new aBox(i,j);
-					arrive = box;
+					box = new ABox(i,j);
+					arrive = (ABox)box;
 				}
 
 				else if (designation.contentEquals("D")) {
-					DBox box = new dBox(i,j);
-					depart = box;
+					box = new DBox(i,j);
+					depart = (DBox)box;
 				}
 				maze.add(box);
 			}
@@ -86,9 +87,9 @@ public class Maze
 			Box box = (Box)iter.next() ;
 			if (box.empty()) {
 				allVertices.add(box);
-			}
+			}}
 		return(allVertices);
-		}}
+		}
 	
 	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex){//a completer
 		Box box = (Box)vertex ;

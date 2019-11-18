@@ -5,6 +5,11 @@ import java.util.ArrayList;
 public class Dijkstra {
 	
 	private PreviousInterface djikstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous) {
+		// g est une arrayliste de Vertex, c'est le graph
+		// r est la racine du graph
+		// a est une array liste de vertex pour lequels on connait un PCCH issu de r
+		// pi:x->pi(x) est la fonction qui donne la valuation d'un PCCH de r à x ne passant que par des sommets de A en plus du sommet x
+		// previous:x->previous(x) fonction qui donne le prédécesseur de x sur un tel chemin
 		a.addAnElement(r);
 		VertexInterface pivot = r;
 		pi.setValue(r,0);
@@ -55,6 +60,7 @@ public class Dijkstra {
 			}
 		
 		return previous;
+		// retourne 
 		
 	}
 	
