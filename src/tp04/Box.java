@@ -13,7 +13,7 @@ public abstract class Box
 		this.coordinateJ= coordinateJ;}
 	
 	public String getLabel() {
-		
+		return(String.valueOf(coordinateI) +","+ String.valueOf(coordinateJ));
 	}
 	
 	public boolean empty() {
