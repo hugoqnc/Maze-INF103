@@ -1,5 +1,3 @@
-package tp04;
-
 import maze.Maze;
 
 public class MainTest {

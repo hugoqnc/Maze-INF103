@@ -1,11 +1,12 @@
-package tp04;
+package maze;
 
-public class DBox extends Box{
+public class ABox extends Box{
+	
 
 	private int coordinateI;
 	private int coordinateJ;
 	
-	public DBox(int coordinateI, int coordinateJ) {//constructeur de ABox
+	public ABox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
 		}
 	
@@ -16,6 +17,7 @@ public class DBox extends Box{
 	
 	@Override
 	public String status() {
-		return("D");
+		return("A");
 	}
+
 }

@@ -1,4 +1,4 @@
-package tp04;
+package dijkstra;
 
 import java.util.ArrayList;
 
@@ -37,7 +37,7 @@ public class Dijkstra {
 			VertexInterface minY2 = null;
 			VertexInterface y2InA = null;
 			for (int l=0; l<n ; l++) {
-				int c = 0; //compteur qui ne sert qu'a  reperer la premiere entree dans le if
+				int c = 0; //compteur qui ne sert qu'aï¿½ reperer la premiere entree dans le if
 				if (a.contains(sommets.get(l)) == false) {
 					VertexInterface y2 = sommets.get(l);
 					piY2 = pi.getValue(y2);
