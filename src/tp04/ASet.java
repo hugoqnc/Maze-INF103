@@ -15,8 +15,11 @@ public class ASet extends HashSet<VertexInterface> {
 		ensembleA.add(e);
 	}
 	
-	public boolean contains(VertexInterface e) {//a completer
-		
+	public boolean contains(VertexInterface e) {
+		if (ensembleA.contains(e) == true) {
+			return true;
+		}
+		return false;
 	}
 
 }
