@@ -1,10 +1,13 @@
-package tp04;
+package maze;
 
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
+
+import dijkstra.GraphInterface;
+import dijkstra.VertexInterface;
 
 public class Maze 
 	implements GraphInterface
@@ -81,7 +84,7 @@ public class Maze
 		return largeur;
 	}
 	
-	public ArrayList<VertexInterface> getAllVertices() {//return list of the Vertex 
+	public ArrayList<VertexInterface> getAllVertices() {//A corriger return list of the Vertex 
 		ArrayList<VertexInterface> allVertices = new ArrayList<VertexInterface>();	
 		Iterator<Box> iter = maze.iterator();
 		while (iter.hasNext()) {
@@ -141,7 +144,7 @@ public class Maze
 		while (iteri.hasNext()) {
 			Iterator<Integer> iterj = jList.iterator();
 			while (iterj.hasNext()) {
-				voisins.add(maze.get(i).get(j));
+				voisins.add(maze.get(iteri.next()).get(iterj.next()));
 			}
 		}
 		return (voisins);}

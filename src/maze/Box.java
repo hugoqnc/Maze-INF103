@@ -1,6 +1,8 @@
-package tp04;
+package maze;
 
 import java.util.ArrayList;
+
+import dijkstra.VertexInterface;
 
 public abstract class Box 
 	implements VertexInterface
