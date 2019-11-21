@@ -13,4 +13,9 @@ public class EBox extends Box{
 	public boolean empty() {
 		return true;
 	}
+	
+	@Override
+	public String status() {
+		return("E");
+	}
 }

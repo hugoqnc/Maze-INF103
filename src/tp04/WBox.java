@@ -1,6 +1,6 @@
 package tp04;
 
-public class WBox extends Box{
+public class WBox extends Box{//case Wall
 
 
 	private int coordinateI;
@@ -9,6 +9,11 @@ public class WBox extends Box{
 	public WBox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
 		}
+	
+	@Override
+	public String status() {
+		return("W");
+	}
 	
 
 }

@@ -14,5 +14,10 @@ public class ABox extends Box{
 	public boolean empty() {
 		return true;
 	}
+	
+	@Override
+	public String status() {
+		return("A");
+	}
 
 }
