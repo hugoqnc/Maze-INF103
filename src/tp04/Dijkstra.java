@@ -5,15 +5,15 @@ import java.util.ArrayList;
 public class Dijkstra {
 	
 	private PreviousInterface djikstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous) {
-		// g est une arrayliste de Vertex, c'est le graph
-		// r est la racine du graph
+		// g est une arrayliste de Vertex, c'est le graph : maze
+		// r est la racine du graph : DBox
 		// a est une array liste de vertex pour lequels on connait un PCCH issu de r
 		// pi:x->pi(x) est la fonction qui donne la valuation d'un PCCH de r à x ne passant que par des sommets de A en plus du sommet x
-		// previous:x->previous(x) fonction qui donne le prédécesseur de x sur un tel chemin
-		a.addAnElement(r);
+		// previous:x->previous(x) fonction qui donne le predecesseur de x sur un tel chemin
+		a.addVertex(r);
 		VertexInterface pivot = r;
 		pi.setValue(r,0);
-		ArrayList<VertexInterface> sommets = g.returnGraph(); //calcul unique du vecteur contenant les sommets
+		ArrayList<VertexInterface> sommets = g.getAllVertices(); //calcul unique du vecteur contenant les sommets
 		int n = sommets.size();
 		for (VertexInterface e : sommets) {
 			if (e!=r)
@@ -24,9 +24,9 @@ public class Dijkstra {
 			int numberSuccesseur = successeurPivot.size();
 			
 			for (int k =0; k<numberSuccesseur; k++) {
-				if (a.isInA(successeurPivot.get(k)) == false) {
+				if (a.contains(successeurPivot.get(k)) == false) {
 					VertexInterface y = successeurPivot.get(k);
-					if (pi.getValue(pivot)+g.valuation(pivot, y)<pi.getValue(y))
+					if (pi.getValue(pivot)+g.getWeight(pivot, y)<pi.getValue(y))
 						previous.setPrevious(y, pivot);
 				}
 			}
@@ -38,7 +38,7 @@ public class Dijkstra {
 			VertexInterface y2InA = null;
 			for (int l=0; l<n ; l++) {
 				int c = 0; //compteur qui ne sert qu'a� reperer la premiere entree dans le if
-				if (a.isInA(sommets.get(l)) == false) {
+				if (a.contains(sommets.get(l)) == false) {
 					VertexInterface y2 = sommets.get(l);
 					piY2 = pi.getValue(y2);
 					y2InA = y2;
@@ -55,7 +55,7 @@ public class Dijkstra {
 				}
 			
 			pivot = minY2;
-			a.addAnElement(pivot);
+			a.addVertex(pivot);
 			
 			}
 		
