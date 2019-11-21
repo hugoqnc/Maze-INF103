@@ -27,7 +27,7 @@ public class Dijkstra {
 				if (a.contains(successeurPivot.get(k)) == false) {
 					VertexInterface y = successeurPivot.get(k);
 					if (pi.getValue(pivot)+g.getWeight(pivot, y)<pi.getValue(y))
-						previous.setPrevious(y, pivot);
+						previous.setValue(y, pivot);
 				}
 			}
 			
