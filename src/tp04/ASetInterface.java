@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public interface ASetInterface {
 	
-	public void addAnElement(VertexInterface e);
-	public boolean isInA(VertexInterface e);
-	public ArrayList<VertexInterface> getA();
+	public void add(VertexInterface e);
+	public boolean contains(VertexInterface e);
+	// inutiles : public ArrayList<VertexInterface> getA();
 	
 
 }
