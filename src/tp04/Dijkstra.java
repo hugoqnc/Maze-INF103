@@ -10,7 +10,7 @@ public class Dijkstra {
 		// a est une array liste de vertex pour lequels on connait un PCCH issu de r
 		// pi:x->pi(x) est la fonction qui donne la valuation d'un PCCH de r à x ne passant que par des sommets de A en plus du sommet x
 		// previous:x->previous(x) fonction qui donne le predecesseur de x sur un tel chemin
-		a.add(r);
+		a.addVertex(r);
 		VertexInterface pivot = r;
 		pi.setValue(r,0);
 		ArrayList<VertexInterface> sommets = g.getAllVertices(); //calcul unique du vecteur contenant les sommets
@@ -55,7 +55,7 @@ public class Dijkstra {
 				}
 			
 			pivot = minY2;
-			a.add(pivot);
+			a.addVertex(pivot);
 			
 			}
 		
