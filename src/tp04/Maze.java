@@ -9,7 +9,7 @@ import java.util.Iterator;
 public class Maze 
 	implements GraphInterface
 	{
-	private ArrayList<Box> maze ;
+	private ArrayList< ArrayList<Box> > maze ;
 	private int longeur;
 	private int largeur;
 	private DBox depart;
@@ -29,7 +29,7 @@ public class Maze
 
 	public Maze(String fileName){//constructeur de la classe_A COMPLETER
 		//BufferedReader reader = new BufferedReader(new FileReader("data/labyrinthe.txt"));
-		maze = new ArrayList<Box>();
+		maze = new ArrayList< ArrayList<Box> >();
 		
 		ArrayList<String> lecteur = lecteur(fileName);
 		int longeurTest = lecteur.size();
@@ -40,7 +40,8 @@ public class Maze
 		//si lecteur est conforme :
 		longeur = longeurTest;
 		largeur = largeurTest;
-		for (int i=0; i<longeur; i++) {			
+		for (int i=0; i<longeur; i++) {
+			ArrayList<Box> larg = new ArrayList<Box>();
 			for(int j=0; j<largeur; j++) {
 				String designation= lecteur.get(i).substring(j);
 				//ATTENTION : CECI N'EST PAS TROP TROP ORIENTE OBJET :
@@ -60,9 +61,9 @@ public class Maze
 					box = new DBox(i,j);
 					depart = (DBox)box;
 				}
-				maze.add(box);
+				larg.add(box);
 			}
-			
+			maze.add(larg);
 		
 		}
 		
@@ -125,6 +126,36 @@ public class Maze
 		}
 		return lecteur;
 	}
+
+	public ArrayList<Box> voisin(Box box){//return la liste des voisins de box. Attention, quelque soit leur nature !
+		int i = box.getCoordinateI();
+		int j = box.getCoordinateJ();
+		ArrayList<Box> voisins = new ArrayList<Box>();
+		ArrayList<Integer> iList = new ArrayList<Integer>();
+		if (i>0) iList.add(i-1);
+		if (i<longeur) iList.add(i-1);
+		ArrayList<Integer> jList = new ArrayList<Integer>();
+		if (j>0) jList.add(j-1);
+		if (j<longeur) jList.add(j-1);
+		Iterator<Integer> iteri = iList.iterator();
+		while (iteri.hasNext()) {
+			Iterator<Integer> iterj = jList.iterator();
+			while (iterj.hasNext()) {
+				voisins.add(maze.get(i).get(j));
+			}
+		}
+		return (voisins);}
 		
+	public ArrayList<Box> emptyVoisin(Box box){//return la liste des voisins libre (empty) de box
+		ArrayList<Box> voisins = voisin(box);
+		ArrayList<Box> emptyVoisins = new ArrayList<Box>();
+		Iterator<Box> iter = voisins.iterator();
+		while (iter.hasNext()) {
+			if (iter.next().empty()) {
+				emptyVoisins.add(iter.next());
+			}
+		}
+		return emptyVoisins;
+	}
 		   
 }

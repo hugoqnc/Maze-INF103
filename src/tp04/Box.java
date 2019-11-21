@@ -8,19 +8,26 @@ public abstract class Box
 	private int coordinateI;
 	private int coordinateJ;
 	
-	public Box(int coordinateI, int coordinateJ) {
+	public Box(int coordinateI, int coordinateJ) {//constructeur de Box
 		this.coordinateI = coordinateI;
 		this.coordinateJ= coordinateJ;}
 	
-	public String getLabel() {
+	public int getCoordinateI() {
+		return coordinateI;}
+	
+	public int getCoordinateJ() {
+		return coordinateJ;}
+	
+	public String getLabel() {//renvoie identifiant de la box par "coordinateI,coordinateJ"
 		return(String.valueOf(coordinateI) +","+ String.valueOf(coordinateJ));
 	}
 	
 	public boolean empty() {
 		return false;}
 	
-	public ArrayList<Box> voisin(){//a definir
-		if coordinate 
+	public String status();	
+	
+
 	}
 	
 
