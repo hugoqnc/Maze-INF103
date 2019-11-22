@@ -60,7 +60,6 @@ public class Maze
 					box = new ABox(i,j);
 					arrivee = (ABox)box;
 				}
-
 				else if (designation.contentEquals("D")) {
 					box = new DBox(i,j);
 					depart = (DBox)box;
@@ -150,17 +149,20 @@ public class Maze
 		ArrayList<Box> voisins = new ArrayList<Box>();
 		ArrayList<Integer> iList = new ArrayList<Integer>();
 		if (i>0) iList.add(i-1);
-		if (i<longeur) iList.add(i-1);
+		if (i<longeur-1) iList.add(i+1);
 		ArrayList<Integer> jList = new ArrayList<Integer>();
 		if (j>0) jList.add(j-1);
-		if (j<longeur) jList.add(j-1);
+		if (j<longeur-1) jList.add(j+1);
 		Iterator<Integer> iteri = iList.iterator();
 		while (iteri.hasNext()) {
-			Iterator<Integer> iterj = jList.iterator();
-			while (iterj.hasNext()) {
-				voisins.add(maze.get(iteri.next()).get(iterj.next()));
-			}
+			voisins.add(maze.get(iteri.next()).get(j));
 		}
+			
+		Iterator<Integer> iterj = jList.iterator();
+		while (iterj.hasNext()) {
+			voisins.add(maze.get(i).get(iterj.next()));
+		}
+		System.out.println(voisins);
 		return (voisins);}
 		
 	public ArrayList<VertexInterface> emptyVoisin(Box box){//return la liste des voisins libre (empty) de box
