@@ -24,10 +24,12 @@ public class Dijkstra {
 			int numberSuccesseur = successeurPivot.size();
 			
 			for (int k =0; k<numberSuccesseur; k++) {
-				if (a.contains(successeurPivot.get(k)) == false) {
-					VertexInterface y = successeurPivot.get(k);
-					if (pi.getValue(pivot)+g.getWeight(pivot, y)<pi.getValue(y))
+				VertexInterface y = successeurPivot.get(k);
+				if (a.contains(y) == false) {
+					if (pi.getValue(pivot)+g.getWeight(pivot, y)<pi.getValue(y)) {
+						System.out.println(y.getLabel());
 						previous.setValue(y, pivot);
+					}
 				}
 			}
 			

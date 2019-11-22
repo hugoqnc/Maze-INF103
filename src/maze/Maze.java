@@ -162,7 +162,6 @@ public class Maze
 		while (iterj.hasNext()) {
 			voisins.add(maze.get(i).get(iterj.next()));
 		}
-		System.out.println(voisins);
 		return (voisins);}
 		
 	public ArrayList<VertexInterface> emptyVoisin(Box box){//return la liste des voisins libre (empty) de box
@@ -170,8 +169,9 @@ public class Maze
 		ArrayList<VertexInterface> emptyVoisins = new ArrayList<VertexInterface>();
 		Iterator<Box> iter = voisins.iterator();
 		while (iter.hasNext()) {
-			if (iter.next().empty()) {
-				emptyVoisins.add(iter.next());
+			Box vois = iter.next();
+			if (vois.empty()) {
+				emptyVoisins.add(vois);
 			}
 		}
 		return emptyVoisins;
