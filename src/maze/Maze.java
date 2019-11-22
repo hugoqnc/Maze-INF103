@@ -84,7 +84,7 @@ public class Maze
 		return largeur;
 	}
 	
-	public ArrayList<VertexInterface> getAllVertices() {//A corriger return list of the Vertex 
+/*	public ArrayList<VertexInterface> getAllVertices() {//A corriger return list of the Vertex 
 		ArrayList<VertexInterface> allVertices = new ArrayList<VertexInterface>();	
 		Iterator<Box> iter = maze.iterator();
 		while (iter.hasNext()) {
@@ -94,6 +94,18 @@ public class Maze
 			}}
 		return(allVertices);
 		}
+*/
+	public ArrayList<VertexInterface> getAllVertices() {
+		longeur  = getLongeur();
+		largeur = getLargeur();
+		ArrayList<VertexInterface> allVertices = new ArrayList<VertexInterface>();
+		for (int i = 0; i<longeur; i++) {
+			for (int j = 0; j<largeur; j++) {
+				allVertices.add(maze.get(i).get(j));
+			}
+		}
+		return allVertices;
+	}
 	
 	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex){//a completer
 		Box box = (Box)vertex ;
