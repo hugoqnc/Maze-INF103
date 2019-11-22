@@ -37,7 +37,7 @@ public class Maze
 		ArrayList<String> lecteur = lecteur(fileName);
 		int longeurTest = lecteur.size();
 		int largeurTest = lecteur.get(0).length();
-		ArrayList<String> caractere = caractere();
+		// inutile : ArrayList<String> caractere = caractere();
 		//il faut faire des exception ici
 		
 		//si lecteur est conforme :
@@ -46,7 +46,8 @@ public class Maze
 		for (int i=0; i<longeur; i++) {
 			ArrayList<Box> larg = new ArrayList<Box>();
 			for(int j=0; j<largeur; j++) {
-				String designation= lecteur.get(i).substring(j);
+				char letter= lecteur.get(i).charAt(j);
+				String designation = String.valueOf(letter);
 				//ATTENTION : CECI N'EST PAS TROP TROP ORIENTE OBJET :
 				Box box = null;
 				if (designation.contentEquals("E")){

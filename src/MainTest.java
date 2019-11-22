@@ -18,8 +18,8 @@ public class MainTest {
 		VertexInterface depart = maze.getDepart();
 		VertexInterface arrivee = maze.getArrivee();
 		
-		Dijkstra dij = new Dijkstra();
-		PreviousInterface previous = dij.dijkstra(maze, depart);
+		//Dijkstra dij = new Dijkstra();
+		PreviousInterface previous = Dijkstra.dijkstra(maze, depart); //dijsktra est une méthode de classe
 		ArrayList<VertexInterface> list = previous.getShortestPathTo(arrivee);
 		
 		for (int i=0; i<list.size(); i++) {

@@ -16,7 +16,6 @@ public class Pi extends Hashtable<VertexInterface, Integer> implements PiInterfa
 	}
 	
 	public void setValue(VertexInterface e, int v) {
-		System.out.println("test");
 		piTable.put(e,v);
 		
 	}
