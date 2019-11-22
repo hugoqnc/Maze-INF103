@@ -1,6 +1,5 @@
 package maze;
 
-import java.util.ArrayList;
 
 import dijkstra.VertexInterface;
 
@@ -27,10 +26,10 @@ public abstract class Box
 	public boolean empty() {
 		return false;}
 	
-	public String status();	
+	public abstract String status();	
 	
 
-	}
+
 	
 
 

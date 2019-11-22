@@ -1,7 +1,5 @@
 package dijkstra;
 
-import java.util.ArrayList;
-
 public interface ASetInterface {
 	
 	public void addVertex(VertexInterface e);

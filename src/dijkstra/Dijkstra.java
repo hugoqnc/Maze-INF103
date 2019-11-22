@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Dijkstra {
 	
-	private PreviousInterface djikstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous) {
+	private static PreviousInterface djikstra(GraphInterface g, VertexInterface r, ASetInterface a, PiInterface pi, PreviousInterface previous) {
 		// g est une arrayliste de Vertex, c'est le graph : maze
 		// r est la racine du graph : DBox
 		// a est une array liste de vertex pour lequels on connait un PCCH issu de r
@@ -27,10 +27,9 @@ public class Dijkstra {
 				if (a.contains(successeurPivot.get(k)) == false) {
 					VertexInterface y = successeurPivot.get(k);
 					if (pi.getValue(pivot)+g.getWeight(pivot, y)<pi.getValue(y))
-						previous.setPrevious(y, pivot);
+						previous.setValue(y, pivot);
 				}
 			}
-			
 			
 			int piY2 = 0;
 			int minPi = 0;
@@ -60,7 +59,16 @@ public class Dijkstra {
 			}
 		
 		return previous;
-		// retourne 
+		
+	}
+	
+	public static PreviousInterface dijkstra(GraphInterface g, VertexInterface r) { // r est la racine du graphe
+		PreviousInterface previous = new Previous();
+		ASetInterface a = new ASet();
+		PiInterface pi = new Pi();
+		
+		previous = djikstra(g, r, a, pi, previous);
+		return previous;
 		
 	}
 	

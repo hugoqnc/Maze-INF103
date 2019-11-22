@@ -16,7 +16,7 @@ public class Maze
 	private int longeur;
 	private int largeur;
 	private DBox depart;
-	private ABox arrive;
+	private ABox arrivee;
 	
 	
 	
@@ -57,7 +57,7 @@ public class Maze
 				}
 				else if (designation.contentEquals("A")) {
 					box = new ABox(i,j);
-					arrive = (ABox)box;
+					arrivee = (ABox)box;
 				}
 
 				else if (designation.contentEquals("D")) {
@@ -84,7 +84,7 @@ public class Maze
 		return largeur;
 	}
 	
-	public ArrayList<VertexInterface> getAllVertices() {//A corriger return list of the Vertex 
+/*	public ArrayList<VertexInterface> getAllVertices() {//A corriger return list of the Vertex 
 		ArrayList<VertexInterface> allVertices = new ArrayList<VertexInterface>();	
 		Iterator<Box> iter = maze.iterator();
 		while (iter.hasNext()) {
@@ -94,15 +94,28 @@ public class Maze
 			}}
 		return(allVertices);
 		}
-	
-	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex){//a completer
-		Box box = (Box)vertex ;
-
+*/
+	public ArrayList<VertexInterface> getAllVertices() {
+		longeur  = getLongeur();
+		largeur = getLargeur();
+		ArrayList<VertexInterface> allVertices = new ArrayList<VertexInterface>();
+		for (int i = 0; i<longeur; i++) {
+			for (int j = 0; j<largeur; j++) {
+				allVertices.add(maze.get(i).get(j));
+			}
+		}
+		return allVertices;
 	}
 	
-	public int getWeight(VertexInterface src,VertexInterface dst) {// a completer
-		Box boxSrc = (Box)src ;
-		Box boxDst = (Box)dst ;
+	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex){
+		Box box = (Box)vertex;
+		return emptyVoisin(box);
+	}
+	
+	public int getWeight(VertexInterface src,VertexInterface dst) {// transtypage ?
+		//Box boxSrc = (Box)src ;
+		//Box boxDst = (Box)dst ;
+		return 1;
 	}
 	
 	public final void initFromTextFile(String fileName) {//permet de lire ligne par ligne les fichiers txt de data
@@ -149,9 +162,9 @@ public class Maze
 		}
 		return (voisins);}
 		
-	public ArrayList<Box> emptyVoisin(Box box){//return la liste des voisins libre (empty) de box
+	public ArrayList<VertexInterface> emptyVoisin(Box box){//return la liste des voisins libre (empty) de box
 		ArrayList<Box> voisins = voisin(box);
-		ArrayList<Box> emptyVoisins = new ArrayList<Box>();
+		ArrayList<VertexInterface> emptyVoisins = new ArrayList<VertexInterface>();
 		Iterator<Box> iter = voisins.iterator();
 		while (iter.hasNext()) {
 			if (iter.next().empty()) {
@@ -161,4 +174,11 @@ public class Maze
 		return emptyVoisins;
 	}
 		   
+	public Box getDepart() {
+		return depart;
+	}
+	
+	public Box getArrivee() {
+		return arrivee;
+	}
 }
