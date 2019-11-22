@@ -9,7 +9,7 @@ public class Previous extends Hashtable<VertexInterface, VertexInterface> implem
 	
 	public Previous() {
 		super();
-		//previousTable = new Hashtable<VertexInterface,VertexInterface>();	
+		previousTable = new Hashtable<VertexInterface,VertexInterface>();	
 	}
 	
 	public VertexInterface getValue(VertexInterface e) {

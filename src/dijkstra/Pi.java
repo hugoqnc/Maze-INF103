@@ -8,6 +8,7 @@ public class Pi extends Hashtable<VertexInterface, Integer> implements PiInterfa
 	private Hashtable<VertexInterface, Integer> piTable ;
 	
 	public Pi() {
+		super();
 		piTable = new Hashtable<VertexInterface, Integer>() ;
 	}
 	
