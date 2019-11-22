@@ -112,9 +112,10 @@ public class Maze
 		return emptyVoisin(box);
 	}
 	
-	public int getWeight(VertexInterface src,VertexInterface dst) {// a completer
-		Box boxSrc = (Box)src ;
-		Box boxDst = (Box)dst ;
+	public int getWeight(VertexInterface src,VertexInterface dst) {// transtypage ?
+		//Box boxSrc = (Box)src ;
+		//Box boxDst = (Box)dst ;
+		return 1;
 	}
 	
 	public final void initFromTextFile(String fileName) {//permet de lire ligne par ligne les fichiers txt de data
