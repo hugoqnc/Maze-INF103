@@ -3,11 +3,11 @@ package dijkstra;
 import java.util.Hashtable;
 
 public class Pi extends Hashtable<VertexInterface, Integer> implements PiInterface{
+
 	
 	private Hashtable<VertexInterface, Integer> piTable ;
 	
 	public Pi() {
-		super();
 		piTable = new Hashtable<VertexInterface, Integer>() ;
 	}
 	
@@ -16,6 +16,7 @@ public class Pi extends Hashtable<VertexInterface, Integer> implements PiInterfa
 	}
 	
 	public void setValue(VertexInterface e, int v) {
+		System.out.println("test");
 		piTable.put(e,v);
 		
 	}

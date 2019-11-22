@@ -16,7 +16,7 @@ public class Maze
 	private int longeur;
 	private int largeur;
 	private DBox depart;
-	private ABox arrive;
+	private ABox arrivee;
 	
 	
 	
@@ -57,7 +57,7 @@ public class Maze
 				}
 				else if (designation.contentEquals("A")) {
 					box = new ABox(i,j);
-					arrive = (ABox)box;
+					arrivee = (ABox)box;
 				}
 
 				else if (designation.contentEquals("D")) {
@@ -174,4 +174,11 @@ public class Maze
 		return emptyVoisins;
 	}
 		   
+	public Box getDepart() {
+		return depart;
+	}
+	
+	public Box getArrivee() {
+		return arrivee;
+	}
 }
