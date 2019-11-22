@@ -107,9 +107,9 @@ public class Maze
 		return allVertices;
 	}
 	
-	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex){//a completer
-		Box box = (Box)vertex ;
-
+	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex){
+		Box box = (Box)vertex;
+		return emptyVoisin(box);
 	}
 	
 	public int getWeight(VertexInterface src,VertexInterface dst) {// a completer
@@ -161,9 +161,9 @@ public class Maze
 		}
 		return (voisins);}
 		
-	public ArrayList<Box> emptyVoisin(Box box){//return la liste des voisins libre (empty) de box
+	public ArrayList<VertexInterface> emptyVoisin(Box box){//return la liste des voisins libre (empty) de box
 		ArrayList<Box> voisins = voisin(box);
-		ArrayList<Box> emptyVoisins = new ArrayList<Box>();
+		ArrayList<VertexInterface> emptyVoisins = new ArrayList<VertexInterface>();
 		Iterator<Box> iter = voisins.iterator();
 		while (iter.hasNext()) {
 			if (iter.next().empty()) {
