@@ -27,7 +27,7 @@ public class MainTest {
 		}
 		
 		//interface graphique
-		JFrame window = new JFrame();
+/*		JFrame window = new JFrame();
 		window.setTitle("Labyrinthe binome 6");//nom de la fenetre
 		window.setSize(1000, 800);//taille (en pixel)
 		window.setLocationRelativeTo(null);//position centrée sur l'écran
@@ -40,6 +40,8 @@ public class MainTest {
 	    window.setContentPane(pan);// JPanel est le content pane   
 		
 	    window.setVisible(true);
+	    */
+		Window w = new Window(maze);
 
 	}
 
