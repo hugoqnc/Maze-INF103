@@ -13,7 +13,7 @@ public class Window extends JFrame {
 		super();
 		JFrame window = new JFrame();
 		window.setTitle("Labyrinthe Hugo & Julie");//nom de la fenetre
-		window.setSize(1000, 800);//taille (en pixel)
+		window.setSize(800, 800);//taille (en pixel)
 		window.setLocationRelativeTo(null);//position centrale sur l'ecran
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
 		window.setResizable(false); //empeche redimentionnement de la fenetre

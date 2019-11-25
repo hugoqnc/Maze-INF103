@@ -29,7 +29,7 @@ public class BoxPanel extends JPanel {
 			setBackground(Color.WHITE);
 		}
 		
-		setPreferredSize(new Dimension(10,10));
+		//setPreferredSize(new Dimension(10,10));
 		
 	}
 
