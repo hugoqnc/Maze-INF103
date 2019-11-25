@@ -22,6 +22,7 @@ public class Window extends JFrame {
 	    //pan.setBackground(Color.BLUE);//couleur du JPanel
 	    window.setContentPane(pan);// JPanel est le content pane
 		
+	    //window.pack();
 	    window.setVisible(true);
 		}
 	}
