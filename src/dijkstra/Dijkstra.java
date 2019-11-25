@@ -24,33 +24,36 @@ public class Dijkstra {
 			int numberSuccesseur = successeurPivot.size();
 			
 			for (int k =0; k<numberSuccesseur; k++) {
-				if (a.contains(successeurPivot.get(k)) == false) {
-					VertexInterface y = successeurPivot.get(k);
-					if (pi.getValue(pivot)+g.getWeight(pivot, y)<pi.getValue(y))
+				VertexInterface y = successeurPivot.get(k);
+				if (a.contains(y) == false) {
+					if (pi.getValue(pivot)+g.getWeight(pivot, y)<pi.getValue(y)) {
+						pi.setValue(y, pi.getValue(pivot)+g.getWeight(pivot, y));
 						previous.setValue(y, pivot);
+					}
 				}
 			}
 			
-			int piY2 = 0;
+			int piY2 = 0; // valeur de pi(y2)
 			int minPi = 0;
 			VertexInterface minY2 = null;
-			VertexInterface y2InA = null;
+			VertexInterface y2NotInA = null;
+			int c = 0; //compteur qui ne sert qu'a reperer la premiere entree dans le if
 			for (int l=0; l<n ; l++) {
-				int c = 0; //compteur qui ne sert qu'a� reperer la premiere entree dans le if
 				if (a.contains(sommets.get(l)) == false) {
 					VertexInterface y2 = sommets.get(l);
 					piY2 = pi.getValue(y2);
-					y2InA = y2;
+					y2NotInA = y2;
 					c++;
 				}
 				if (c==1) {
-					minPi = piY2; //a la premiere entree dans le if, on peut initialiser minPi
+					minPi = piY2; //a la premiere entree dans le if, on peut initialiser minPi et minY2
+					minY2 = y2NotInA;
 				}
 				if (piY2 < minPi) {
 					minPi = piY2;
-					minY2 = y2InA;
+					minY2 = y2NotInA;
 				}
-					 
+
 				}
 			
 			pivot = minY2;

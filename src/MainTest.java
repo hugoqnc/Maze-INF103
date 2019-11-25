@@ -13,13 +13,13 @@ import ihm.Window;
 public class MainTest {
 
 	public static void main(String[] args) {
-	    Maze maze = new Maze("data/labyrinthe.txt");
-		maze.initFromTextFile("data/labyrinthe.txt");
+	    Maze maze = new Maze("data/labyrinthe V2.txt");
+		maze.initFromTextFile("data/labyrinthe V2.txt");
 		VertexInterface depart = maze.getDepart();
 		VertexInterface arrivee = maze.getArrivee();
 		
-		Dijkstra dij = new Dijkstra();
-		PreviousInterface previous = dij.dijkstra(maze, depart);
+		//Dijkstra dij = new Dijkstra();
+		PreviousInterface previous = Dijkstra.dijkstra(maze, depart); //dijsktra est une m�thode de classe
 		ArrayList<VertexInterface> list = previous.getShortestPathTo(arrivee);
 		
 		for (int i=0; i<list.size(); i++) {
@@ -27,7 +27,7 @@ public class MainTest {
 		}
 		
 		//interface graphique
-		JFrame window = new JFrame();
+/*		JFrame window = new JFrame();
 		window.setTitle("Labyrinthe binome 6");//nom de la fenetre
 		window.setSize(1000, 800);//taille (en pixel)
 		window.setLocationRelativeTo(null);//position centrée sur l'écran
@@ -40,6 +40,8 @@ public class MainTest {
 	    window.setContentPane(pan);// JPanel est le content pane   
 		
 	    window.setVisible(true);
+	    */
+		Window w = new Window(maze);
 
 	}
 

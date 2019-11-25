@@ -18,7 +18,9 @@ public class Maze
 	private DBox depart;
 	private ABox arrivee;
 	
-	
+	public ArrayList<ArrayList<Box>> getMaze() {
+		return maze;
+	}
 	
 	private ArrayList<String> caractere(){//liste des caractères acceptes
 		//trouver un endroit plus pertinent pour editer cette fonction et modifier constructeur de maze en consequence
@@ -37,7 +39,7 @@ public class Maze
 		ArrayList<String> lecteur = lecteur(fileName);
 		int longeurTest = lecteur.size();
 		int largeurTest = lecteur.get(0).length();
-		ArrayList<String> caractere = caractere();
+		// inutile : ArrayList<String> caractere = caractere();
 		//il faut faire des exception ici
 		
 		//si lecteur est conforme :
@@ -46,7 +48,8 @@ public class Maze
 		for (int i=0; i<longeur; i++) {
 			ArrayList<Box> larg = new ArrayList<Box>();
 			for(int j=0; j<largeur; j++) {
-				String designation= lecteur.get(i).substring(j);
+				char letter= lecteur.get(i).charAt(j);
+				String designation = String.valueOf(letter);
 				//ATTENTION : CECI N'EST PAS TROP TROP ORIENTE OBJET :
 				Box box = null;
 				if (designation.contentEquals("E")){
@@ -59,7 +62,6 @@ public class Maze
 					box = new ABox(i,j);
 					arrivee = (ABox)box;
 				}
-
 				else if (designation.contentEquals("D")) {
 					box = new DBox(i,j);
 					depart = (DBox)box;
@@ -149,16 +151,18 @@ public class Maze
 		ArrayList<Box> voisins = new ArrayList<Box>();
 		ArrayList<Integer> iList = new ArrayList<Integer>();
 		if (i>0) iList.add(i-1);
-		if (i<longeur) iList.add(i-1);
+		if (i<longeur-1) iList.add(i+1);
 		ArrayList<Integer> jList = new ArrayList<Integer>();
 		if (j>0) jList.add(j-1);
-		if (j<longeur) jList.add(j-1);
+		if (j<longeur-1) jList.add(j+1);
 		Iterator<Integer> iteri = iList.iterator();
 		while (iteri.hasNext()) {
-			Iterator<Integer> iterj = jList.iterator();
-			while (iterj.hasNext()) {
-				voisins.add(maze.get(iteri.next()).get(iterj.next()));
-			}
+			voisins.add(maze.get(iteri.next()).get(j));
+		}
+			
+		Iterator<Integer> iterj = jList.iterator();
+		while (iterj.hasNext()) {
+			voisins.add(maze.get(i).get(iterj.next()));
 		}
 		return (voisins);}
 		
@@ -167,8 +171,9 @@ public class Maze
 		ArrayList<VertexInterface> emptyVoisins = new ArrayList<VertexInterface>();
 		Iterator<Box> iter = voisins.iterator();
 		while (iter.hasNext()) {
-			if (iter.next().empty()) {
-				emptyVoisins.add(iter.next());
+			Box vois = iter.next();
+			if (vois.empty()) {
+				emptyVoisins.add(vois);
 			}
 		}
 		return emptyVoisins;
