@@ -1,17 +1,22 @@
 package maze;
 
+import dijkstra.*;
+
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
 
+import dijkstra.Dijkstra;
 import dijkstra.GraphInterface;
+import dijkstra.PreviousInterface;
 import dijkstra.VertexInterface;
 
 public class Maze 
 	implements GraphInterface
 	{
+	private String fileName;
 	private ArrayList< ArrayList<Box> > maze ;
 	private int longeur;
 	private int largeur;
@@ -22,7 +27,7 @@ public class Maze
 		return maze;
 	}
 	
-	private ArrayList<String> caractere(){//liste des caractères acceptes
+	private static ArrayList<String> caractere(){//liste des caractères acceptes
 		//trouver un endroit plus pertinent pour editer cette fonction et modifier constructeur de maze en consequence
 		ArrayList<String> caractere = new ArrayList<String>();
 		caractere.add("A");
@@ -34,6 +39,7 @@ public class Maze
 
 	public Maze(String fileName){//constructeur de la classe_A COMPLETER
 		//BufferedReader reader = new BufferedReader(new FileReader("data/labyrinthe.txt"));
+		this.fileName = fileName;
 		maze = new ArrayList< ArrayList<Box> >();
 		
 		ArrayList<String> lecteur = lecteur(fileName);
@@ -120,7 +126,7 @@ public class Maze
 		return 1;
 	}
 	
-	public final void initFromTextFile(String fileName) {//permet de lire ligne par ligne les fichiers txt de data
+	public final void initFromTextFile() {//permet de lire ligne par ligne les fichiers txt de data
 	    // https://waytolearnx.com/2018/11/comment-lire-un-fichier-en-java-avec-bufferedreader.html
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
 	        String strCurrentLine;
@@ -185,5 +191,16 @@ public class Maze
 	
 	public Box getArrivee() {
 		return arrivee;
+	}
+	
+	public void resolve() {//resolution du maze avec dijkstra
+		initFromTextFile();
+		PreviousInterface previous = Dijkstra.dijkstra((GraphInterface)maze, (VertexInterface)depart); //dijsktra est une m�thode de classe
+		ArrayList<VertexInterface> list = previous.getShortestPathTo((VertexInterface)arrivee);
+		
+		for (int i=0; i<list.size(); i++) {// on transforme les cases EBoc traversées par le PCCH par des TBox
+			VertexInterface tbox=(TBox)list.get(i);
+			list.set(i, tbox);
+		}
 	}
 }
