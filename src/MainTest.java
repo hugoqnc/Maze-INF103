@@ -13,8 +13,8 @@ import ihm.Window;
 public class MainTest {
 
 	public static void main(String[] args) {
-	    Maze maze = new Maze("data/labyrinthe.txt");
-		maze.initFromTextFile("data/labyrinthe.txt");
+	    Maze maze = new Maze("data/labyrinthe V2.txt");
+		maze.initFromTextFile("data/labyrinthe V2.txt");
 		VertexInterface depart = maze.getDepart();
 		VertexInterface arrivee = maze.getArrivee();
 		

@@ -18,7 +18,9 @@ public class Maze
 	private DBox depart;
 	private ABox arrivee;
 	
-	
+	public ArrayList<ArrayList<Box>> getMaze() {
+		return maze;
+	}
 	
 	private ArrayList<String> caractere(){//liste des caractères acceptes
 		//trouver un endroit plus pertinent pour editer cette fonction et modifier constructeur de maze en consequence
