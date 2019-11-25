@@ -1,6 +1,6 @@
 package ihm;
 import javax.swing.JFrame;
-import java.awt.Color;
+import java.awt.*;
 import javax.swing.JPanel;
 import maze.*;
 
@@ -13,10 +13,11 @@ public class Window extends JFrame {
 		super();
 		JFrame window = new JFrame();
 		window.setTitle("Labyrinthe Hugo & Julie");//nom de la fenetre
-		window.setSize(800, 800);//taille (en pixel)
+		window.setSize(600, 600);//taille (en pixel)
+		//window.setPreferredSize(new Dimension(600,600));
 		window.setLocationRelativeTo(null);//position centrale sur l'ecran
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
-		window.setResizable(false); //empeche redimentionnement de la fenetre
+		window.setResizable(false); //empeche redimensionnement de la fenetre
 		
 	    pan = new MazePanel(maze);
 	    //pan.setBackground(Color.BLUE);//couleur du JPanel

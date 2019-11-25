@@ -1,7 +1,7 @@
 package ihm;
 import maze.Box; //pour eviter un conflit avec javax.swing
 import java.awt.*;
-import java.awt.Graphics;
+
 import javax.swing.*;
 
 public class BoxPanel extends JPanel {
@@ -15,6 +15,12 @@ public class BoxPanel extends JPanel {
 		
 		String type = box.status();
 		
+		if (pathInt == 1) {
+			RoundPanel round = new RoundPanel();
+			add(round);
+			//setBackground(Color.GRAY);
+		}
+		
 		if (type.contentEquals("A")) {
 			setBackground(Color.RED);
 		}
@@ -27,9 +33,7 @@ public class BoxPanel extends JPanel {
 		if (type.contentEquals("E")) {
 			setBackground(Color.WHITE);
 		}
-		if (pathInt == 1) {
-			setBackground(Color.GRAY);
-		}
+		
 		
 		//setPreferredSize(new Dimension(10,10));
 		
