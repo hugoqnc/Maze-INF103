@@ -120,9 +120,9 @@ public class Maze
 		return emptyVoisin(box);
 	}
 	
-	public int getWeight(VertexInterface src,VertexInterface dst) {// transtypage ?
-		//Box boxSrc = (Box)src ;
-		//Box boxDst = (Box)dst ;
+	public int getWeight(VertexInterface src,VertexInterface dst) {// à modifier si graph pondéré.
+		Box boxSrc = (Box)src ;
+		Box boxDst = (Box)dst ;
 		return 1;
 	}
 	

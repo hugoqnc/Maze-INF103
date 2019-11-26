@@ -15,18 +15,22 @@ public class Window extends JFrame {
 	private Maze maze;
 	
 	//interface graphique
-	public Window(Maze maze) {//constructeur
+	public Window(String Title, Maze maze) {//constructeur
 		super();
+		this.longeur = 1000;
+		this.largeur = 800;
+		this.maze = maze;
+		this.Title = Title;
 		window = new JFrame();
-		window.setTitle(Title);//nom de la fenetre
-		window.setSize(longeur, largeur);//taille (en pixel)
+		window.setTitle(this.Title);//nom de la fenetre
+		window.setSize(this.longeur, this.largeur);//taille (en pixel)
 
 		window.setLocationRelativeTo(null);//position centrale sur l'ecran
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
 		window.setResizable(false); //empeche redimentionnement de la fenetre
 		
-	    pan = new MazePanel(maze);
-	    pan.setBackground(Color.BLUE);//couleur du JPanel
+	    pan = new MazePanel(this.maze);
+	    setBackground(Color.BLUE);//couleur du JPanel
 	    window.setContentPane(pan);// JPanel est le content pane
 		
 	    //window.pack();
