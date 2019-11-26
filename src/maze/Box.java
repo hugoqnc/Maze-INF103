@@ -22,6 +22,9 @@ public abstract class Box
 	public int getCoordinateJ() {
 		return coordinateJ;}
 	
+	public Color getColor() {
+		return color;}
+	
 	public String getLabel() {//renvoie identifiant de la box par "coordinateI,coordinateJ"
 		return(String.valueOf(coordinateI) +","+ String.valueOf(coordinateJ));
 	}

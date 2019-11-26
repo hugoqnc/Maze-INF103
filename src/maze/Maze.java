@@ -194,8 +194,9 @@ public class Maze
 	}
 	
 	public void resolve() {//resolution du maze avec dijkstra
-		initFromTextFile();
-		PreviousInterface previous = Dijkstra.dijkstra((GraphInterface)maze, (VertexInterface)depart); //dijsktra est une m�thode de classe
+		PreviousInterface previous = Dijkstra.dijkstra((GraphInterface)maze, (VertexInterface)depart); //ligne pose probleme
+		//dijsktra est une m�thode de classe
+		System.out.println("oj");
 		ArrayList<VertexInterface> list = previous.getShortestPathTo((VertexInterface)arrivee);
 		
 		for (int i=0; i<list.size(); i++) {// on transforme les cases EBoc traversées par le PCCH par des TBox

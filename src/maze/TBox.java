@@ -17,5 +17,9 @@ public class TBox extends EBox{
 	public String status() {
 		return("T");
 	}
+	@Override
+	public Color getColor() {
+		return color;
+	}
 
 }

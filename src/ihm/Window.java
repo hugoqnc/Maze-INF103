@@ -17,8 +17,8 @@ public class Window extends JFrame {
 	//interface graphique
 	public Window(String Title, Maze maze) {//constructeur
 		super();
-		this.longeur = 1000;
-		this.largeur = 800;
+		this.longeur = 1100;
+		this.largeur = 900;
 		this.maze = maze;
 		this.Title = Title;
 		window = new JFrame();

@@ -43,6 +43,8 @@ public class MainTest {
 	    window.setVisible(true);
 	    */
 		Window w = new Window("Labyrinthe", maze);
+		maze.resolve();
+		//Window b = new Window("Labyrinthe", maze);
 
 	}
 

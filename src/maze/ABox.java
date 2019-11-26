@@ -23,5 +23,10 @@ public class ABox extends Box{
 	public String status() {
 		return("A");
 	}
+	
+	@Override
+	public Color getColor() {
+		return color;
+	}
 
 }

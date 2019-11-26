@@ -18,5 +18,10 @@ public class WBox extends Box{//case Wall
 		return("W");
 	}
 	
+	@Override
+	public Color getColor() {
+		return color;
+	}
+	
 
 }

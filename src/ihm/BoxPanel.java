@@ -12,26 +12,7 @@ public class BoxPanel extends JPanel {
 		super();
 		
 		//this.window = window ;
-		
-		String type = box.status();
-		
-		if (type.contentEquals("A")) {
-			setBackground(Color.RED);
-		}
-		if (type.contentEquals("D")) {
-			setBackground(Color.GREEN);
-		}
-		if (type.contentEquals("W")) {
-			setBackground(Color.BLACK);
-		}
-		if (type.contentEquals("E")) {
-			setBackground(Color.WHITE);
-		}
-		if (pathInt == 1) {
-			setBackground(Color.GRAY);
-		}
-		
-		//setPreferredSize(new Dimension(10,10));
+		setBackground(box.getColor());
 		
 	}
 

@@ -22,4 +22,10 @@ public class DBox extends Box{
 	public String status() {
 		return("D");
 	}
+	
+	@Override
+	public Color getColor() {
+		return color;
+	}
+	
 }
