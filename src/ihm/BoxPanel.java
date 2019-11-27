@@ -21,21 +21,10 @@ public class BoxPanel extends JPanel {
 			//setBackground(Color.GRAY);
 		}
 		
-		if (type.contentEquals("A")) {
-			setBackground(Color.RED);
-		}
-		if (type.contentEquals("D")) {
-			setBackground(Color.GREEN);
-		}
-		if (type.contentEquals("W")) {
-			setBackground(Color.BLACK);
-		}
-		if (type.contentEquals("E")) {
-			setBackground(Color.WHITE);
-		}
-		
 		
 		//setPreferredSize(new Dimension(10,10));
+
+		setBackground(box.getColor());
 		
 	}
 

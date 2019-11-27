@@ -2,29 +2,24 @@ package maze;
 
 import java.awt.Color;
 
-public class EBox extends Box{
 
+public class TBox extends EBox{
 	private int coordinateI;
 	private int coordinateJ;
 	private Color color;
 	
-	public EBox(int coordinateI, int coordinateJ) {//constructeur de ABox
+	public TBox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
-		color = Color.WHITE;
+		color=Color.darkGray;
 		}
-	
-	@Override
-	public boolean empty() {
-		return true;
-	}
-	
+
 	@Override
 	public String status() {
-		return("E");
+		return("T");
 	}
-	
 	@Override
 	public Color getColor() {
 		return color;
 	}
+
 }

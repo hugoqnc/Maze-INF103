@@ -6,12 +6,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
 
+import dijkstra.Dijkstra;
 import dijkstra.GraphInterface;
+import dijkstra.PreviousInterface;
 import dijkstra.VertexInterface;
 
 public class Maze 
 	implements GraphInterface
 	{
+	private String fileName;
 	private ArrayList< ArrayList<Box> > maze ;
 	private int longeur;
 	private int largeur;
@@ -22,7 +25,7 @@ public class Maze
 		return maze;
 	}
 	
-	private ArrayList<String> caractere(){//liste des caractères acceptes
+	private static ArrayList<String> caractere(){//liste des caractères acceptes
 		//trouver un endroit plus pertinent pour editer cette fonction et modifier constructeur de maze en consequence
 		ArrayList<String> caractere = new ArrayList<String>();
 		caractere.add("A");
@@ -34,6 +37,7 @@ public class Maze
 
 	public Maze(String fileName){//constructeur de la classe_A COMPLETER
 		//BufferedReader reader = new BufferedReader(new FileReader("data/labyrinthe.txt"));
+		this.fileName = fileName;
 		maze = new ArrayList< ArrayList<Box> >();
 		
 		ArrayList<String> lecteur = lecteur(fileName);
@@ -114,13 +118,13 @@ public class Maze
 		return emptyVoisin(box);
 	}
 	
-	public int getWeight(VertexInterface src,VertexInterface dst) {// transtypage ?
-		//Box boxSrc = (Box)src ;
-		//Box boxDst = (Box)dst ;
+	public int getWeight(VertexInterface src,VertexInterface dst) {// à modifier si graph pondéré.
+		Box boxSrc = (Box)src ;
+		Box boxDst = (Box)dst ;
 		return 1;
 	}
 	
-	public final void initFromTextFile(String fileName) {//permet de lire ligne par ligne les fichiers txt de data
+	private final void initFromTextFile() {//permet de lire ligne par ligne les fichiers txt de data
 	    // https://waytolearnx.com/2018/11/comment-lire-un-fichier-en-java-avec-bufferedreader.html
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
 	        String strCurrentLine;
@@ -185,5 +189,6 @@ public class Maze
 	
 	public Box getArrivee() {
 		return arrivee;
+	
 	}
 }
