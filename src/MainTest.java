@@ -13,10 +13,10 @@ import ihm.Window;
 public class MainTest {
 
 	public static void main(String[] args) {
-	    Maze maze = new Maze("data/labyrinthe V2.txt");
+	    Maze maze = new Maze("data/labyrinthe.txt");
 	    //a supprimer après test
-		maze.initFromTextFile();
-		VertexInterface depart = maze.getDepart();
+		//maze.initFromTextFile();
+	    /*VertexInterface depart = maze.getDepart();
 		VertexInterface arrivee = maze.getArrivee();
 		
 		//Dijkstra dij = new Dijkstra();
@@ -25,7 +25,7 @@ public class MainTest {
 		
 		for (int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getLabel());
-		}
+		}*\
 		
 		//interface graphique
 /*		JFrame window = new JFrame();
@@ -43,7 +43,6 @@ public class MainTest {
 	    window.setVisible(true);
 	    */
 		Window w = new Window("Labyrinthe", maze);
-		maze.resolve();
 		//Window b = new Window("Labyrinthe", maze);
 
 	}

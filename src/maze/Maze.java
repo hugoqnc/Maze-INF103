@@ -1,7 +1,5 @@
 package maze;
 
-import dijkstra.*;
-
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -126,7 +124,7 @@ public class Maze
 		return 1;
 	}
 	
-	public final void initFromTextFile() {//permet de lire ligne par ligne les fichiers txt de data
+	private final void initFromTextFile() {//permet de lire ligne par ligne les fichiers txt de data
 	    // https://waytolearnx.com/2018/11/comment-lire-un-fichier-en-java-avec-bufferedreader.html
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
 	        String strCurrentLine;
@@ -191,17 +189,6 @@ public class Maze
 	
 	public Box getArrivee() {
 		return arrivee;
-	}
 	
-	public void resolve() {//resolution du maze avec dijkstra
-		PreviousInterface previous = Dijkstra.dijkstra((GraphInterface)maze, (VertexInterface)depart); //ligne pose probleme
-		//dijsktra est une m�thode de classe
-		System.out.println("oj");
-		ArrayList<VertexInterface> list = previous.getShortestPathTo((VertexInterface)arrivee);
-		
-		for (int i=0; i<list.size(); i++) {// on transforme les cases EBoc traversées par le PCCH par des TBox
-			VertexInterface tbox=(TBox)list.get(i);
-			list.set(i, tbox);
-		}
 	}
 }
