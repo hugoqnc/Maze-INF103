@@ -1,6 +1,6 @@
 package ihm;
 import javax.swing.JFrame;
-import java.awt.Color;
+import java.awt.*;
 import javax.swing.JPanel;
 import maze.*;
 
@@ -17,6 +17,8 @@ public class Window extends JFrame {
 	//interface graphique
 	public Window(String Title, Maze maze) {//constructeur
 		super();
+
+		//window.setPreferredSize(new Dimension(600,600));
 		this.longeur = 1100;
 		this.largeur = 900;
 		this.maze = maze;
@@ -27,7 +29,7 @@ public class Window extends JFrame {
 
 		window.setLocationRelativeTo(null);//position centrale sur l'ecran
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
-		window.setResizable(false); //empeche redimentionnement de la fenetre
+		window.setResizable(false); //empeche redimensionnement de la fenetre
 		
 	    pan = new MazePanel(this.maze);
 	    setBackground(Color.BLUE);//couleur du JPanel

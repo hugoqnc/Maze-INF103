@@ -39,6 +39,8 @@ public class MazePanel extends JPanel {
 				pathInt = 0;
 			}
 		}
+		
+		//setPreferredSize(new Dimension(700,700));
 
 	}
 	
