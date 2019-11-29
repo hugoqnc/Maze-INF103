@@ -11,7 +11,7 @@ public class ABox extends Box{
 	
 	public ABox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
-		color = Color.green;
+		color = Color.RED;
 		}
 	
 	@Override
