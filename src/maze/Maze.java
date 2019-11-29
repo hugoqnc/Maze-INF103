@@ -197,4 +197,10 @@ public class Maze
 		ligneBox.set(coordinateJ, box);
 		maze.set(coordinateI, ligneBox);
 	}
+	
+	public ArrayList<VertexInterface> resolvedList(){		
+		PreviousInterface previous = Dijkstra.dijkstra((GraphInterface)maze, (VertexInterface)depart);
+		ArrayList<VertexInterface> path = previous.getShortestPathTo(arrivee);
+		return path;
+	}
 }
