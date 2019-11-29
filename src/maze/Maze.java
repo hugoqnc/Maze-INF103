@@ -191,4 +191,10 @@ public class Maze
 		return arrivee;
 	
 	}
+	
+	public void setBox(int coordinateI, int coordinateJ, Box box) {
+		ArrayList<Box> ligneBox = maze.get(coordinateI);
+		ligneBox.set(coordinateJ, box);
+		maze.set(coordinateI, ligneBox);
+	}
 }
