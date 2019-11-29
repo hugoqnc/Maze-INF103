@@ -10,7 +10,7 @@ public class DBox extends Box{
 	
 	public DBox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
-		color = Color.cyan;
+		color = Color.GREEN;
 		}
 	
 	@Override
