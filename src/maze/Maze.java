@@ -41,14 +41,12 @@ public class Maze implements GraphInterface
 		maze = new ArrayList< ArrayList<Box> >();
 		
 		ArrayList<String> lecteur = lecteur(fileName);
-		int longeurTest = lecteur.size();
-		int largeurTest = lecteur.get(0).length();
+		longeur = lecteur.size();
+		largeur = lecteur.get(0).length();
 		// inutile : ArrayList<String> caractere = caractere();
 		//il faut faire des exception ici
 		
 		//si lecteur est conforme :
-		longeur = longeurTest;
-		largeur = largeurTest;
 		for (int i=0; i<longeur; i++) {
 			ArrayList<Box> larg = new ArrayList<Box>();
 			for(int j=0; j<largeur; j++) {
