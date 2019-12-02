@@ -43,10 +43,11 @@ public class Maze implements GraphInterface
 		ArrayList<String> lecteur = lecteur(fileName);
 		longeur = lecteur.size();
 		largeur = lecteur.get(0).length();
-		// inutile : ArrayList<String> caractere = caractere();
-		//il faut faire des exception ici
+
+		int compteurD = 0; //compte le nombre de cases D dans le fichier txt
+		int compteurA = 0; //compte le nombre de cases A dans le fichier txt
 		
-		//si lecteur est conforme :
+		try {
 		for (int i=0; i<longeur; i++) {
 			ArrayList<Box> larg = new ArrayList<Box>();
 			for(int j=0; j<largeur; j++) {
@@ -63,26 +64,32 @@ public class Maze implements GraphInterface
 				else if (designation.contentEquals("A")) {
 					box = new ABox(i,j);
 					arrivee = (ABox)box;
+					compteurA++;
+					if (compteurA > 1){
+						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs cases A, qui doit être unique");
+					}
+				
 				}
 				else if (designation.contentEquals("D")) {
 					box = new DBox(i,j);
 					depart = (DBox)box;
+					compteurD++;
+					if (compteurD > 1){
+						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs cases D, qui doit être unique");
+					}
 				}
 				else {
-					try {
-						throw new MazeReadingException(fileName,i,"Il y a un caractère autre que E,W,A,D dans le fichier texte");
-					}
-					catch(MazeReadingException mre){
-						mre.printStackTrace();
-						throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException"); //permet de stopper l'execution du programme
-					}
+						throw new MazeReadingException(fileName,i+1,"Il y a un caractère autre que E,W,A,D dans le fichier texte"); //ligne de 1 à n, et non de 0 à n-1	
 				}
 				larg.add(box);
 			}
 			maze.add(larg);
-		
 		}
-		
+		}
+		catch(MazeReadingException mre){
+			mre.printStackTrace();
+			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException"); //permet de stopper l'execution du programme
+		}
 		
 		
 		}
