@@ -68,6 +68,15 @@ public class Maze implements GraphInterface
 					box = new DBox(i,j);
 					depart = (DBox)box;
 				}
+				else {
+					try {
+						throw new MazeReadingException(fileName,i,"Il y a un caractère autre que E,W,A,D dans le fichier texte");
+					}
+					catch(MazeReadingException mre){
+						mre.printStackTrace();
+						throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException"); //permet de stopper l'execution du programme
+					}
+				}
 				larg.add(box);
 			}
 			maze.add(larg);
@@ -163,7 +172,7 @@ public class Maze implements GraphInterface
 		}
 		catch (MazeReadingException mre) {
 			mre.printStackTrace();
-			throw new RuntimeException("Message : Fin du programme. Il faut corriger MazeReadingException"); //permet de stopper l'execution du programme
+			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException"); //permet de stopper l'execution du programme
 		}
 		
 		return lecteur;
