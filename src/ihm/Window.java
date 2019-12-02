@@ -7,7 +7,6 @@ import maze.*;
 public class Window extends JFrame {
 	
 	JFrame window;
-	private MazePanel pan;
 	private String Title;
 	//taille (en pixel)
 	private int longueur;
@@ -18,10 +17,10 @@ public class Window extends JFrame {
 	public Window(String Title, Maze maze) {//constructeur
 		super();
 
+		this.maze = maze;
 		//window.setPreferredSize(new Dimension(600,600));
 		this.longueur = 700;
-		setLargeur(maze);
-		this.maze = maze;
+		setLargeur(this.maze);
 		this.Title = Title;
 		window = new JFrame();
 		window.setTitle(this.Title);//nom de la fenetre
@@ -31,8 +30,7 @@ public class Window extends JFrame {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
 		window.setResizable(false); //empeche redimensionnement de la fenetre
 		
-	    pan = new MazePanel(this.maze);
-	    setBackground(Color.BLUE);//couleur du JPanel
+		ResolvedMazePanel pan = new ResolvedMazePanel(this.maze);
 	    window.setContentPane(pan);// JPanel est le content pane
 		
 	    //window.pack();

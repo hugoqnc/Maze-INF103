@@ -3,10 +3,10 @@ import javax.swing.*;
 
 import maze.Maze;
 
-public class HeadMenu extends JFrame{
+public class RightPanel extends JFrame{
 	private JFrame menu;
 	
-	public HeadMenu() {//constructeur
+	public RightPanel() {//constructeur
 		super();
 		menu = new JFrame();
 		menu.setSize(500, 80);//taille (en pixel)

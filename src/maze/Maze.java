@@ -234,4 +234,16 @@ public class Maze implements GraphInterface
 		return arrivee;
 	
 	}
+	
+	public void setBox(int coordinateI, int coordinateJ, Box box) {
+		ArrayList<Box> ligneBox = maze.get(coordinateI);
+		ligneBox.set(coordinateJ, box);
+		maze.set(coordinateI, ligneBox);
+	}
+	
+	public ArrayList<VertexInterface> shortestPath(){
+		PreviousInterface previous = Dijkstra.dijkstra(this, (VertexInterface)depart);
+		ArrayList<VertexInterface> path = previous.getShortestPathTo(arrivee);
+		return path;
+	}
 }
