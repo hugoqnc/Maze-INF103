@@ -1,12 +1,5 @@
 
 import maze.*;
-import dijkstra.*;
-import java.util.ArrayList;
-
-import java.awt.Color;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import ihm.Window;
 

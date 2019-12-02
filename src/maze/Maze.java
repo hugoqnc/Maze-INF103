@@ -11,8 +11,8 @@ import dijkstra.GraphInterface;
 import dijkstra.PreviousInterface;
 import dijkstra.VertexInterface;
 
-public class Maze 
-	implements GraphInterface
+public class Maze implements GraphInterface
+	
 	{
 	private String fileName;
 	private ArrayList< ArrayList<Box> > maze ;
@@ -35,7 +35,7 @@ public class Maze
 		return caractere;}
 	
 
-	public Maze(String fileName){//constructeur de la classe_A COMPLETER
+	public Maze(String fileName) { 
 		//BufferedReader reader = new BufferedReader(new FileReader("data/labyrinthe.txt"));
 		this.fileName = fileName;
 		maze = new ArrayList< ArrayList<Box> >();
@@ -54,7 +54,7 @@ public class Maze
 			for(int j=0; j<largeur; j++) {
 				char letter= lecteur.get(i).charAt(j);
 				String designation = String.valueOf(letter);
-				//ATTENTION : CECI N'EST PAS TROP TROP ORIENTE OBJET :
+				
 				Box box = null;
 				if (designation.contentEquals("E")){
 					box = new EBox(i,j);
@@ -124,7 +124,7 @@ public class Maze
 		return 1;
 	}
 	
-	private final void initFromTextFile() {//permet de lire ligne par ligne les fichiers txt de data
+	/* private final void initFromTextFile() {//permet de lire ligne par ligne les fichiers txt de data
 	    // https://waytolearnx.com/2018/11/comment-lire-un-fichier-en-java-avec-bufferedreader.html
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
 	        String strCurrentLine;
@@ -134,18 +134,28 @@ public class Maze
 	      } catch (IOException ioe) {
 	        ioe.printStackTrace();
 	      }	}
+	*/
 	
 	private final ArrayList<String> lecteur(String fileName) {
 		//creation d'une liste de string a traiter
 		ArrayList<String> lecteur = new ArrayList<String>();
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
-			String strCurrentLine;
+			String strCurrentLine = bufferedreader.readLine().trim();
+			int largeurLine1 = strCurrentLine.length();
+			if (largeurLine1 == 0) {
+				throw new MazeReadingException(fileName,0,"Cette ligne est vide");
+			}
 			while ((strCurrentLine = bufferedreader.readLine()) != null) {
 				lecteur.add(strCurrentLine.trim());//trim supprime espaces superflux eventuels en fin de texte
 			}
-		}catch (IOException ioe) {
-		ioe.printStackTrace();
 		}
+		catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
+		catch (MazeReadingException mre) {
+			mre.printStackTrace();
+		}
+		
 		return lecteur;
 	}
 
