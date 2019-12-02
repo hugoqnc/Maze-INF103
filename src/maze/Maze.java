@@ -140,20 +140,32 @@ public class Maze implements GraphInterface
 		//creation d'une liste de string a traiter
 		ArrayList<String> lecteur = new ArrayList<String>();
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
-			String strCurrentLine = bufferedreader.readLine().trim();
-			int largeurLine1 = strCurrentLine.length();
+			String strFirstLine = bufferedreader.readLine().trim();
+			int largeurLine1 = strFirstLine.length();
 			if (largeurLine1 == 0) {
 				throw new MazeReadingException(fileName,0,"Cette ligne est vide");
 			}
-			while ((strCurrentLine = bufferedreader.readLine()) != null) {
-				lecteur.add(strCurrentLine.trim());//trim supprime espaces superflux eventuels en fin de texte
+			lecteur.add(strFirstLine);
+			
+			String strCurrentLine;
+			int lineNumber = 2; //on donne numerote les lignes de 1 à n, pas de 0 à n-1
+			while ((strCurrentLine = bufferedreader.readLine()) != null) {//trim supprime espaces superflux eventuels en fin de texte
+				strCurrentLine = strCurrentLine.trim();
+				if (strCurrentLine.length() != largeurLine1) {
+					throw new MazeReadingException(fileName,lineNumber,"Cette ligne n'a pas la même longeur que les autres");
+				}
+				lecteur.add(strCurrentLine);
+				lineNumber ++;
 			}
+			
 		}
+		
 		catch (IOException ioe) {
 			ioe.printStackTrace();
 		}
 		catch (MazeReadingException mre) {
 			mre.printStackTrace();
+			throw new RuntimeException("Message : Fin du programme. Il faut corriger MazeReadingException"); //permet de stopper l'execution du programme
 		}
 		
 		return lecteur;
