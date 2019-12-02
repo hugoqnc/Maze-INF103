@@ -11,8 +11,8 @@ import dijkstra.GraphInterface;
 import dijkstra.PreviousInterface;
 import dijkstra.VertexInterface;
 
-public class Maze 
-	implements GraphInterface
+public class Maze implements GraphInterface
+	
 	{
 	private String fileName;
 	private ArrayList< ArrayList<Box> > maze ;
@@ -35,26 +35,25 @@ public class Maze
 		return caractere;}
 	
 
-	public Maze(String fileName){//constructeur de la classe_A COMPLETER
+	public Maze(String fileName) { 
 		//BufferedReader reader = new BufferedReader(new FileReader("data/labyrinthe.txt"));
 		this.fileName = fileName;
 		maze = new ArrayList< ArrayList<Box> >();
 		
 		ArrayList<String> lecteur = lecteur(fileName);
-		int longeurTest = lecteur.size();
-		int largeurTest = lecteur.get(0).length();
-		// inutile : ArrayList<String> caractere = caractere();
-		//il faut faire des exception ici
+		longeur = lecteur.size();
+		largeur = lecteur.get(0).length();
+
+		int compteurD = 0; //compte le nombre de cases D dans le fichier txt
+		int compteurA = 0; //compte le nombre de cases A dans le fichier txt
 		
-		//si lecteur est conforme :
-		longeur = longeurTest;
-		largeur = largeurTest;
+		try {
 		for (int i=0; i<longeur; i++) {
 			ArrayList<Box> larg = new ArrayList<Box>();
 			for(int j=0; j<largeur; j++) {
 				char letter= lecteur.get(i).charAt(j);
 				String designation = String.valueOf(letter);
-				//ATTENTION : CECI N'EST PAS TROP TROP ORIENTE OBJET :
+				
 				Box box = null;
 				if (designation.contentEquals("E")){
 					box = new EBox(i,j);
@@ -65,17 +64,39 @@ public class Maze
 				else if (designation.contentEquals("A")) {
 					box = new ABox(i,j);
 					arrivee = (ABox)box;
+					compteurA++;
+					if (compteurA > 1){
+						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs arrivées, mais elle doit être unique");
+					}
+				
 				}
 				else if (designation.contentEquals("D")) {
 					box = new DBox(i,j);
 					depart = (DBox)box;
+					compteurD++;
+					if (compteurD > 1){
+						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs départs, mais il doit être unique");
+					}
+				}
+				else {
+						throw new MazeReadingException(fileName,i+1,"Il y a un caractère autre que E,W,A,D dans le fichier texte"); //ligne de 1 à n, et non de 0 à n-1	
 				}
 				larg.add(box);
 			}
 			maze.add(larg);
-		
+		}
+		if (compteurA == 0) {
+			throw new MazeReadingException(fileName, 0, "Il n'y a pas d'arrivée dans le labyrinthe");
+		}
+		if (compteurD == 0) {
+			throw new MazeReadingException(fileName, 0, "Il n'y a pas de départ dans le labyrinthe");
 		}
 		
+		}
+		catch(MazeReadingException mre){
+			mre.printStackTrace();
+			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException"); //permet de stopper l'execution du programme
+		}
 		
 		
 		}
@@ -124,7 +145,7 @@ public class Maze
 		return 1;
 	}
 	
-	private final void initFromTextFile() {//permet de lire ligne par ligne les fichiers txt de data
+	/* private final void initFromTextFile() {//permet de lire ligne par ligne les fichiers txt de data
 	    // https://waytolearnx.com/2018/11/comment-lire-un-fichier-en-java-avec-bufferedreader.html
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
 	        String strCurrentLine;
@@ -134,18 +155,40 @@ public class Maze
 	      } catch (IOException ioe) {
 	        ioe.printStackTrace();
 	      }	}
+	*/
 	
 	private final ArrayList<String> lecteur(String fileName) {
 		//creation d'une liste de string a traiter
 		ArrayList<String> lecteur = new ArrayList<String>();
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
-			String strCurrentLine;
-			while ((strCurrentLine = bufferedreader.readLine()) != null) {
-				lecteur.add(strCurrentLine.trim());//trim supprime espaces superflux eventuels en fin de texte
+			String strFirstLine = bufferedreader.readLine().trim();
+			int largeurLine1 = strFirstLine.length();
+			if (largeurLine1 == 0) {
+				throw new MazeReadingException(fileName,0,"Cette ligne est vide");
 			}
-		}catch (IOException ioe) {
-		ioe.printStackTrace();
+			lecteur.add(strFirstLine);
+			
+			String strCurrentLine;
+			int lineNumber = 2; //on donne numerote les lignes de 1 à n, pas de 0 à n-1
+			while ((strCurrentLine = bufferedreader.readLine()) != null) {//trim supprime espaces superflux eventuels en fin de texte
+				strCurrentLine = strCurrentLine.trim();
+				if (strCurrentLine.length() != largeurLine1) {
+					throw new MazeReadingException(fileName,lineNumber,"Cette ligne n'a pas la même longeur que les autres");
+				}
+				lecteur.add(strCurrentLine);
+				lineNumber ++;
+			}
+			
 		}
+		
+		catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
+		catch (MazeReadingException mre) {
+			mre.printStackTrace();
+			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException"); //permet de stopper l'execution du programme
+		}
+		
 		return lecteur;
 	}
 

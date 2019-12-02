@@ -35,6 +35,7 @@ public class Previous extends Hashtable<VertexInterface, VertexInterface> implem
 			}
 			key = value;			
 		}
+		
 		return path;
 	}
 
