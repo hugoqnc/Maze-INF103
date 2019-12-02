@@ -8,10 +8,10 @@ public class HeadMenu extends JFrame{
 	
 	public HeadMenu() {//constructeur
 		super();
-		menu = new JFrame();
-		menu.setSize(500, 80);//taille (en pixel)
-		menu.setResizable(false); //empeche redimensionnement de la fenetre
-		menu.setVisible(true);
+		//menu = new JFrame();
+		//menu.setSize(500, 80);//taille (en pixel)
+		//menu.setResizable(false); //empeche redimensionnement de la fenetre
+		//menu.setVisible(true);
 		}
 
 }

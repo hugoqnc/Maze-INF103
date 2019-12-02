@@ -6,28 +6,31 @@ import java.awt.*;
 
 import maze.*;
 
-public class MainPanel extends JFrame{
+public class MainPanel extends JPanel{
 	
 	private Maze maze;
 	private HeadMenu menu;
-	private Window labyrinthePanel;
+	private JPanel labyrinthePanel;
 	private RightPanel rightPanel;
+	private JFrame window;
 	
 	public MainPanel(Maze maze) {
-		super("Labyrinthe");
+		super();
 		this.maze = maze;
-		setSize(1000, 1000);
+		//setSize(1000, 1000);
 
 		
 		menu = new HeadMenu();
-		labyrinthePanel = new Window("",maze);
+		labyrinthePanel = new ResolvedMazePanel(maze);
 		rightPanel = new RightPanel();
+		
 		setLayout(new BorderLayout());
 		add(labyrinthePanel,BorderLayout.CENTER);
-		add(menu,BorderLayout.NORTH);
+		//add(menu,BorderLayout.NORTH);
+		add(rightPanel,BorderLayout.EAST);
 		//setContentPanel(labyrinthePanel);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//pack();
 		setVisible(true);
 		

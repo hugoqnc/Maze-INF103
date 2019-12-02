@@ -30,7 +30,7 @@ public class Window extends JFrame {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
 		window.setResizable(false); //empeche redimensionnement de la fenetre
 		
-		ResolvedMazePanel pan = new ResolvedMazePanel(this.maze);
+		JPanel pan = new MainPanel(this.maze);
 	    window.setContentPane(pan);// JPanel est le content pane
 		
 	    //window.pack();

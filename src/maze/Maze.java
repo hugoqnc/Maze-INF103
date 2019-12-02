@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 import dijkstra.Dijkstra;
+import dijkstra.DijkstraResolveException;
 import dijkstra.GraphInterface;
 import dijkstra.PreviousInterface;
 import dijkstra.VertexInterface;
@@ -244,6 +245,16 @@ public class Maze implements GraphInterface
 	public ArrayList<VertexInterface> shortestPath(){
 		PreviousInterface previous = Dijkstra.dijkstra(this, (VertexInterface)depart);
 		ArrayList<VertexInterface> path = previous.getShortestPathTo(arrivee);
+		try {
+			if (path.contains(depart) == false) {
+				throw new DijkstraResolveException("Le labyrinthe donné n'a pas de solution");
+			}
+		}
+		catch(DijkstraResolveException dre){
+			dre.printStackTrace();
+			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur DijkstraResolveException"); //permet de stopper l'execution du programme
+			
+		}
 		return path;
 	}
 }
