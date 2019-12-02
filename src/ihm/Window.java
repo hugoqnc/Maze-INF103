@@ -7,7 +7,6 @@ import maze.*;
 public class Window extends JFrame {
 	
 	JFrame window;
-	private MazePanel pan;
 	private String Title;
 	//taille (en pixel)
 	private int longueur;
@@ -31,7 +30,7 @@ public class Window extends JFrame {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
 		window.setResizable(false); //empeche redimensionnement de la fenetre
 		
-	    pan = new MazePanel(this.maze);
+		ResolvedMazePanel pan = new ResolvedMazePanel(this.maze);
 	    window.setContentPane(pan);// JPanel est le content pane
 		
 	    //window.pack();
