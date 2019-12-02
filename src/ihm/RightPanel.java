@@ -12,7 +12,7 @@ public class RightPanel extends JPanel{
 	public RightPanel() {//constructeur
 		super();
 		setPreferredSize(new Dimension(400,600));
-		setBackground(Color.BLUE);
+		setBackground(Color.LIGHT_GRAY);
 		}
 
 }

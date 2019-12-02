@@ -1,4 +1,5 @@
 package ihm;
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.*;
@@ -11,6 +12,7 @@ public class HeadMenu extends JPanel{
 	public HeadMenu() {//constructeur
 		super();
 		setPreferredSize(new Dimension(1000,100));
+		setBackground(Color.WHITE);
 		//menu = new JFrame();
 		//menu.setSize(500, 80);//taille (en pixel)
 		//menu.setResizable(false); //empeche redimensionnement de la fenetre

@@ -17,7 +17,6 @@ public class MazePanel extends JPanel {
 	public MazePanel(Maze maze) {
 		super();
 		this.maze = maze;
-		//setPreferredSize(new Dimension(600,600));
 
 		ArrayList<ArrayList<Box>> mazeTable = maze.getMaze();
 		mazeTable = maze.getMaze();

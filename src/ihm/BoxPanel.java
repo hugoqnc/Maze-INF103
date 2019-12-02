@@ -12,16 +12,13 @@ public class BoxPanel extends JPanel {
 		super();
 		
 		if (pathInt == 1) {
+			setLayout(new BorderLayout());
 			RoundPanel round = new RoundPanel();
-			add(round);
-			//setBackground(Color.GRAY);
+			round.setBackground(box.getColor());
+			add(round, BorderLayout.CENTER);
+			
 		}
-		
-		
-		//setPreferredSize(new Dimension(10,10));
-
 		setBackground(box.getColor());
-		
 	}
 
 }

@@ -47,10 +47,15 @@ public class MainPanel extends JPanel{
 		labyrinthePanel.add(labyrinthePanelInside, BorderLayout.CENTER);
 		
 		
-		setLayout(new BorderLayout());
+		
+		BorderLayout bLayout = new BorderLayout();
+		setLayout(bLayout);
+		bLayout.setHgap(3);
+		bLayout.setVgap(3);
 		add(labyrinthePanel,BorderLayout.CENTER);
 		add(menu,BorderLayout.NORTH);
 		add(rightPanel,BorderLayout.EAST);
+		setBackground(Color.BLACK);
 		//setContentPanel(labyrinthePanel);
 		
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -6,9 +6,12 @@ import javax.swing.*;
 public class RoundPanel extends JPanel {
 	
 	public void paintComponent(Graphics g) {
-		int x1 = this.getWidth()/4;
-		int y1 = this.getHeight()/4;
-		g.fillOval(x1, y1, this.getWidth()/2, this.getHeight()/2);
+		//super.paintComponent(g);
+		int w = getWidth();
+		int h = getHeight();
+		g.fillOval(w/4, h/4, w/2, h/2);
+		setBackground(new Color(0,0,0,0)); //couleur transparente
+		//setPreferredSize(new Dimension(60,60));
 		
 	}
 
