@@ -16,15 +16,16 @@ public class MainPanel extends JFrame{
 	public MainPanel(Maze maze) {
 		super("Labyrinthe");
 		this.maze = maze;
+		setSize(1000, 1000);
 
-		//window = new JFrame();
 		
 		menu = new HeadMenu();
 		labyrinthePanel = new Window("",maze);
 		rightPanel = new RightPanel();
 		setLayout(new BorderLayout());
-		add(labyrinthePanel,BorderLayout.SOUTH);
+		add(labyrinthePanel,BorderLayout.CENTER);
 		add(menu,BorderLayout.NORTH);
+		//setContentPanel(labyrinthePanel);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//pack();
