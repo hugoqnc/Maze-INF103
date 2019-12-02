@@ -71,6 +71,7 @@ public class Dijkstra {
 		PiInterface pi = new Pi();
 		
 		previous = djikstra(g, r, a, pi, previous);
+		
 		return previous;
 		
 	}
