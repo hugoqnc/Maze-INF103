@@ -11,10 +11,6 @@ public class BoxPanel extends JPanel {
 	public BoxPanel(Box box , int pathInt/*, Window window*/ ) { //argument : box concernee et entier qui vaut 1 si la box fait partie du chemin, 0 sinon
 		super();
 		
-		//this.window = window ;
-		
-		String type = box.status();
-		
 		if (pathInt == 1) {
 			RoundPanel round = new RoundPanel();
 			add(round);

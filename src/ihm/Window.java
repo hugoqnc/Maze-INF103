@@ -19,27 +19,22 @@ public class Window extends JFrame {
 
 		this.maze = maze;
 		//window.setPreferredSize(new Dimension(600,600));
-		this.longueur = 700;
-		setLargeur(this.maze);
+		this.longueur = 1000;
+		this.largeur = 700;
 		this.Title = Title;
 		window = new JFrame();
 		window.setTitle(this.Title);//nom de la fenetre
 		window.setSize(this.longueur, this.largeur);//taille (en pixel)
 
-		window.setLocationRelativeTo(null);//position centrale sur l'ecran
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
-		window.setResizable(false); //empeche redimensionnement de la fenetre
-		
 		JPanel pan = new MainPanel(this.maze);
 	    window.setContentPane(pan);// JPanel est le content pane
 		
-	    //window.pack();
+		window.setLocationRelativeTo(null);//position centrale sur l'ecran
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
+		window.setResizable(false); //empeche redimensionnement de la fenetre
+	    window.pack();
 	    window.setVisible(true);
 		}
 	
-	public void setLargeur(Maze maze) {
-		float nbLongueur = maze.getLongeur();
-		float nbLargeur = maze.getLargeur();
-		largeur = Math.round(longueur*(nbLongueur/nbLargeur));
-	}
+
 	}
