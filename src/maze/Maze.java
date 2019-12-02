@@ -66,7 +66,7 @@ public class Maze implements GraphInterface
 					arrivee = (ABox)box;
 					compteurA++;
 					if (compteurA > 1){
-						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs cases A, qui doit être unique");
+						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs arrivées, mais elle doit être unique");
 					}
 				
 				}
@@ -75,7 +75,7 @@ public class Maze implements GraphInterface
 					depart = (DBox)box;
 					compteurD++;
 					if (compteurD > 1){
-						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs cases D, qui doit être unique");
+						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs départs, mais il doit être unique");
 					}
 				}
 				else {
@@ -85,6 +85,13 @@ public class Maze implements GraphInterface
 			}
 			maze.add(larg);
 		}
+		if (compteurA == 0) {
+			throw new MazeReadingException(fileName, 0, "Il n'y a pas d'arrivée dans le labyrinthe");
+		}
+		if (compteurD == 0) {
+			throw new MazeReadingException(fileName, 0, "Il n'y a pas de départ dans le labyrinthe");
+		}
+		
 		}
 		catch(MazeReadingException mre){
 			mre.printStackTrace();
