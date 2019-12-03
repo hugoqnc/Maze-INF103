@@ -5,8 +5,7 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 
-import ihm.buttons.ResolveButton;
-import maze.Maze;
+import ihm.buttons.*;
 
 public class HeadMenu extends JMenuBar{
 	
@@ -23,7 +22,7 @@ public class HeadMenu extends JMenuBar{
 		JButton b2 = new JButton("Edit Maze");
 		JButton b3 = new ResolveButton(this.window);
 		JButton b4 = new JButton("Save Maze");
-		JButton b5 = new JButton("Load Maze");
+		JButton b5 = new LoadButton(this.window);
 		add(b1); add(b2); add(b3); add(b4); add(b5);
 
 		

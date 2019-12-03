@@ -40,7 +40,7 @@ public class Window extends JFrame {
 	
 	public void resolveMaze() {
 		window.setContentPane(new MainPanel(this.maze, 1, this));
-		window.revalidate();
+		window.revalidate(); //pour reactualiser le panel
 
 	}
 	
