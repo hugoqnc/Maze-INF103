@@ -68,10 +68,7 @@ public class MainPanel extends JPanel{
 		add(menu,BorderLayout.NORTH);
 		add(rightPanel,BorderLayout.EAST);
 		setBackground(Color.BLACK);
-		//setContentPanel(labyrinthePanel);
-		
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//pack();
+
 		setVisible(true);
 		
 		

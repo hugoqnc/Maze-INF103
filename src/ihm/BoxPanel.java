@@ -14,8 +14,9 @@ public class BoxPanel extends JPanel {
 		if (pathInt == 1) {
 			setLayout(new BorderLayout());
 			RoundPanel round = new RoundPanel();
-			round.setBackground(box.getColor());
+			//round.setBackground(box.getColor());
 			add(round, BorderLayout.CENTER);
+			//setBackground(Color.WHITE);
 			
 		}
 		setBackground(box.getColor());
