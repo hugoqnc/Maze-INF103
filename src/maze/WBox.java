@@ -10,7 +10,7 @@ public class WBox extends Box{//case Wall
 	
 	public WBox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
-		color =Color.BLACK;
+		color =Color.BLUE;
 		}
 	
 	@Override

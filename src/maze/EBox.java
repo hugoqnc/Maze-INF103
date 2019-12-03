@@ -10,7 +10,7 @@ public class EBox extends Box{
 	
 	public EBox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
-		color = Color.WHITE;
+		color = Color.ORANGE;
 		}
 	
 	@Override
