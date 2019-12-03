@@ -31,7 +31,7 @@ public class ResolvedMazePanel extends JPanel {
 		for (int i=0; i<longueur; i++) {
 			for (int j=0; j<largeur; j++) {
 				Box box = mazeTable.get(i).get(j);
-				if (path.contains(box)){
+				if (path.contains(box) && (box.equals(maze.getDepart())==false) && (box.equals(maze.getArrivee())==false)){
 					pathInt = 1;
 				}
 				BoxPanel boxPanel = new BoxPanel(box, pathInt);

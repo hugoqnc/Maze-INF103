@@ -6,40 +6,48 @@ import maze.*;
 
 public class Window extends JFrame {
 	
-	JFrame window;
-	private String Title;
+	public JFrame window;
+	private String title;
+	
 	//taille (en pixel)
 	private int longueur;
 	private int largeur;
 	private Maze maze;
+	private MainPanel mainPanel;
 	
 	//interface graphique
-	public Window(String Title, Maze maze) {//constructeur
+	public Window(String title, Maze maze) {//constructeur
 		super();
 
 		this.maze = maze;
 		//window.setPreferredSize(new Dimension(600,600));
-		this.longueur = 700;
-		setLargeur(this.maze);
-		this.Title = Title;
+		this.longueur = 1000;
+		this.largeur = 700;
+		this.title = title;
 		window = new JFrame();
-		window.setTitle(this.Title);//nom de la fenetre
+		window.setTitle(this.title);//nom de la fenetre
 		window.setSize(this.longueur, this.largeur);//taille (en pixel)
 
+		mainPanel = new MainPanel(this.maze, 0, this);
+	    window.setContentPane(mainPanel);
+		
 		window.setLocationRelativeTo(null);//position centrale sur l'ecran
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
 		window.setResizable(false); //empeche redimensionnement de la fenetre
-		
-		ResolvedMazePanel pan = new ResolvedMazePanel(this.maze);
-	    window.setContentPane(pan);// JPanel est le content pane
-		
-	    //window.pack();
+	    window.pack();
 	    window.setVisible(true);
 		}
 	
-	public void setLargeur(Maze maze) {
-		float nbLongueur = maze.getLongeur();
-		float nbLargeur = maze.getLargeur();
-		largeur = Math.round(longueur*(nbLongueur/nbLargeur));
+	public void resolveMaze() {
+		window.setContentPane(new MainPanel(this.maze, 1, this));
+		window.revalidate(); //pour reactualiser le panel
+
 	}
+	
+	public void changeMaze(String fileName) {
+		maze = new Maze(fileName);
+		window.setContentPane(new MainPanel(this.maze, 0, this));
+		window.revalidate();
+	}
+	
 	}

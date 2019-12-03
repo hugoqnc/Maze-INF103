@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 import dijkstra.Dijkstra;
+import dijkstra.DijkstraResolveException;
 import dijkstra.GraphInterface;
 import dijkstra.PreviousInterface;
 import dijkstra.VertexInterface;
@@ -157,7 +158,7 @@ public class Maze implements GraphInterface
 	      }	}
 	*/
 	
-	private final ArrayList<String> lecteur(String fileName) {
+	public ArrayList<String> lecteur(String fileName) {
 		//creation d'une liste de string a traiter
 		ArrayList<String> lecteur = new ArrayList<String>();
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
@@ -201,7 +202,7 @@ public class Maze implements GraphInterface
 		if (i<longeur-1) iList.add(i+1);
 		ArrayList<Integer> jList = new ArrayList<Integer>();
 		if (j>0) jList.add(j-1);
-		if (j<longeur-1) jList.add(j+1);
+		if (j<largeur-1) jList.add(j+1);
 		Iterator<Integer> iteri = iList.iterator();
 		while (iteri.hasNext()) {
 			voisins.add(maze.get(iteri.next()).get(j));
@@ -244,6 +245,16 @@ public class Maze implements GraphInterface
 	public ArrayList<VertexInterface> shortestPath(){
 		PreviousInterface previous = Dijkstra.dijkstra(this, (VertexInterface)depart);
 		ArrayList<VertexInterface> path = previous.getShortestPathTo(arrivee);
+		try {
+			if (path.contains(depart) == false) {
+				throw new DijkstraResolveException("Le labyrinthe donné n'a pas de solution");
+			}
+		}
+		catch(DijkstraResolveException dre){
+			dre.printStackTrace();
+			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur DijkstraResolveException"); //permet de stopper l'execution du programme
+			
+		}
 		return path;
 	}
 }
