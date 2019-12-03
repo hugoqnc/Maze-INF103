@@ -42,9 +42,15 @@ public class MainPanel extends JPanel{
 		int sideHeight = (labyrinthePanelInsideSize - Math.min(length,width)*cote)/2;
 		highPanel.setPreferredSize(new Dimension(labyrinthePanelInsideSize, sideHeight));
 		lowPanel.setPreferredSize(new Dimension(labyrinthePanelInsideSize, sideHeight));
-		labyrinthePanel.add(highPanel, BorderLayout.NORTH);
-		labyrinthePanel.add(lowPanel, BorderLayout.SOUTH);
 		labyrinthePanel.add(labyrinthePanelInside, BorderLayout.CENTER);
+		if (width>=length) {
+			labyrinthePanel.add(highPanel, BorderLayout.NORTH);
+			labyrinthePanel.add(lowPanel, BorderLayout.SOUTH);
+		}
+		else {
+			labyrinthePanel.add(highPanel, BorderLayout.NORTH);
+			labyrinthePanel.add(lowPanel, BorderLayout.SOUTH);
+		}
 		
 		
 		

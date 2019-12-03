@@ -202,7 +202,7 @@ public class Maze implements GraphInterface
 		if (i<longeur-1) iList.add(i+1);
 		ArrayList<Integer> jList = new ArrayList<Integer>();
 		if (j>0) jList.add(j-1);
-		if (j<longeur-1) jList.add(j+1);
+		if (j<largeur-1) jList.add(j+1);
 		Iterator<Integer> iteri = iList.iterator();
 		while (iteri.hasNext()) {
 			voisins.add(maze.get(iteri.next()).get(j));
