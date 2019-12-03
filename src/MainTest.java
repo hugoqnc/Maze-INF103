@@ -9,7 +9,6 @@ public class MainTest {
 	    Maze maze = new Maze("data/labyrinthe.txt");
 	    
 		new Window("Labyrinthe", maze);
-		
 
 	}
 

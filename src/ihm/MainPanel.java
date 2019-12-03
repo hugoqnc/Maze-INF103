@@ -37,19 +37,25 @@ public class MainPanel extends JPanel{
 		int cote = Math.min(labyrinthePanelInsideSize/length,labyrinthePanelInsideSize/width);
 		labyrinthePanelInside.setPreferredSize(new Dimension(width*cote,length*cote));
 		
-		JPanel highPanel = new JPanel();
-		JPanel lowPanel = new JPanel();
-		int sideHeight = (labyrinthePanelInsideSize - Math.min(length,width)*cote)/2;
-		highPanel.setPreferredSize(new Dimension(labyrinthePanelInsideSize, sideHeight));
-		lowPanel.setPreferredSize(new Dimension(labyrinthePanelInsideSize, sideHeight));
-		labyrinthePanel.add(labyrinthePanelInside, BorderLayout.CENTER);
 		if (width>=length) {
+			JPanel highPanel = new JPanel();
+			JPanel lowPanel = new JPanel();
+			int sideHeight = (labyrinthePanelInsideSize - Math.min(length,width)*cote)/2;
+			highPanel.setPreferredSize(new Dimension(labyrinthePanelInsideSize, sideHeight));
+			lowPanel.setPreferredSize(new Dimension(labyrinthePanelInsideSize, sideHeight));
+			labyrinthePanel.add(labyrinthePanelInside, BorderLayout.CENTER);
 			labyrinthePanel.add(highPanel, BorderLayout.NORTH);
 			labyrinthePanel.add(lowPanel, BorderLayout.SOUTH);
 		}
 		else {
-			labyrinthePanel.add(highPanel, BorderLayout.NORTH);
-			labyrinthePanel.add(lowPanel, BorderLayout.SOUTH);
+			JPanel leftPanel = new JPanel();
+			JPanel rightPanel = new JPanel();
+			int sideHeight = (labyrinthePanelInsideSize - Math.min(length,width)*cote)/2;
+			leftPanel.setPreferredSize(new Dimension(sideHeight, labyrinthePanelInsideSize));
+			rightPanel.setPreferredSize(new Dimension(sideHeight, labyrinthePanelInsideSize));
+			labyrinthePanel.add(labyrinthePanelInside, BorderLayout.CENTER);
+			labyrinthePanel.add(leftPanel, BorderLayout.WEST);
+			labyrinthePanel.add(rightPanel, BorderLayout.EAST);
 		}
 		
 		
