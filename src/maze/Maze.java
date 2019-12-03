@@ -67,7 +67,7 @@ public class Maze implements GraphInterface
 					arrivee = (ABox)box;
 					compteurA++;
 					if (compteurA > 1){
-						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs arrivées, mais elle doit être unique");
+						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs arrivï¿½es, mais elle doit ï¿½tre unique");
 					}
 				
 				}
@@ -76,21 +76,21 @@ public class Maze implements GraphInterface
 					depart = (DBox)box;
 					compteurD++;
 					if (compteurD > 1){
-						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs départs, mais il doit être unique");
+						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs dï¿½parts, mais il doit ï¿½tre unique");
 					}
 				}
 				else {
-						throw new MazeReadingException(fileName,i+1,"Il y a un caractère autre que E,W,A,D dans le fichier texte"); //ligne de 1 à n, et non de 0 à n-1	
+						throw new MazeReadingException(fileName,i+1,"Il y a un caractï¿½re autre que E,W,A,D dans le fichier texte"); //ligne de 1 ï¿½ n, et non de 0 ï¿½ n-1	
 				}
 				larg.add(box);
 			}
 			maze.add(larg);
 		}
 		if (compteurA == 0) {
-			throw new MazeReadingException(fileName, 0, "Il n'y a pas d'arrivée dans le labyrinthe");
+			throw new MazeReadingException(fileName, 0, "Il n'y a pas d'arrivï¿½e dans le labyrinthe");
 		}
 		if (compteurD == 0) {
-			throw new MazeReadingException(fileName, 0, "Il n'y a pas de départ dans le labyrinthe");
+			throw new MazeReadingException(fileName, 0, "Il n'y a pas de dï¿½part dans le labyrinthe");
 		}
 		
 		}
@@ -170,11 +170,11 @@ public class Maze implements GraphInterface
 			lecteur.add(strFirstLine);
 			
 			String strCurrentLine;
-			int lineNumber = 2; //on donne numerote les lignes de 1 à n, pas de 0 à n-1
+			int lineNumber = 2; //on donne numerote les lignes de 1 ï¿½ n, pas de 0 ï¿½ n-1
 			while ((strCurrentLine = bufferedreader.readLine()) != null) {//trim supprime espaces superflux eventuels en fin de texte
 				strCurrentLine = strCurrentLine.trim();
 				if (strCurrentLine.length() != largeurLine1) {
-					throw new MazeReadingException(fileName,lineNumber,"Cette ligne n'a pas la même longeur que les autres");
+					throw new MazeReadingException(fileName,lineNumber,"Cette ligne n'a pas la mï¿½me longeur que les autres");
 				}
 				lecteur.add(strCurrentLine);
 				lineNumber ++;
@@ -242,12 +242,17 @@ public class Maze implements GraphInterface
 		maze.set(coordinateI, ligneBox);
 	}
 	
+
+	public Box getBox(int coordinateI, int coordinateJ, Box box) {
+		return maze.get(coordinateI).get(coordinateJ);
+	}
+	
 	public ArrayList<VertexInterface> shortestPath(){
 		PreviousInterface previous = Dijkstra.dijkstra(this, (VertexInterface)depart);
 		ArrayList<VertexInterface> path = previous.getShortestPathTo(arrivee);
 		try {
 			if (path.contains(depart) == false) {
-				throw new DijkstraResolveException("Le labyrinthe donné n'a pas de solution");
+				throw new DijkstraResolveException("Le labyrinthe donnï¿½ n'a pas de solution");
 			}
 		}
 		catch(DijkstraResolveException dre){
