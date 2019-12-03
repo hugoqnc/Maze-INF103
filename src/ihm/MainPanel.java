@@ -16,13 +16,14 @@ public class MainPanel extends JPanel{
 	private int labyrinthePanelInsideSize;
 	private int resolved;
 	
-	public MainPanel(Maze maze, int resolved) { //resolved vaut 1 si on veut le ResolvedMazePanel, 0 sinon
+	public MainPanel(Maze maze, int resolved, Window window) { //resolved vaut 1 si on veut le ResolvedMazePanel, 0 sinon
 		super();
+		this.window = window;
 		this.maze = maze;
 		this.resolved = resolved;
 		//setSize(1000, 1000);
 
-		menu = new HeadMenu();
+		menu = new HeadMenu(this.window);
 		labyrinthePanel = new JPanel();
 		labyrinthePanel.setPreferredSize(new Dimension(labyrinthePanelInsideSize,labyrinthePanelInsideSize));
 		rightPanel = new RightPanel();
@@ -82,4 +83,5 @@ public class MainPanel extends JPanel{
 		
 	}
 
+	
 }

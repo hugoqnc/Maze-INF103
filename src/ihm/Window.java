@@ -13,6 +13,7 @@ public class Window extends JFrame {
 	private int longueur;
 	private int largeur;
 	private Maze maze;
+	private MainPanel mainPanel;
 	
 	//interface graphique
 	public Window(String Title, Maze maze) {//constructeur
@@ -27,8 +28,8 @@ public class Window extends JFrame {
 		window.setTitle(this.Title);//nom de la fenetre
 		window.setSize(this.longueur, this.largeur);//taille (en pixel)
 
-		JPanel pan = new MainPanel(this.maze, 1);
-	    window.setContentPane(pan);// JPanel est le content pane
+		mainPanel = new MainPanel(this.maze, 0, this);
+	    window.setContentPane(mainPanel);
 		
 		window.setLocationRelativeTo(null);//position centrale sur l'ecran
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
@@ -37,5 +38,10 @@ public class Window extends JFrame {
 	    window.setVisible(true);
 		}
 	
+	public void resolveMaze() {
+		window.setContentPane(new MainPanel(this.maze, 1, this));
+		window.revalidate();
 
+	}
+	
 	}
