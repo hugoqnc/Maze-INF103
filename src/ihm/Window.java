@@ -6,8 +6,9 @@ import maze.*;
 
 public class Window extends JFrame {
 	
-	JFrame window;
+	public JFrame window;
 	private String Title;
+	
 	//taille (en pixel)
 	private int longueur;
 	private int largeur;
@@ -26,7 +27,7 @@ public class Window extends JFrame {
 		window.setTitle(this.Title);//nom de la fenetre
 		window.setSize(this.longueur, this.largeur);//taille (en pixel)
 
-		JPanel pan = new MainPanel(this.maze);
+		JPanel pan = new MainPanel(this.maze, 1);
 	    window.setContentPane(pan);// JPanel est le content pane
 		
 		window.setLocationRelativeTo(null);//position centrale sur l'ecran
