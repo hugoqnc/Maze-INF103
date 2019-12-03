@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+//import MainTest;
 
 import ihm.*;
 
@@ -23,10 +24,10 @@ public class LoadButton extends JButton implements ActionListener{
 	    chooser.setFileFilter(filter);
 	    int returnVal = chooser.showOpenDialog(window);
 	    if(returnVal == JFileChooser.APPROVE_OPTION) {
-	       System.out.println("You chose to open this file: " +
-	            chooser.getSelectedFile().getName());
+	       System.out.println("You chose to open this file: " + chooser.getSelectedFile().getPath());
+	       window.changeMaze(chooser.getSelectedFile().getPath());
 	    }
-	    //implement with main
+	    
 		
 	}
 

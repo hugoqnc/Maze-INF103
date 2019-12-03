@@ -158,7 +158,7 @@ public class Maze implements GraphInterface
 	      }	}
 	*/
 	
-	private final ArrayList<String> lecteur(String fileName) {
+	public ArrayList<String> lecteur(String fileName) {
 		//creation d'une liste de string a traiter
 		ArrayList<String> lecteur = new ArrayList<String>();
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {

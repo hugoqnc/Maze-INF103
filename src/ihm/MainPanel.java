@@ -28,7 +28,7 @@ public class MainPanel extends JPanel{
 		labyrinthePanel.setPreferredSize(new Dimension(labyrinthePanelInsideSize,labyrinthePanelInsideSize));
 		rightPanel = new RightPanel();
 		
-		//Les deux paragraphes qui suivent ont pour but de centrer un MazePanel rectagualaire dans le labyrinthePanel carré
+		//Les deux paragraphes qui suivent ont pour but de centrer un MazePanel rectangulaire dans le labyrinthePanel carré
 		//Je cree un BorderLayout, dans lequel je met au centre le MazePanel à la bonne dimension
 		//Je complete le BorderLayout avec highPanel et lowPanel qui completent le vide
 		labyrinthePanel.setLayout(new BorderLayout());

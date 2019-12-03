@@ -7,7 +7,7 @@ import maze.*;
 public class Window extends JFrame {
 	
 	public JFrame window;
-	private String Title;
+	private String title;
 	
 	//taille (en pixel)
 	private int longueur;
@@ -16,16 +16,16 @@ public class Window extends JFrame {
 	private MainPanel mainPanel;
 	
 	//interface graphique
-	public Window(String Title, Maze maze) {//constructeur
+	public Window(String title, Maze maze) {//constructeur
 		super();
 
 		this.maze = maze;
 		//window.setPreferredSize(new Dimension(600,600));
 		this.longueur = 1000;
 		this.largeur = 700;
-		this.Title = Title;
+		this.title = title;
 		window = new JFrame();
-		window.setTitle(this.Title);//nom de la fenetre
+		window.setTitle(this.title);//nom de la fenetre
 		window.setSize(this.longueur, this.largeur);//taille (en pixel)
 
 		mainPanel = new MainPanel(this.maze, 0, this);
@@ -42,6 +42,12 @@ public class Window extends JFrame {
 		window.setContentPane(new MainPanel(this.maze, 1, this));
 		window.revalidate(); //pour reactualiser le panel
 
+	}
+	
+	public void changeMaze(String fileName) {
+		maze = new Maze(fileName);
+		window.setContentPane(new MainPanel(this.maze, 0, this));
+		window.revalidate();
 	}
 	
 	}
