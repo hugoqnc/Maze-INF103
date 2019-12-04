@@ -37,6 +37,7 @@ public class SaveButton extends JButton implements ActionListener{
 				}
 				editLector.close();
 				//le nouveau fichier est maintenant sauvegardé
+				window.changeMaze(fileName); //quitte le mode édition
 			}catch (IOException e) {
 				e.printStackTrace();
 				}
