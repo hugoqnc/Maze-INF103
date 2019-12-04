@@ -9,7 +9,7 @@ public class ErrorWindow extends JFrame {
 	
 	public ErrorWindow(String title, String message) {
 		super();
-		ImageIcon img = new ImageIcon("data/MazeIcon2.png");
+		//ImageIcon img = new ImageIcon("data/MazeIcon2.png");
 		window = new JFrame();
 		JOptionPane.showMessageDialog(window, message, title, JOptionPane.WARNING_MESSAGE);
 		
