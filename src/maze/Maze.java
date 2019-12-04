@@ -274,4 +274,7 @@ public class Maze implements GraphInterface
 		}
 		return path;
 	}
+	public String getFileName() {
+		return fileName;
+	}
 }
