@@ -24,7 +24,7 @@ public class LoadButton extends JButton implements ActionListener{
 	    chooser.setFileFilter(filter);
 	    int returnVal = chooser.showOpenDialog(window);
 	    if(returnVal == JFileChooser.APPROVE_OPTION) {
-	       System.out.println("You chose to open this file: " + chooser.getSelectedFile().getPath());
+	       //System.out.println("You chose to open this file: " + chooser.getSelectedFile().getPath());
 	       window.changeMaze(chooser.getSelectedFile().getPath());
 	    }
 	    
