@@ -20,7 +20,7 @@ public class HeadMenu extends JMenuBar{
 		setBackground(Color.WHITE);
 		
 		setLayout(new GridLayout(1,5));
-		JButton b2 = new JButton("New Maze");
+		JButton b2 = new NewButton(this.window);
 		JButton b3 = new EditButton(this.window);
 		JButton b5 = new ResolveButton(this.window);
 		JButton b4 = new SaveButton(this.window);

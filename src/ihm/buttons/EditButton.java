@@ -12,7 +12,7 @@ public class EditButton extends JButton implements ActionListener{
 	private Window window;
 	
 	public EditButton(Window window) {
-		super("Edit");
+		super("Edit Maze");
 		this.window = window;
 		addActionListener(this);
 	}

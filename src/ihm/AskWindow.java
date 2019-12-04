@@ -25,7 +25,7 @@ private String filePath;
 		}
 		
 		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.setDialogTitle("Name your new maze [] and choose its desination");
+		fileChooser.setDialogTitle("Name your new maze with \".txt\" extension");
 		fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("*.txt", "txt"));
 		//FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files","txt");
 	    //fileChooser.setFileFilter(filter);		 
@@ -92,4 +92,7 @@ private String filePath;
 		return width;
 	}
 	
+	public String getFilePath() {
+		return filePath;
+	}
 }

@@ -11,7 +11,7 @@ public class MainTest {
 	    
 		new Window("Labyrinthe", maze);
 		
-		new AskWindow();
+		//new AskWindow();
 
 	}
 
