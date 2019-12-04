@@ -11,6 +11,7 @@ import dijkstra.DijkstraResolveException;
 import dijkstra.GraphInterface;
 import dijkstra.PreviousInterface;
 import dijkstra.VertexInterface;
+import ihm.ErrorWindow;
 
 public class Maze implements GraphInterface
 	
@@ -67,7 +68,7 @@ public class Maze implements GraphInterface
 					arrivee = (ABox)box;
 					compteurA++;
 					if (compteurA > 1){
-						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs arrivées, mais elle doit être unique");
+						throw new MazeReadingException(fileName, i+1, "Le labyrinthe a plusieurs arrivées. Elle doit être unique");
 					}
 				
 				}
@@ -76,7 +77,7 @@ public class Maze implements GraphInterface
 					depart = (DBox)box;
 					compteurD++;
 					if (compteurD > 1){
-						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs départs, mais il doit être unique");
+						throw new MazeReadingException(fileName, i+1, "Le labyrinthe a plusieurs départs. Il doit être unique");
 					}
 				}
 				else {
@@ -96,6 +97,7 @@ public class Maze implements GraphInterface
 		}
 		catch(MazeReadingException mre){
 			mre.printStackTrace();
+			new ErrorWindow(mre.getTitle(), mre.getMessage());
 			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException"); //permet de stopper l'execution du programme
 		}
 		
@@ -187,6 +189,7 @@ public class Maze implements GraphInterface
 		}
 		catch (MazeReadingException mre) {
 			mre.printStackTrace();
+			new ErrorWindow(mre.getTitle(), mre.getMessage());
 			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException"); //permet de stopper l'execution du programme
 		}
 		
@@ -252,6 +255,7 @@ public class Maze implements GraphInterface
 		}
 		catch(DijkstraResolveException dre){
 			dre.printStackTrace();
+			new ErrorWindow(dre.getTitle(), dre.getMessage());
 			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur DijkstraResolveException"); //permet de stopper l'execution du programme
 			
 		}
