@@ -19,13 +19,14 @@ public class EditionMazeButton extends JButton implements ActionListener{
 		
 		status = maze.getBox(this.coordinateI,this.coordinateJ).status();
 		color = maze.getBox(this.coordinateI,this.coordinateJ).getColor();
+		setBackground(color);
 		
 
 		addActionListener(this);
 		
 	}
 	
-	private void onClick() {
+	public void actionPerformed(ActionEvent evt) {
 		if (status.contentEquals("W")) {
 			status  = "E";
 			color = Color.WHITE;
@@ -42,14 +43,11 @@ public class EditionMazeButton extends JButton implements ActionListener{
 			status  = "W";
 			color = Color.BLACK;
 		}
+		setBackground(color);
 	}
 	
 	public String getStatus() {
 		return status;
-	}
-	
-	public void actionPerformed(ActionEvent evt) {
-		onClick();
 	}
 	
 }
