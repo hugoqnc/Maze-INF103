@@ -1,6 +1,6 @@
 
 import maze.*;
-
+import ihm.ErrorWindow;
 import ihm.Window;
 
 public class MainTest {

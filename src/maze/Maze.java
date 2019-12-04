@@ -11,6 +11,7 @@ import dijkstra.DijkstraResolveException;
 import dijkstra.GraphInterface;
 import dijkstra.PreviousInterface;
 import dijkstra.VertexInterface;
+import ihm.ErrorWindow;
 
 public class Maze implements GraphInterface
 	
@@ -67,7 +68,11 @@ public class Maze implements GraphInterface
 					arrivee = (ABox)box;
 					compteurA++;
 					if (compteurA > 1){
+<<<<<<< HEAD
 						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs arriv�es, mais elle doit �tre unique");
+=======
+						throw new MazeReadingException(fileName, i+1, "Le labyrinthe a plusieurs arriv�es. Elle doit �tre unique.");
+>>>>>>> Hugo
 					}
 				
 				}
@@ -76,27 +81,43 @@ public class Maze implements GraphInterface
 					depart = (DBox)box;
 					compteurD++;
 					if (compteurD > 1){
+<<<<<<< HEAD
 						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs d�parts, mais il doit �tre unique");
 					}
 				}
 				else {
 						throw new MazeReadingException(fileName,i+1,"Il y a un caract�re autre que E,W,A,D dans le fichier texte"); //ligne de 1 � n, et non de 0 � n-1	
+=======
+						throw new MazeReadingException(fileName, i+1, "Le labyrinthe a plusieurs d�parts. Il doit �tre unique.");
+					}
+				}
+				else {
+						throw new MazeReadingException(fileName,i+1,"Il y a un caract�re autre que E,W,A,D dans le fichier texte."); //ligne de 1 � n, et non de 0 � n-1	
+>>>>>>> Hugo
 				}
 				larg.add(box);
 			}
 			maze.add(larg);
 		}
 		if (compteurA == 0) {
+<<<<<<< HEAD
 			throw new MazeReadingException(fileName, 0, "Il n'y a pas d'arriv�e dans le labyrinthe");
 		}
 		if (compteurD == 0) {
 			throw new MazeReadingException(fileName, 0, "Il n'y a pas de d�part dans le labyrinthe");
+=======
+			throw new MazeReadingException(fileName, 0, "Il n'y a pas d'arriv�e dans le labyrinthe.");
+		}
+		if (compteurD == 0) {
+			throw new MazeReadingException(fileName, 0, "Il n'y a pas de d�part dans le labyrinthe.");
+>>>>>>> Hugo
 		}
 		
 		}
 		catch(MazeReadingException mre){
 			mre.printStackTrace();
-			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException"); //permet de stopper l'execution du programme
+			new ErrorWindow(mre.getTitle(), mre.getMessage());
+			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException."); //permet de stopper l'execution du programme
 		}
 		
 		
@@ -165,7 +186,7 @@ public class Maze implements GraphInterface
 			String strFirstLine = bufferedreader.readLine().trim();
 			int largeurLine1 = strFirstLine.length();
 			if (largeurLine1 == 0) {
-				throw new MazeReadingException(fileName,0,"Cette ligne est vide");
+				throw new MazeReadingException(fileName,0,"Cette ligne est vide.");
 			}
 			lecteur.add(strFirstLine);
 			
@@ -174,7 +195,11 @@ public class Maze implements GraphInterface
 			while ((strCurrentLine = bufferedreader.readLine()) != null) {//trim supprime espaces superflux eventuels en fin de texte
 				strCurrentLine = strCurrentLine.trim();
 				if (strCurrentLine.length() != largeurLine1) {
+<<<<<<< HEAD
 					throw new MazeReadingException(fileName,lineNumber,"Cette ligne n'a pas la m�me longeur que les autres");
+=======
+					throw new MazeReadingException(fileName,lineNumber,"Cette ligne n'a pas la m�me longeur que les autres.");
+>>>>>>> Hugo
 				}
 				lecteur.add(strCurrentLine);
 				lineNumber ++;
@@ -187,7 +212,8 @@ public class Maze implements GraphInterface
 		}
 		catch (MazeReadingException mre) {
 			mre.printStackTrace();
-			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException"); //permet de stopper l'execution du programme
+			new ErrorWindow(mre.getTitle(), mre.getMessage());
+			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException."); //permet de stopper l'execution du programme
 		}
 		
 		return lecteur;
@@ -252,12 +278,14 @@ public class Maze implements GraphInterface
 		ArrayList<VertexInterface> path = previous.getShortestPathTo(arrivee);
 		try {
 			if (path.contains(depart) == false) {
-				throw new DijkstraResolveException("Le labyrinthe donn� n'a pas de solution");
+
+				throw new DijkstraResolveException("Le labyrinthe donn� n'a pas de solution.");
 			}
 		}
 		catch(DijkstraResolveException dre){
 			dre.printStackTrace();
-			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur DijkstraResolveException"); //permet de stopper l'execution du programme
+			new ErrorWindow(dre.getTitle(), dre.getMessage());
+			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur DijkstraResolveException."); //permet de stopper l'execution du programme
 			
 		}
 		return path;

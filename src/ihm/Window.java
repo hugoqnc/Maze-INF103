@@ -1,4 +1,5 @@
 package ihm;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import java.awt.*;
 import javax.swing.JPanel;
@@ -27,6 +28,9 @@ public class Window extends JFrame {
 		window = new JFrame();
 		window.setTitle(this.title);//nom de la fenetre
 		window.setSize(this.longueur, this.largeur);//taille (en pixel)
+		
+		ImageIcon img = new ImageIcon("data/MazeIcon2.png"); //creation de l'icone de la fenetre
+		window.setIconImage(img.getImage());
 
 		mainPanel = new MainPanel(this.maze, 0, this);
 	    window.setContentPane(mainPanel);
