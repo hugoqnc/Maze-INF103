@@ -1,14 +1,16 @@
 package ihm;
 import maze.*;
-import javax.swing.*;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import java.awt.Color;
 
-public class EditionMazeButton extends JButton{
+public class EditionMazeButton extends JButton implements ActionListener{
 	private String status;
 	private int coordinateI;
 	private int coordinateJ;
 	private Color color;
+	
 	
 	public EditionMazeButton(Maze maze, int coordinateI, int coordinateJ) {
 		super();
@@ -18,9 +20,12 @@ public class EditionMazeButton extends JButton{
 		status = maze.getBox(this.coordinateI,this.coordinateJ).status();
 		color = maze.getBox(this.coordinateI,this.coordinateJ).getColor();
 		
+
+		addActionListener(this);
+		
 	}
 	
-	public void onClick() {
+	private void onClick() {
 		if (status.contentEquals("W")) {
 			status  = "E";
 			color = Color.WHITE;
@@ -41,6 +46,10 @@ public class EditionMazeButton extends JButton{
 	
 	public String getStatus() {
 		return status;
+	}
+	
+	public void actionPerformed(ActionEvent evt) {
+		onClick();
 	}
 	
 }

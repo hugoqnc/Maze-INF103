@@ -1,9 +1,6 @@
 package ihm;
 import javax.swing.*;
 
-import dijkstra.Dijkstra;
-import dijkstra.PreviousInterface;
-import dijkstra.VertexInterface;
 import maze.*;
 import maze.Box;
 

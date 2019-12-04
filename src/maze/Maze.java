@@ -243,7 +243,7 @@ public class Maze implements GraphInterface
 	}
 	
 
-	public Box getBox(int coordinateI, int coordinateJ, Box box) {
+	public Box getBox(int coordinateI, int coordinateJ) {
 		return maze.get(coordinateI).get(coordinateJ);
 	}
 	
