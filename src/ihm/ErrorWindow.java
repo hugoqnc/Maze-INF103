@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class ErrorWindow extends JFrame {
-	public JFrame window;
+	private JFrame window;
 	
 	public ErrorWindow(String title, String message) {
 		super();

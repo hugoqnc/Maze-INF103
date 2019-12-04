@@ -19,24 +19,27 @@ public class SaveButton extends JButton implements ActionListener{
 	
 	public SaveButton(Window window) {
 		super("Save Maze");
+		this.window = window;
 		addActionListener(this);
 		fileName = window.getMaze().getFileName();
 	}
 	
 	public void actionPerformed(ActionEvent evt) {
 			try{
+				fileName = window.getMaze().getFileName();
 				FileWriter editFile = new FileWriter(fileName,false);
 				BufferedWriter editLector = new BufferedWriter(editFile);
-				for (int i=0; i<window.getLongueur();i++) {
-					for (int j=0; j<window.getLongueur();j++) {
-						editLector.write("h");
-						//window.getMaze().getBox(i,j).getLabel()
-						
+				for (int i=0; i<window.getMaze().getLongeur();i++) {
+					for (int j=0; j<window.getMaze().getLargeur();j++) {
+						editLector.write(window.getMaze().getBox(i,j).status());
 					}
 				editLector.newLine();
 				}
 				editLector.close();
-			}catch (IOException e) {e.printStackTrace();}
+				//le nouveau fichier est maintenant sauvegardé
+			}catch (IOException e) {
+				e.printStackTrace();
+				}
 	}
 	    
 		

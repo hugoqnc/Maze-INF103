@@ -1,6 +1,7 @@
 package ihm;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import ihm.buttons.EditionMazeButton;
 
 import javax.swing.*;
 import maze.*;

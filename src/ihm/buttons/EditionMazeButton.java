@@ -1,4 +1,4 @@
-package ihm;
+package ihm.buttons;
 import maze.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +10,7 @@ public class EditionMazeButton extends JButton implements ActionListener{
 	private int coordinateI;
 	private int coordinateJ;
 	private Color color;
-	Maze maze;
+	private Maze maze;
 	
 	
 	
