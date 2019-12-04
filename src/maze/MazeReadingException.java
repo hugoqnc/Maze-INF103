@@ -6,7 +6,7 @@ public class MazeReadingException extends Exception {
 	
 	public MazeReadingException(String fileName, int lineError, String message){
 		super(System.getProperty("line.separator") + System.getProperty("line.separator") + "MazeReadingException dans " + "\"" + fileName + "\""+ " à la ligne " + lineError + "." +System.getProperty("line.separator")+ "Message : " + message + System.getProperty("line.separator"));
-		messageErreur = "Erreur ligne n°"+ lineError + " du fichier \"" + fileName + "\"" + System.getProperty("line.separator") + message;
+		messageErreur = "Error at line n°"+ lineError + " of the file \"" + fileName + "\"" + System.getProperty("line.separator") + message;
 		}
 	
 	public String getMessage() {
@@ -14,6 +14,6 @@ public class MazeReadingException extends Exception {
 	}
 	
 	public String getTitle() {
-		return "Erreur de lecture du Labyrinthe";
+		return "Reading Maze Error";
 	}
 }

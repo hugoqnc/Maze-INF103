@@ -16,7 +16,7 @@ public class DijkstraResolveException extends Exception{
 	}
 	
 	public String getTitle() {
-		return "Erreur de résolution du Labyrinthe";
+		return "Maze Resolve Error";
 	}
 }
 

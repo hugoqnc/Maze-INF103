@@ -1,5 +1,6 @@
 package ihm.buttons;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -13,6 +14,8 @@ public class ResolveButton extends JButton implements ActionListener{
 	public ResolveButton(Window window) {
 		super("Resolve Maze");
 		this.window = window;
+		setBackground(Color.CYAN);
+		setOpaque(true);
 		addActionListener(this);
 	}
 	
