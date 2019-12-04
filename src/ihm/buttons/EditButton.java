@@ -10,12 +10,10 @@ import ihm.*;
 public class EditButton extends JButton implements ActionListener{
 	
 	private Window window;
-	private Maze currentMaze;
 	
 	public EditButton(Window window) {
 		super("Edit");
 		this.window = window;
-		currentMaze = window.getMaze();
 		addActionListener(this);
 	}
 	
