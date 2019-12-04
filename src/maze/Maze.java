@@ -68,7 +68,7 @@ public class Maze implements GraphInterface
 					arrivee = (ABox)box;
 					compteurA++;
 					if (compteurA > 1){
-						throw new MazeReadingException(fileName, i+1, "Le labyrinthe a plusieurs arriv�es. Elle doit �tre unique.");
+						throw new MazeReadingException(fileName, i+1, "There are several arrivals in the maze. It must have only one.");
 
 					}
 				
@@ -79,11 +79,11 @@ public class Maze implements GraphInterface
 					compteurD++;
 					if (compteurD > 1){
 
-						throw new MazeReadingException(fileName, i+1, "Le labyrinthe a plusieurs d�parts. Il doit �tre unique.");
+						throw new MazeReadingException(fileName, i+1, "There are several departures in the maze. It must have only one.");
 					}
 				}
 				else {
-						throw new MazeReadingException(fileName,i+1,"Il y a un caract�re autre que E,W,A,D dans le fichier texte."); //ligne de 1 � n, et non de 0 � n-1	
+						throw new MazeReadingException(fileName,i+1,"There is a character other than E,W,A,D in the text file."); //ligne de 1 � n, et non de 0 � n-1	
 
 				}
 				larg.add(box);
@@ -92,10 +92,10 @@ public class Maze implements GraphInterface
 		}
 		if (compteurA == 0) {
 
-			throw new MazeReadingException(fileName, 0, "Il n'y a pas d'arriv�e dans le labyrinthe.");
+			throw new MazeReadingException(fileName, 0, "There is no arrival in the maze.");
 		}
 		if (compteurD == 0) {
-			throw new MazeReadingException(fileName, 0, "Il n'y a pas de d�part dans le labyrinthe.");
+			throw new MazeReadingException(fileName, 0, "There is no departure in the maze.");
 
 		}
 		
@@ -172,7 +172,7 @@ public class Maze implements GraphInterface
 			String strFirstLine = bufferedreader.readLine().trim();
 			int largeurLine1 = strFirstLine.length();
 			if (largeurLine1 == 0) {
-				throw new MazeReadingException(fileName,0,"Cette ligne est vide.");
+				throw new MazeReadingException(fileName,0,"This line is empty.");
 			}
 			lecteur.add(strFirstLine);
 			
@@ -182,7 +182,7 @@ public class Maze implements GraphInterface
 				strCurrentLine = strCurrentLine.trim();
 				if (strCurrentLine.length() != largeurLine1) {
 
-					throw new MazeReadingException(fileName,lineNumber,"Cette ligne n'a pas la m�me longeur que les autres.");
+					throw new MazeReadingException(fileName,lineNumber,"This line has a different length from the others.");
 
 				}
 				lecteur.add(strCurrentLine);
@@ -263,7 +263,7 @@ public class Maze implements GraphInterface
 		try {
 			if (path.contains(depart) == false) {
 
-				throw new DijkstraResolveException("Le labyrinthe donn� n'a pas de solution.");
+				throw new DijkstraResolveException("The submitted maze has no solution.");
 			}
 		}
 		catch(DijkstraResolveException dre){
