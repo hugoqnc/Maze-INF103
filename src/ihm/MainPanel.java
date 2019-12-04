@@ -14,13 +14,13 @@ public class MainPanel extends JPanel{
 	private RightPanel rightPanel;
 	private Window window;
 	private int labyrinthePanelInsideSize;
-	private int resolved;
+	private int status;
 	
 	public MainPanel(Maze maze, int resolved, Window window) { //resolved vaut 1 si on veut le ResolvedMazePanel, 0 sinon
 		super();
 		this.window = window;
 		this.maze = maze;
-		this.resolved = resolved;
+		status = resolved;
 		//setSize(1000, 1000);
 
 		menu = new HeadMenu(this.window);
@@ -28,13 +28,16 @@ public class MainPanel extends JPanel{
 		labyrinthePanel.setPreferredSize(new Dimension(labyrinthePanelInsideSize,labyrinthePanelInsideSize));
 		rightPanel = new RightPanel();
 		
-		//Les deux paragraphes qui suivent ont pour but de centrer un MazePanel rectangulaire dans le labyrinthePanel carré
-		//Je cree un BorderLayout, dans lequel je met au centre le MazePanel à la bonne dimension
+		//Les deux paragraphes qui suivent ont pour but de centrer un MazePanel rectangulaire dans le labyrinthePanel carrï¿½
+		//Je cree un BorderLayout, dans lequel je met au centre le MazePanel ï¿½ la bonne dimension
 		//Je complete le BorderLayout avec highPanel et lowPanel qui completent le vide
 		labyrinthePanel.setLayout(new BorderLayout());
 		JPanel labyrinthePanelInside = null;
-		if (resolved == 1) {
+		if (status == 1) {
 			labyrinthePanelInside = new ResolvedMazePanel(maze);
+		}
+		else if (status==2) {
+			labyrinthePanelInside = new EditPanel(maze);
 		}
 		else {
 			labyrinthePanelInside = new MazePanel(maze);

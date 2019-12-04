@@ -43,11 +43,18 @@ public class Window extends JFrame {
 		window.revalidate(); //pour reactualiser le panel
 
 	}
+	public void editMaze() {
+		window.setContentPane(new MainPanel(this.maze,2,this));
+		window.revalidate(); //pour reactualiser le panel
+	}
 	
 	public void changeMaze(String fileName) {
 		maze = new Maze(fileName);
 		window.setContentPane(new MainPanel(this.maze, 0, this));
 		window.revalidate();
+	}
+	public Maze getMaze() {
+		return maze;
 	}
 	
 	}

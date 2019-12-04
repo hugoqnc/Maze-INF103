@@ -21,7 +21,7 @@ public class HeadMenu extends JMenuBar{
 		
 		setLayout(new GridLayout(1,5));
 		JButton b1 = new JButton("New Maze");
-		JButton b2 = new JButton("Edit Maze");
+		JButton b2 = new EditButton(this.window);
 		JButton b3 = new ResolveButton(this.window);
 		JButton b4 = new JButton("Save Maze");
 		JButton b5 = new LoadButton(this.window);
