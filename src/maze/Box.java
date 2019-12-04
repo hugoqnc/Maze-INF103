@@ -1,12 +1,16 @@
-package tp04;
+package maze;
 
-import java.util.ArrayList;
+import java.awt.Color;
+
+
+import dijkstra.VertexInterface;
 
 public abstract class Box 
 	implements VertexInterface
 	{
 	private int coordinateI;
 	private int coordinateJ;
+	private Color color;
 	
 	public Box(int coordinateI, int coordinateJ) {//constructeur de Box
 		this.coordinateI = coordinateI;
@@ -18,6 +22,9 @@ public abstract class Box
 	public int getCoordinateJ() {
 		return coordinateJ;}
 	
+	public Color getColor() {
+		return color;}
+	
 	public String getLabel() {//renvoie identifiant de la box par "coordinateI,coordinateJ"
 		return(String.valueOf(coordinateI) +","+ String.valueOf(coordinateJ));
 	}
@@ -25,10 +32,10 @@ public abstract class Box
 	public boolean empty() {
 		return false;}
 	
-	public String status();	
+	public abstract String status();	
 	
 
-	}
+
 	
 
 

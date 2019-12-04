@@ -1,6 +1,4 @@
-package tp04;
-
-import java.util.ArrayList;
+package dijkstra;
 
 public interface ASetInterface {
 	
