@@ -23,7 +23,7 @@ public class HeadMenu extends JMenuBar{
 		JButton b2 = new JButton("New Maze");
 		JButton b3 = new EditButton(this.window);
 		JButton b5 = new ResolveButton(this.window);
-		JButton b4 = new JButton("Save Maze");
+		JButton b4 = new SaveButton(this.window);
 		JButton b1 = new LoadButton(this.window);
 		add(b1); add(b2); add(b3); add(b4); add(b5);
 

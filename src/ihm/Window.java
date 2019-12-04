@@ -60,5 +60,11 @@ public class Window extends JFrame {
 	public Maze getMaze() {
 		return maze;
 	}
+	public int getLongueur() {
+		return longueur;
+	}
+	public int getLargeur() {
+		return largeur;
+	}
 	
 	}
