@@ -68,11 +68,8 @@ public class Maze implements GraphInterface
 					arrivee = (ABox)box;
 					compteurA++;
 					if (compteurA > 1){
-<<<<<<< HEAD
-						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs arriv�es, mais elle doit �tre unique");
-=======
 						throw new MazeReadingException(fileName, i+1, "Le labyrinthe a plusieurs arriv�es. Elle doit �tre unique.");
->>>>>>> Hugo
+
 					}
 				
 				}
@@ -81,36 +78,25 @@ public class Maze implements GraphInterface
 					depart = (DBox)box;
 					compteurD++;
 					if (compteurD > 1){
-<<<<<<< HEAD
-						throw new MazeReadingException(fileName, i+1, "Il y a plusieurs d�parts, mais il doit �tre unique");
-					}
-				}
-				else {
-						throw new MazeReadingException(fileName,i+1,"Il y a un caract�re autre que E,W,A,D dans le fichier texte"); //ligne de 1 � n, et non de 0 � n-1	
-=======
+
 						throw new MazeReadingException(fileName, i+1, "Le labyrinthe a plusieurs d�parts. Il doit �tre unique.");
 					}
 				}
 				else {
 						throw new MazeReadingException(fileName,i+1,"Il y a un caract�re autre que E,W,A,D dans le fichier texte."); //ligne de 1 � n, et non de 0 � n-1	
->>>>>>> Hugo
+
 				}
 				larg.add(box);
 			}
 			maze.add(larg);
 		}
 		if (compteurA == 0) {
-<<<<<<< HEAD
-			throw new MazeReadingException(fileName, 0, "Il n'y a pas d'arriv�e dans le labyrinthe");
-		}
-		if (compteurD == 0) {
-			throw new MazeReadingException(fileName, 0, "Il n'y a pas de d�part dans le labyrinthe");
-=======
+
 			throw new MazeReadingException(fileName, 0, "Il n'y a pas d'arriv�e dans le labyrinthe.");
 		}
 		if (compteurD == 0) {
 			throw new MazeReadingException(fileName, 0, "Il n'y a pas de d�part dans le labyrinthe.");
->>>>>>> Hugo
+
 		}
 		
 		}
@@ -195,11 +181,9 @@ public class Maze implements GraphInterface
 			while ((strCurrentLine = bufferedreader.readLine()) != null) {//trim supprime espaces superflux eventuels en fin de texte
 				strCurrentLine = strCurrentLine.trim();
 				if (strCurrentLine.length() != largeurLine1) {
-<<<<<<< HEAD
-					throw new MazeReadingException(fileName,lineNumber,"Cette ligne n'a pas la m�me longeur que les autres");
-=======
+
 					throw new MazeReadingException(fileName,lineNumber,"Cette ligne n'a pas la m�me longeur que les autres.");
->>>>>>> Hugo
+
 				}
 				lecteur.add(strCurrentLine);
 				lineNumber ++;
