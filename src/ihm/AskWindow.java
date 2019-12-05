@@ -79,8 +79,6 @@ private String filePath;
 		
 		length = (int) o1;
 		width = (int) o2;
-		System.out.println(length);
-		System.out.println(width);
 
 	}
 	

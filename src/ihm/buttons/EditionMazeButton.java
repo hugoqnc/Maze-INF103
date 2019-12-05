@@ -55,6 +55,7 @@ public class EditionMazeButton extends JButton implements ActionListener{
 			maze.setBox(coordinateI,coordinateJ, box);
 		}
 		setBackground(color);
+		setOpaque(true);
 	}
 	
 	public String getStatus() {
