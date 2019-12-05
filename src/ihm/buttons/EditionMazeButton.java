@@ -30,28 +30,28 @@ public class EditionMazeButton extends JButton implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent evt) {
-		if (status.contentEquals("W")) {
-			status  = "E";
-			color = Color.WHITE;
-			EBox box = new EBox(coordinateI,coordinateJ);
+		if (status.contentEquals("E")) {
+			status  = "W";
+			WBox box = new WBox(coordinateI,coordinateJ);
+			color = box.getColor();
 			maze.setBox(coordinateI,coordinateJ, box);
 		}
-		else if (status.contentEquals("E")) {
+		else if (status.contentEquals("W")) {
 			status  = "D";
-			color = Color.GREEN;
 			DBox box = new DBox(coordinateI,coordinateJ);
+			color = box.getColor();
 			maze.setBox(coordinateI,coordinateJ, box);
 		}
 		else if (status.contentEquals("D")) {
 			status  = "A";
-			color = Color.RED;
 			ABox box = new ABox(coordinateI,coordinateJ);
+			color = box.getColor();
 			maze.setBox(coordinateI,coordinateJ, box);
 		}
 		else if (status.contentEquals("A")) {
-			status  = "W";
-			color = Color.BLACK;
-			WBox box = new WBox(coordinateI,coordinateJ);
+			status  = "E";
+			EBox box = new EBox(coordinateI,coordinateJ);
+			color = box.getColor();
 			maze.setBox(coordinateI,coordinateJ, box);
 		}
 		setBackground(color);
