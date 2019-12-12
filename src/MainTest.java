@@ -18,7 +18,7 @@ public class MainTest {
 			e.printStackTrace();
 		}
 		
-	    Maze maze = new Maze("data/DefaultMaze.txt");
+	    Maze maze = new Maze("data/SampleMaze.txt");
 	    
 		new Window("Labyrinthe", maze);
 
