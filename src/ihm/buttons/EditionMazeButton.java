@@ -38,7 +38,7 @@ public class EditionMazeButton extends JButton implements MouseListener{
 	}
 	
 	public void mouseClicked(MouseEvent e) {
-		if (e.getButton()==1) {
+		if (e.getButton()==3) {
 			
 			
 		if (status.contentEquals("E")) {
@@ -106,7 +106,7 @@ public class EditionMazeButton extends JButton implements MouseListener{
  	}
  	
  	public void mousePressed(MouseEvent e) {
- 		if (e.getButton()==3) {
+ 		if (e.getButton()==1) {
  		trackOn.setStatusOn(true);
  		trackOn.setStatusBox(status);
  		mouseTrack();
