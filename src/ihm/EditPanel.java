@@ -9,6 +9,7 @@ import maze.*;
 public class EditPanel extends JPanel {
 	
 	private Maze maze;
+	private MouseTrackEdition trackOn = new MouseTrackEdition();
 
 	public EditPanel(Maze maze) {
 		super();
@@ -19,7 +20,7 @@ public class EditPanel extends JPanel {
 		setLayout(new GridLayout(longueur, largeur));
 		for (int i=0; i<longueur; i++) {
 			for (int j=0; j<largeur; j++) {
-				EditionMazeButton button= new EditionMazeButton(this.maze, i ,j);
+				EditionMazeButton button= new EditionMazeButton(this.maze, i ,j,trackOn);
 				add(button);
 			}
 		}
