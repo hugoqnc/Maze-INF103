@@ -34,13 +34,13 @@ public class MainPanel extends JPanel{
 		labyrinthePanel.setLayout(new BorderLayout());
 		JPanel labyrinthePanelInside = null;
 		if (status == 1) {
-			labyrinthePanelInside = new ResolvedMazePanel(maze);
+			labyrinthePanelInside = new ResolvedMazePanel(window);
 		}
 		else if (status==2) {
-			labyrinthePanelInside = new EditPanel(maze);
+			labyrinthePanelInside = new EditPanel(window);
 		}
 		else {
-			labyrinthePanelInside = new MazePanel(maze);
+			labyrinthePanelInside = new MazePanel(window);
 		}
 		labyrinthePanelInsideSize = 600;
 		int length = maze.getLongeur();
