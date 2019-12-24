@@ -14,7 +14,9 @@ public class Window extends JFrame {
 	private int longueur;
 	private int largeur;
 	private Maze maze;
+	
 	private MainPanel mainPanel;
+	private int mazeMode; //vaut 0 si le maze est en mode affichage, 1 pour resolu et 2 pour edition
 	
 	//interface graphique
 	public Window(String title, Maze maze) {//constructeur
@@ -25,6 +27,8 @@ public class Window extends JFrame {
 		this.longueur = 1000;
 		this.largeur = 700;
 		this.title = title;
+		mazeMode = 0;
+		
 		window = new JFrame();
 		window.setTitle(this.title);//nom de la fenetre
 		window.setSize(this.longueur, this.largeur);//taille (en pixel)
@@ -32,7 +36,7 @@ public class Window extends JFrame {
 		ImageIcon img = new ImageIcon("data/MazeIcon2.png"); //creation de l'icone de la fenetre
 		window.setIconImage(img.getImage());
 
-		mainPanel = new MainPanel(0, this);
+		mainPanel = new MainPanel(this);
 	    window.setContentPane(mainPanel);
 		
 		window.setLocationRelativeTo(null);//position centrale sur l'ecran
@@ -43,23 +47,33 @@ public class Window extends JFrame {
 		}
 	
 	public void resolveMaze() {
-		window.setContentPane(new MainPanel(1, this));
+		window.setContentPane(new MainPanel(this));
 		window.revalidate(); //pour reactualiser le panel
 
 	}
 	public void editMaze() {
-		window.setContentPane(new MainPanel(2,this));
+		window.setContentPane(new MainPanel(this));
 		window.revalidate(); //pour reactualiser le panel
 	}
 	
 	public void changeMaze(String fileName) {
 		maze = new Maze(fileName);
-		window.setContentPane(new MainPanel(0, this));
+		window.setContentPane(new MainPanel(this));
 		window.revalidate();
 	}
+	
 	public Maze getMaze() {
 		return maze;
 	}
+	
+	public void setMazeMode(int value) {
+		mazeMode = value;
+	}
+	
+	public int getMazeMode() {
+		return mazeMode;
+	}
+	
 	
 
 	}

@@ -25,6 +25,7 @@ public class SaveButton extends JButton implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent evt) {
+		window.setMazeMode(0);
 			try{
 				fileName = window.getMaze().getFileName();
 				FileWriter editFile = new FileWriter(fileName,false);
@@ -36,8 +37,8 @@ public class SaveButton extends JButton implements ActionListener{
 				editLector.newLine();
 				}
 				editLector.close();
-				//le nouveau fichier est maintenant sauvegardé
-				window.changeMaze(fileName); //quitte le mode édition
+				//le nouveau fichier est maintenant sauvegardï¿½
+				window.changeMaze(fileName); //quitte le mode ï¿½dition
 			}catch (IOException e) {
 				e.printStackTrace();
 				}

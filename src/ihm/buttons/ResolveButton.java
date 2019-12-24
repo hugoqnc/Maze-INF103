@@ -22,7 +22,7 @@ public class ResolveButton extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent evt) {
 		SaveButton b = new SaveButton(window);
 		b.actionPerformed(null); //enregistre si on est dans le mode Edit avant de resoudre
-
+		window.setMazeMode(1);
 		window.resolveMaze();
 		
 	}

@@ -43,11 +43,11 @@ public class NewButton extends JButton implements ActionListener{
 			editLector.newLine();
 			}
 			editLector.close();
-			//le nouveau fichier est maintenant sauvegardé
+			//le nouveau fichier est maintenant sauvegardï¿½
 		}catch (IOException e) {
 			e.printStackTrace();
 			}
-		
+		window.setMazeMode(0);
 		window.changeMaze(filePath);
 		window.editMaze();
 
