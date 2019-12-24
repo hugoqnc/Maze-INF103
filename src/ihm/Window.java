@@ -32,7 +32,7 @@ public class Window extends JFrame {
 		ImageIcon img = new ImageIcon("data/MazeIcon2.png"); //creation de l'icone de la fenetre
 		window.setIconImage(img.getImage());
 
-		mainPanel = new MainPanel(this.maze, 0, this);
+		mainPanel = new MainPanel(0, this);
 	    window.setContentPane(mainPanel);
 		
 		window.setLocationRelativeTo(null);//position centrale sur l'ecran
@@ -43,22 +43,23 @@ public class Window extends JFrame {
 		}
 	
 	public void resolveMaze() {
-		window.setContentPane(new MainPanel(this.maze, 1, this));
+		window.setContentPane(new MainPanel(1, this));
 		window.revalidate(); //pour reactualiser le panel
 
 	}
 	public void editMaze() {
-		window.setContentPane(new MainPanel(this.maze,2,this));
+		window.setContentPane(new MainPanel(2,this));
 		window.revalidate(); //pour reactualiser le panel
 	}
 	
 	public void changeMaze(String fileName) {
 		maze = new Maze(fileName);
-		window.setContentPane(new MainPanel(this.maze, 0, this));
+		window.setContentPane(new MainPanel(0, this));
 		window.revalidate();
 	}
 	public Maze getMaze() {
 		return maze;
 	}
+	
 
 	}

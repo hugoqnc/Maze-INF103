@@ -16,10 +16,10 @@ public class MainPanel extends JPanel{
 	private int labyrinthePanelInsideSize;
 	private int status;
 	
-	public MainPanel(Maze maze, int resolved, Window window) { //resolved vaut 2 si on veut l'EditPanel, 1 si on veut le ResolvedMazePanel, 0 sinon
+	public MainPanel(int resolved, Window window) { //resolved vaut 2 si on veut l'EditPanel, 1 si on veut le ResolvedMazePanel, 0 sinon
 		super();
 		this.window = window;
-		this.maze = maze;
+		this.maze = window.getMaze();
 		status = resolved;
 		//setSize(1000, 1000);
 
