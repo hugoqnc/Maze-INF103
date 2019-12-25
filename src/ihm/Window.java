@@ -29,37 +29,38 @@ public class Window extends JFrame {
 		this.title = title;
 		mazeMode = 0;
 		
-		window = new JFrame();
-		window.setTitle(this.title);//nom de la fenetre
-		window.setSize(this.longueur, this.largeur);//taille (en pixel)
+		//window = new JFrame();
+		setTitle(this.title);//nom de la fenetre
+		setSize(this.longueur, this.largeur);//taille (en pixel)
 		
 		ImageIcon img = new ImageIcon("data/MazeIcon2.png"); //creation de l'icone de la fenetre
-		window.setIconImage(img.getImage());
+		setIconImage(img.getImage());
 
 		mainPanel = new MainPanel(this);
-	    window.setContentPane(mainPanel);
+	    setContentPane(mainPanel);
 		
-		window.setLocationRelativeTo(null);//position centrale sur l'ecran
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
-		window.setResizable(false); //empeche redimensionnement de la fenetre
-	    window.pack();
-	    window.setVisible(true);
+		setLocationRelativeTo(null);//position centrale sur l'ecran
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
+		setResizable(false); //empeche redimensionnement de la fenetre
+	    pack();
+	    setVisible(true);
 		}
 	
 	public void resolveMaze() {
-		window.setContentPane(new MainPanel(this));
-		window.revalidate(); //pour reactualiser le panel
+		setContentPane(new MainPanel(this));
+		revalidate(); //pour reactualiser le panel
 
 	}
 	public void editMaze() {
-		window.setContentPane(new MainPanel(this));
-		window.revalidate(); //pour reactualiser le panel
+		setContentPane(new MainPanel(this));
+		revalidate(); //pour reactualiser le panel
 	}
 	
 	public void changeMaze(String fileName) {
 		maze = new Maze(fileName);
-		window.setContentPane(new MainPanel(this));
-		window.revalidate();
+		setContentPane(new MainPanel(this));
+		revalidate();
+
 	}
 	
 	public Maze getMaze() {

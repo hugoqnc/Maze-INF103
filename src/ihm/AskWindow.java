@@ -11,14 +11,14 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class AskWindow extends JFrame {
-private JFrame window;
+
 private int length;
 private int width;
 private String filePath;
 	
 	public AskWindow() {
 		super();
-		window = new JFrame();
+
 		Integer[] values = new Integer[98];
 		for (int i =0; i<values.length; i++) {
 			values[i] = i+2;
@@ -29,7 +29,7 @@ private String filePath;
 		fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("*.txt", "txt"));
 		//FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files","txt");
 	    //fileChooser.setFileFilter(filter);		 
-		int userSelection = fileChooser.showSaveDialog(window);
+		int userSelection = fileChooser.showSaveDialog(this);
 
 		try {
 		if (userSelection == JFileChooser.APPROVE_OPTION) {
