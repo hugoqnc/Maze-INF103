@@ -9,17 +9,19 @@ import maze.Maze;
 
 public class RightPanel extends JPanel{
 	private JPanel menu;
-	private String message = "<html><body>"
-			+ "Utilisation du menu Edition :"
-			+ "<br />"
-			+ "Clique gauche et maintenir pour changer plusieurs cases d'un coup."
-			+ "<br />"
-			+ "Clique droit pour changer une case à la fois et définir les cases départ et arrivée."
-			+ "</body></html>";
+	
+	private String message = 
+			"<html><h2>Manual :</h2>"
+			+ "<h3>Edit :</h3>"
+			+ "<p>Left click to add/remove walls</p>"
+			+ "<p>Left click and maintain to add/remove several walls</p>"
+			+ "<P>Right click to add/remove a departure/arrival</p>"
+			+ "<h3>Load :</h3></html>";
 	private String title ="Edition Menu";
 	
 	public RightPanel() {//constructeur
 		super();
+		
 		setPreferredSize(new Dimension(400,600));
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(new FlowLayout());
