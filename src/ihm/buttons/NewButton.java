@@ -47,7 +47,7 @@ public class NewButton extends JButton implements ActionListener{
 		}catch (IOException e) {
 			e.printStackTrace();
 			}
-		window.setMazeMode(0);
+		window.setMazeMode(2);
 		window.changeMaze(filePath);
 		window.editMaze();
 

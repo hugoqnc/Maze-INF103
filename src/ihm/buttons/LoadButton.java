@@ -19,7 +19,7 @@ public class LoadButton extends JButton implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent evt) {
-		window.setMazeMode(1);
+		window.setMazeMode(0);
 		JFileChooser chooser = new JFileChooser();
 		chooser.setDialogTitle("Choose the maze you want to load");
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files","txt");
