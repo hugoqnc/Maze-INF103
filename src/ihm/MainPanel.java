@@ -38,6 +38,7 @@ public class MainPanel extends JPanel{
 		else {
 			labyrinthePanelInside = new MazePanel(window);
 		}
+		//labyrinthePanelInside.setBackground(Color.LIGHT_GRAY);
 		
 		//Les deux paragraphes qui suivent ont pour but de centrer un MazePanel rectangulaire dans le labyrinthePanel carre
 		//Je cree un BorderLayout, dans lequel je met au centre le MazePanel a la bonne dimension

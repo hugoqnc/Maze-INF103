@@ -20,7 +20,7 @@ public class MainTest {
 		
 	    Maze maze = new Maze("data/SampleMaze.txt");
 	    
-		new Window("Labyrinthe", maze);
+		new Window("Maze", maze);
 
 	}
 

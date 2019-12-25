@@ -32,7 +32,7 @@ public class RightPanel extends JPanel{
 		super();
 		
 		setPreferredSize(new Dimension(400,600));
-		setBackground(Color.LIGHT_GRAY);
+		//setBackground(Color.LIGHT_GRAY);
 		setLayout(new FlowLayout());
 		JLabel label = new JLabel(message);
 		add(label);
