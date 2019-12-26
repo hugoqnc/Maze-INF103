@@ -25,7 +25,7 @@ private String filePath;
 		}
 		
 		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.setDialogTitle("Name your new maze with \".txt\" extension");
+		fileChooser.setDialogTitle("Name your new maze");
 		fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("*.txt", "txt"));
 		//FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files","txt");
 	    //fileChooser.setFileFilter(filter);		 
@@ -35,28 +35,43 @@ private String filePath;
 		if (userSelection == JFileChooser.APPROVE_OPTION) {
 		    File file = fileChooser.getSelectedFile();
 		    String name = file.getName();
+		    int extension = 0; //vaut 0 pour un nom de fichier donné finissant par .txt, vaut 1 sinon
 		    if (name.contains(".txt") == false) {
-		    	new ErrorWindow("File Error", "Please start again and make sure that your new file name finishes with \".txt\".");
-		    	throw new RuntimeException("The new file is not a text file");
+		    	extension = 1;
+		    	//new ErrorWindow("File Error", "Please start again and make sure that your new file name finishes with \".txt\".");
+		    	//throw new RuntimeException("The new file is not a text file");
 		    }
 		    
-		    if(file.createNewFile()){
-	            this.filePath = file.getAbsolutePath();
-	        }
-		    else {
-		    	new ErrorWindow("File Error", "This file already exists. Choose another name.");
-		    	throw new RuntimeException("This file already exists");
+		    if (extension == 0) {
+		    	if (file.exists()==false) {
+		    		this.filePath = file.getAbsolutePath();
+		    	}
+		    	else {
+			    	new ErrorWindow("File Error", "This file already exists. Choose another name.");
+			    	throw new RuntimeException("This file already exists");
+		    	}
 		    }
+		    if (extension == 1) {
+		    	File filetxt = new File(file.getAbsolutePath() + ".txt");
+		    	if (filetxt.exists()==false) {
+		    		this.filePath = filetxt.getAbsolutePath();
+		    	}
+		    	else {
+			    	new ErrorWindow("File Error", "This file already exists. Choose another name.");
+			    	throw new RuntimeException("This file already exists");
+		    	}
+		    }
+		    
 		}
 		else {
-			new ErrorWindow("Ignored Input Dialog", "Please start again and make sure to fill all the dialogs.");
+			//new ErrorWindow("Ignored Input Dialog", "Please start again and make sure to fill all the dialogs.");
 			throw new RuntimeException("The file chooser dialog has been ignored");
 		}
 		}
-		catch (IOException e) {
+		//catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			//e.printStackTrace();
+		//}
 		catch(RuntimeException rte){
 			rte.printStackTrace();
 			throw new RuntimeException("Exception to stop the current process");

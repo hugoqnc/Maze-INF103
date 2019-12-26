@@ -43,7 +43,7 @@ public class NewButton extends JButton implements ActionListener{
 			editLector.newLine();
 			}
 			editLector.close();
-			//le nouveau fichier est maintenant sauvegard�
+			//le nouveau fichier est maintenant sauvegarde
 		}catch (IOException e) {
 			e.printStackTrace();
 			}
