@@ -57,7 +57,7 @@ private String filePath;
 		    		this.filePath = filetxt.getAbsolutePath();
 		    	}
 		    	else {
-			    	new ErrorWindow("File Error", "This file already exists. Choose another name.");
+			    	new ErrorWindow("File Error", "This file already exists. Try again and choose another name.");
 			    	throw new RuntimeException("This file already exists");
 		    	}
 		    }
