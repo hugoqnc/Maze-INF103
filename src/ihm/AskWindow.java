@@ -73,7 +73,7 @@ private String filePath;
 			//e.printStackTrace();
 		//}
 		catch(RuntimeException rte){
-			rte.printStackTrace();
+			//rte.printStackTrace();
 			throw new RuntimeException("Exception to stop the current process");
 		}
 		
@@ -88,7 +88,7 @@ private String filePath;
 			
 		}
 		catch(RuntimeException rte){
-			rte.printStackTrace();
+			//rte.printStackTrace();
 			new ErrorWindow("Ignored Input Dialog", "Please start again and make sure to fill all the dialogs.");
 		}
 		
