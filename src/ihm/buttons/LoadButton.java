@@ -27,8 +27,12 @@ public class LoadButton extends JButton implements ActionListener{
 	    chooser.setFileFilter(filter);
 	    int returnVal = chooser.showOpenDialog(window);
 	    if(returnVal == JFileChooser.APPROVE_OPTION) {
-	       //System.out.println("You chose to open this file: " + chooser.getSelectedFile().getPath());
-	       window.changeMaze(chooser.getSelectedFile().getPath());
+	    	if (chooser.getSelectedFile().exists()) {
+	    		window.changeMaze(chooser.getSelectedFile().getPath());
+	    	}
+	    	else {
+	    		new ErrorWindow("Non-existent File","Please try again and choose an existing .txt file.");
+	    	}
 	    }
 	    
 		
