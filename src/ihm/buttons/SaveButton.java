@@ -28,10 +28,10 @@ public class SaveButton extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent evt) {
 		window.setMazeMode(0);
 			try{
-				//Methode : on cree une copie Copy du fichier txt comprenant la version editee du labyrinthe
+				//Methode : on cree une copie EDITED du fichier txt comprenant la version editee du labyrinthe
 				//Si cette version ne contient pas de fautes, alors on remplace la version actuelle par la version editee, et on supprime le fichier Copy
 				//Si cette version contient une faute, alors on garde dans le fichier texte l'ancienne version sans fautes
-				String fileNameNew = fileName.substring(0,fileName.length() - 4) + "Copy.txt"; //change le nom "test.txt" en "testCopy.txt"
+				String fileNameNew = fileName.substring(0,fileName.length() - 4) + "1.txt"; //change le nom "test.txt" en "test1.txt", qui devient le fichier EDITED
 				FileWriter editFile = new FileWriter(fileNameNew,false);
 				BufferedWriter editLector = new BufferedWriter(editFile);
 				for (int i=0; i<window.getMaze().getLongeur();i++) {
@@ -41,11 +41,11 @@ public class SaveButton extends JButton implements ActionListener{
 				editLector.newLine();
 				}
 				editLector.close();
-				//le nouveau fichier Copy est maintenant sauvegarde
+				//le nouveau fichier EDITED est maintenant sauvegarde
 				File oldFile = new File(fileName); 
 				File newFile = new File (fileNameNew);
 				try {
-					Maze mazeNew = new Maze(fileNameNew); //Permet de verifier si le nouveau fichier Copy contient une faute
+					Maze mazeNew = new Maze(fileNameNew); //Permet de verifier si le nouveau fichier EDITED contient une faute
 				}
 				catch(RuntimeException rte) {
 					newFile.delete(); //si oui, on le supprime et on stoppe l'execution de la methode
