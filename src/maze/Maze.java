@@ -103,16 +103,16 @@ public class Maze implements GraphInterface
 	
 
 	
-	public int getLongeur() {
+	public final int getLongeur() {
 		return longeur;
 	}
 	
-	public int getLargeur() {
+	public final int getLargeur() {
 		return largeur;
 	}
 	
 
-	public ArrayList<VertexInterface> getAllVertices() {
+	public final ArrayList<VertexInterface> getAllVertices() {
 		
 		ArrayList<VertexInterface> allVertices = new ArrayList<VertexInterface>();
 		for (int i = 0; i<longeur; i++) {
@@ -123,12 +123,12 @@ public class Maze implements GraphInterface
 		return allVertices;
 	}
 	
-	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex){
+	public final ArrayList<VertexInterface> getSuccessors(VertexInterface vertex){
 		Box box = (Box)vertex;
 		return emptyVoisin(box);
 	}
 	
-	public int getWeight(VertexInterface src,VertexInterface dst) {// à modifier si graph pondéré.
+	public final int getWeight(VertexInterface src,VertexInterface dst) {// à modifier si graph pondéré.
 		Box boxSrc = (Box)src ;
 		Box boxDst = (Box)dst ;
 		return 1;
@@ -146,7 +146,7 @@ public class Maze implements GraphInterface
 	      }	}
 	*/
 	
-	public ArrayList<String> lecteur(String fileName) {
+	public final ArrayList<String> lecteur(String fileName) {
 		//creation d'une liste de string a traiter
 		ArrayList<String> lecteur = new ArrayList<String>();
 		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
@@ -184,7 +184,7 @@ public class Maze implements GraphInterface
 		return lecteur;
 	}
 
-	public ArrayList<Box> voisin(Box box){//return la liste des voisins de box. Attention, quelque soit leur nature !
+	public final ArrayList<Box> voisin(Box box){//return la liste des voisins de box. Attention, quelque soit leur nature !
 		int i = box.getCoordinateI();
 		int j = box.getCoordinateJ();
 		ArrayList<Box> voisins = new ArrayList<Box>();
@@ -205,7 +205,7 @@ public class Maze implements GraphInterface
 		}
 		return (voisins);}
 		
-	public ArrayList<VertexInterface> emptyVoisin(Box box){//return la liste des voisins libre (empty) de box
+	public final ArrayList<VertexInterface> emptyVoisin(Box box){//return la liste des voisins libre (empty) de box
 		ArrayList<Box> voisins = voisin(box);
 		ArrayList<VertexInterface> emptyVoisins = new ArrayList<VertexInterface>();
 		Iterator<Box> iter = voisins.iterator();
@@ -218,27 +218,27 @@ public class Maze implements GraphInterface
 		return emptyVoisins;
 	}
 		   
-	public Box getDepart() {
+	public final Box getDepart() {
 		return depart;
 	}
 	
-	public Box getArrivee() {
+	public final Box getArrivee() {
 		return arrivee;
 	
 	}
 	
-	public void setBox(int coordinateI, int coordinateJ, Box box) {
+	public final void setBox(int coordinateI, int coordinateJ, Box box) {
 		ArrayList<Box> ligneBox = maze.get(coordinateI);
 		ligneBox.set(coordinateJ, box);
 		maze.set(coordinateI, ligneBox);
 	}
 	
 
-	public Box getBox(int coordinateI, int coordinateJ) {
+	public final Box getBox(int coordinateI, int coordinateJ) {
 		return maze.get(coordinateI).get(coordinateJ);
 	}
 	
-	public ArrayList<VertexInterface> shortestPath(){
+	public final ArrayList<VertexInterface> shortestPath(){
 		PreviousInterface previous = Dijkstra.dijkstra(this, depart);
 		ArrayList<VertexInterface> path = previous.getShortestPathTo(arrivee);
 		try {
@@ -255,7 +255,7 @@ public class Maze implements GraphInterface
 		}
 		return path;
 	}
-	public String getFileName() {
+	public final String getFileName() {
 		return fileName;
 	}
 }

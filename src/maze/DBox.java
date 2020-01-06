@@ -12,17 +12,17 @@ public class DBox extends Box{
 		}
 	
 	@Override
-	public boolean empty() {
+	public final boolean empty() {
 		return true;
 	}
 	
 	@Override
-	public String status() {
+	public final String status() {
 		return("D");
 	}
 	
 	@Override
-	public Color getColor() {
+	public final Color getColor() {
 		return color;
 	}
 	

@@ -13,17 +13,17 @@ public class ABox extends Box{
 		}
 	
 	@Override
-	public boolean empty() {
+	public final boolean empty() {
 		return true;
 	}
 	
 	@Override
-	public String status() {
+	public final String status() {
 		return("A");
 	}
 	
 	@Override
-	public Color getColor() {
+	public final Color getColor() {
 		return color;
 	}
 

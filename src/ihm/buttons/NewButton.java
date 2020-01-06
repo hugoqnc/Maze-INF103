@@ -1,5 +1,6 @@
 package ihm.buttons;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
@@ -14,15 +15,16 @@ import maze.Maze;
 
 public class NewButton extends JButton implements ActionListener{
 	
-	private Window window;
+	private final Window window;
 	
 	public NewButton(Window window) {
 		super("New Maze");
 		this.window = window;
+		setBackground(Color.WHITE);
 		addActionListener(this);
 	}
 	
-	public void actionPerformed(ActionEvent evt) {
+	public final void actionPerformed(ActionEvent evt) {// au click, ouverture d'une fenetre avec un deroulant pour determiner la taille du new Maze
 		AskWindow askW = new AskWindow();
 		int length = askW.getLength();
 		int width = askW.getWidth();
