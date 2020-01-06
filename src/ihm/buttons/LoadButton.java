@@ -9,7 +9,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import ihm.*;
 
-public class LoadButton extends JButton implements ActionListener{
+public final class LoadButton extends JButton implements ActionListener{
 	
 	private final Window window;
 	

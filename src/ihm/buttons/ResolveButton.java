@@ -7,7 +7,7 @@ import javax.swing.JButton;
 
 import ihm.*;
 
-public class ResolveButton extends JButton implements ActionListener{
+public final class ResolveButton extends JButton implements ActionListener{
 	
 	private final Window window;
 	

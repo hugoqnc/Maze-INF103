@@ -8,7 +8,7 @@ import javax.swing.JButton;
 
 import ihm.*;
 
-public class EditButton extends JButton implements ActionListener{
+public final class EditButton extends JButton implements ActionListener{
 	
 	private final Window window;
 	

@@ -1,7 +1,7 @@
 package maze;
 
 import java.awt.Color;
-public class WBox extends Box{//case Wall
+public final class WBox extends Box{//case Wall
 
 
 	private static final Color color = Color.BLACK;

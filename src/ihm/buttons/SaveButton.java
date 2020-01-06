@@ -3,8 +3,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
+
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import ihm.*;
 import maze.Maze;
 
-public class SaveButton extends JButton implements ActionListener{
+public final class SaveButton extends JButton implements ActionListener{
 	
 	private final Window window;
 	private String fileName;
