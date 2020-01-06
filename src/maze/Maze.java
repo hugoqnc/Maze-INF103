@@ -16,10 +16,10 @@ import ihm.ErrorWindow;
 public class Maze implements GraphInterface
 	
 	{
-	private String fileName;
+	private final String fileName;
 	private ArrayList< ArrayList<Box> > maze ;
-	private int longeur;
-	private int largeur;
+	private final int longeur;
+	private final int largeur;
 	private DBox depart;
 	private ABox arrivee;
 	
@@ -27,28 +27,20 @@ public class Maze implements GraphInterface
 		return maze;
 	}
 	
-	private static ArrayList<String> caractere(){//liste des caractères acceptes
-		//trouver un endroit plus pertinent pour editer cette fonction et modifier constructeur de maze en consequence
-		ArrayList<String> caractere = new ArrayList<String>();
-		caractere.add("A");
-		caractere.add("W");
-		caractere.add("E");
-		caractere.add("D");
-		return caractere;}
-	
 
 	public Maze(String fileName) { 
 		//BufferedReader reader = new BufferedReader(new FileReader("data/labyrinthe.txt"));
 		this.fileName = fileName;
 		maze = new ArrayList< ArrayList<Box> >();
 		
-		ArrayList<String> lecteur = lecteur(fileName);
+		ArrayList<String> lecteur = lecteur(fileName); //voir la méthode lecteur
 		longeur = lecteur.size();
 		largeur = lecteur.get(0).length();
 
 		int compteurD = 0; //compte le nombre de cases D dans le fichier txt
 		int compteurA = 0; //compte le nombre de cases A dans le fichier txt
 		
+		//Vérification de la conformité du labyrinthe et attribution des cases
 		try {
 		for (int i=0; i<longeur; i++) {
 			ArrayList<Box> larg = new ArrayList<Box>();
@@ -119,20 +111,9 @@ public class Maze implements GraphInterface
 		return largeur;
 	}
 	
-/*	public ArrayList<VertexInterface> getAllVertices() {//A corriger return list of the Vertex 
-		ArrayList<VertexInterface> allVertices = new ArrayList<VertexInterface>();	
-		Iterator<Box> iter = maze.iterator();
-		while (iter.hasNext()) {
-			Box box = (Box)iter.next() ;
-			if (box.empty()) {
-				allVertices.add(box);
-			}}
-		return(allVertices);
-		}
-*/
+
 	public ArrayList<VertexInterface> getAllVertices() {
-		longeur  = getLongeur();
-		largeur = getLargeur();
+		
 		ArrayList<VertexInterface> allVertices = new ArrayList<VertexInterface>();
 		for (int i = 0; i<longeur; i++) {
 			for (int j = 0; j<largeur; j++) {
@@ -258,7 +239,7 @@ public class Maze implements GraphInterface
 	}
 	
 	public ArrayList<VertexInterface> shortestPath(){
-		PreviousInterface previous = Dijkstra.dijkstra(this, (VertexInterface)depart);
+		PreviousInterface previous = Dijkstra.dijkstra(this, depart);
 		ArrayList<VertexInterface> path = previous.getShortestPathTo(arrivee);
 		try {
 			if (path.contains(depart) == false) {

@@ -4,13 +4,10 @@ import java.awt.Color;
 public class WBox extends Box{//case Wall
 
 
-	private int coordinateI;
-	private int coordinateJ;
-	private Color color;
+	private static final Color color = Color.BLACK;
 	
 	public WBox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
-		color =Color.BLACK;
 		}
 	
 	@Override

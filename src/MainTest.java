@@ -17,7 +17,7 @@ public class MainTest {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+		// On construit un Maze par défault
 	    Maze maze = new Maze("data/SampleMaze.txt");
 	    
 		new Window("Labyrinthe", maze);

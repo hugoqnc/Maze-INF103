@@ -5,13 +5,11 @@ import java.awt.Color;
 public class ABox extends Box{
 	
 
-	private int coordinateI;
-	private int coordinateJ;
-	private Color color;
+	private static final Color color = Color.RED;
 	
 	public ABox(int coordinateI, int coordinateJ) {//constructeur de ABox
 		super(coordinateI,coordinateJ);
-		color = Color.RED;
+		
 		}
 	
 	@Override

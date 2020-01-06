@@ -8,9 +8,9 @@ import dijkstra.VertexInterface;
 public abstract class Box 
 	implements VertexInterface
 	{
-	private int coordinateI;
-	private int coordinateJ;
-	private Color color;
+	private final int coordinateI;
+	private final int coordinateJ;
+	private static Color color;
 	
 	public Box(int coordinateI, int coordinateJ) {//constructeur de Box
 		this.coordinateI = coordinateI;
