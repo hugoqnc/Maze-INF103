@@ -1,16 +1,12 @@
 package ihm;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class AskWindow extends JFrame {
+public final class AskWindow extends JFrame {
 
 private int length;
 private int width;
@@ -26,9 +22,7 @@ private String filePath;
 		
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setDialogTitle("Name your new maze");
-		fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("*.txt", "txt"));
-		//FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files","txt");
-	    //fileChooser.setFileFilter(filter);		 
+		fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("*.txt", "txt")); 
 		int userSelection = fileChooser.showSaveDialog(this);
 
 		try {
@@ -51,7 +45,7 @@ private String filePath;
 			    	throw new RuntimeException("This file already exists");
 		    	}
 		    }
-		    if (extension == 1) {
+		    if (extension == 1) { //cas où le fichier ne finit par par .txt
 		    	File filetxt = new File(file.getAbsolutePath() + ".txt");
 		    	if (filetxt.exists()==false) {
 		    		this.filePath = filetxt.getAbsolutePath();
@@ -64,21 +58,15 @@ private String filePath;
 		    
 		}
 		else {
-			//new ErrorWindow("Ignored Input Dialog", "Please start again and make sure to fill all the dialogs.");
 			throw new RuntimeException("The file chooser dialog has been ignored");
 		}
 		}
-		//catch (IOException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		//}
+
 		catch(RuntimeException rte){
-			//rte.printStackTrace();
-			throw new RuntimeException("Exception to stop the current process");
+			throw new RuntimeException("The file chooser dialog has been ignored"); //permet d'arrêter le processus
 		}
-		
 
-
+		//on cree ensuite 2 popups demandant respectivement la longueur et largeur du nouveau labyrinthe
 		Object o1 = JOptionPane.showInputDialog(null, "Length : ", "Choose length (2/3)", JOptionPane.INFORMATION_MESSAGE, null, values, values[0]);
 		Object o2 = JOptionPane.showInputDialog(null, "Width : ", "Choose width (3/3)", JOptionPane.INFORMATION_MESSAGE, null, values, values[0]);
 		try {
@@ -88,7 +76,6 @@ private String filePath;
 			
 		}
 		catch(RuntimeException rte){
-			//rte.printStackTrace();
 			new ErrorWindow("Ignored Input Dialog", "Please start again and make sure to fill all the dialogs.");
 		}
 		
