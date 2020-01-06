@@ -16,7 +16,7 @@ public class HeadMenu extends JMenuBar{
 	public HeadMenu(Window window) {//constructeur
 		super();
 		this.window = window;
-		setPreferredSize(new Dimension(1000,100));
+		setPreferredSize(new Dimension(1100,100));
 		setBackground(Color.WHITE);
 		
 		setLayout(new GridLayout(1,5));

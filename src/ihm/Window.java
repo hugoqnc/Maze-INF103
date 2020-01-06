@@ -23,8 +23,7 @@ public class Window extends JFrame {
 		super();
 
 		this.maze = maze;
-		//window.setPreferredSize(new Dimension(600,600));
-		this.longueur = 1000;
+		this.longueur = 1100;
 		this.largeur = 700;
 		this.title = title;
 		mazeMode = 0;

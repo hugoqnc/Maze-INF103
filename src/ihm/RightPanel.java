@@ -37,7 +37,7 @@ public class RightPanel extends JPanel{
 	public RightPanel() {//constructeur
 		super();
 		
-		setPreferredSize(new Dimension(400,600));
+		setPreferredSize(new Dimension(500,600));
 		//setBackground(Color.LIGHT_GRAY);
 		setLayout(new FlowLayout());
 		JLabel label = new JLabel(message);
