@@ -4,13 +4,15 @@ import ihm.buttons.EditionMazeButton;
 import javax.swing.*;
 import maze.*;
 
-public class EditPanel extends JPanel {
+public class EditPanel extends GeneralMazePanel {
 	
 	private Maze maze;
 	private MouseTrackEdition trackOn = new MouseTrackEdition();
 
 	public EditPanel(Window window) {
-		super();
+		super(window);
+		maze = getMaze();
+		
 		this.maze = window.getMaze();
 		int longueur = maze.getLongeur();
 		int largeur = maze.getLargeur();

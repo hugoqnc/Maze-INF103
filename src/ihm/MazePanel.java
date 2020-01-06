@@ -7,15 +7,13 @@ import maze.Box;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class MazePanel extends JPanel {
+public class MazePanel extends GeneralMazePanel {
 	
-	Maze maze;	
-	Window window;
+	private Maze maze;
 	
 	public MazePanel(Window window) {
-		super();
-		this.window = window;
-		this.maze = window.getMaze();
+		super(window);
+		maze = getMaze();
 
 		ArrayList<ArrayList<Box>> mazeTable = maze.getMaze();
 		mazeTable = maze.getMaze();
