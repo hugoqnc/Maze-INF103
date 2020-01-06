@@ -9,11 +9,13 @@ import maze.*;
 public class EditPanel extends JPanel {
 	
 	private Maze maze;
+	private Window window;
 	private MouseTrackEdition trackOn = new MouseTrackEdition();
 
-	public EditPanel(Maze maze) {
+	public EditPanel(Window window) {
 		super();
-		this.maze = maze;
+		this.window = window;
+		this.maze = window.getMaze();
 		int longueur = maze.getLongeur();
 		int largeur = maze.getLargeur();
 		

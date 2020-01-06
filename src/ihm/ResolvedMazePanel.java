@@ -13,10 +13,12 @@ import java.util.ArrayList;
 public class ResolvedMazePanel extends JPanel {
 	
 	Maze maze;
+	Window window;
 	
-	public ResolvedMazePanel(Maze maze) {
+	public ResolvedMazePanel(Window window) {
 		super();
-		this.maze = maze;
+		this.window = window;
+		this.maze = window.getMaze();
 		
 		ArrayList<ArrayList<Box>> mazeTable = maze.getMaze();
 		

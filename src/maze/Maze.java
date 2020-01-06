@@ -93,7 +93,7 @@ public class Maze implements GraphInterface
 		
 		}
 		catch(MazeReadingException mre){
-			mre.printStackTrace();
+			//mre.printStackTrace();
 			new ErrorWindow(mre.getTitle(), mre.getMessage());
 			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException."); //permet de stopper l'execution du programme
 		}
@@ -176,7 +176,7 @@ public class Maze implements GraphInterface
 			ioe.printStackTrace();
 		}
 		catch (MazeReadingException mre) {
-			mre.printStackTrace();
+			//mre.printStackTrace();
 			new ErrorWindow(mre.getTitle(), mre.getMessage());
 			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException."); //permet de stopper l'execution du programme
 		}
@@ -248,9 +248,9 @@ public class Maze implements GraphInterface
 			}
 		}
 		catch(DijkstraResolveException dre){
-			dre.printStackTrace();
+			//dre.printStackTrace();
 			new ErrorWindow(dre.getTitle(), dre.getMessage());
-			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur DijkstraResolveException."); //permet de stopper l'execution du programme
+			//throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur DijkstraResolveException."); //permet de stopper l'execution du programme
 			
 		}
 		return path;

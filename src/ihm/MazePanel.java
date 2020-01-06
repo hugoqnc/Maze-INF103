@@ -10,10 +10,12 @@ import java.util.ArrayList;
 public class MazePanel extends JPanel {
 	
 	Maze maze;	
+	Window window;
 	
-	public MazePanel(Maze maze) {
+	public MazePanel(Window window) {
 		super();
-		this.maze = maze;
+		this.window = window;
+		this.maze = window.getMaze();
 
 		ArrayList<ArrayList<Box>> mazeTable = maze.getMaze();
 		mazeTable = maze.getMaze();

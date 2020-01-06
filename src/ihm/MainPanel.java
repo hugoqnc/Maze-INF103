@@ -14,34 +14,35 @@ public class MainPanel extends JPanel{
 	private RightPanel rightPanel;
 	private Window window;
 	private int labyrinthePanelInsideSize;
-	private int status;
 	
-	public MainPanel(Maze maze, int resolved, Window window) { //resolved vaut 2 si on veut l'EditPanel, 1 si on veut le ResolvedMazePanel, 0 sinon
+	public MainPanel(Window window) {
 		super();
 		this.window = window;
-		this.maze = maze;
-		status = resolved;
-		//setSize(1000, 1000);
+		this.maze = window.getMaze();
 
 		menu = new HeadMenu(this.window);
 		labyrinthePanel = new JPanel();
 		labyrinthePanel.setPreferredSize(new Dimension(labyrinthePanelInsideSize,labyrinthePanelInsideSize));
 		rightPanel = new RightPanel();
+		int status = window.getMazeMode();
+		
+		
+		labyrinthePanel.setLayout(new BorderLayout());
+		JPanel labyrinthePanelInside = null;
+		if (status == 1) {
+			labyrinthePanelInside = new ResolvedMazePanel(window);
+		}
+		else if (status==2) {
+			labyrinthePanelInside = new EditPanel(window);
+		}
+		else {
+			labyrinthePanelInside = new MazePanel(window);
+		}
+		//labyrinthePanelInside.setBackground(Color.LIGHT_GRAY);
 		
 		//Les deux paragraphes qui suivent ont pour but de centrer un MazePanel rectangulaire dans le labyrinthePanel carre
 		//Je cree un BorderLayout, dans lequel je met au centre le MazePanel a la bonne dimension
 		//Je complete le BorderLayout avec highPanel et lowPanel qui completent le vide
-		labyrinthePanel.setLayout(new BorderLayout());
-		JPanel labyrinthePanelInside = null;
-		if (status == 1) {
-			labyrinthePanelInside = new ResolvedMazePanel(maze);
-		}
-		else if (status==2) {
-			labyrinthePanelInside = new EditPanel(maze);
-		}
-		else {
-			labyrinthePanelInside = new MazePanel(maze);
-		}
 		labyrinthePanelInsideSize = 600;
 		int length = maze.getLongeur();
 		int width = maze.getLargeur();
@@ -82,9 +83,9 @@ public class MainPanel extends JPanel{
 
 		setVisible(true);
 		
-		
-		
 	}
 
-	
+	public void setResolvedPanel() {
+		
+	}
 }

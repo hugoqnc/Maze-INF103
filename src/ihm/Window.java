@@ -14,7 +14,9 @@ public class Window extends JFrame {
 	private int longueur;
 	private int largeur;
 	private Maze maze;
+	
 	private MainPanel mainPanel;
+	private int mazeMode; //vaut 0 si le maze est en mode affichage, 1 pour resolu et 2 pour edition
 	
 	//interface graphique
 	public Window(String title, Maze maze) {//constructeur
@@ -25,40 +27,54 @@ public class Window extends JFrame {
 		this.longueur = 1000;
 		this.largeur = 700;
 		this.title = title;
-		window = new JFrame();
-		window.setTitle(this.title);//nom de la fenetre
-		window.setSize(this.longueur, this.largeur);//taille (en pixel)
+		mazeMode = 0;
+		
+		//window = new JFrame();
+		setTitle(this.title);//nom de la fenetre
+		setSize(this.longueur, this.largeur);//taille (en pixel)
 		
 		ImageIcon img = new ImageIcon("data/MazeIcon2.png"); //creation de l'icone de la fenetre
-		window.setIconImage(img.getImage());
+		setIconImage(img.getImage());
 
-		mainPanel = new MainPanel(this.maze, 0, this);
-	    window.setContentPane(mainPanel);
+		mainPanel = new MainPanel(this);
+	    setContentPane(mainPanel);
 		
-		window.setLocationRelativeTo(null);//position centrale sur l'ecran
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
-		window.setResizable(false); //empeche redimensionnement de la fenetre
-	    window.pack();
-	    window.setVisible(true);
+		setLocationRelativeTo(null);//position centrale sur l'ecran
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fin sur x
+		setResizable(false); //empeche redimensionnement de la fenetre
+	    pack();
+	    setVisible(true);
 		}
 	
 	public void resolveMaze() {
-		window.setContentPane(new MainPanel(this.maze, 1, this));
-		window.revalidate(); //pour reactualiser le panel
+		setContentPane(new MainPanel(this));
+		revalidate(); //pour reactualiser le panel
 
 	}
 	public void editMaze() {
-		window.setContentPane(new MainPanel(this.maze,2,this));
-		window.revalidate(); //pour reactualiser le panel
+		setContentPane(new MainPanel(this));
+		revalidate(); //pour reactualiser le panel
 	}
 	
 	public void changeMaze(String fileName) {
 		maze = new Maze(fileName);
-		window.setContentPane(new MainPanel(this.maze, 0, this));
-		window.revalidate();
+		setContentPane(new MainPanel(this));
+		revalidate();
+
 	}
+	
 	public Maze getMaze() {
 		return maze;
 	}
+	
+	public void setMazeMode(int value) {
+		mazeMode = value;
+	}
+	
+	public int getMazeMode() {
+		return mazeMode;
+	}
+	
+	
 
 	}

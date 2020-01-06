@@ -38,12 +38,12 @@ public class EditionMazeButton extends JButton implements MouseListener{
 	}
 	
 	public void mouseClicked(MouseEvent e) {
-		if (e.getButton()==1) {
+		if (e.getButton()==3) {
 			
 			
 		if (status.contentEquals("E")) {
-			status  = "W";
-			WBox box = new WBox(coordinateI,coordinateJ);
+			status  = "D";
+			DBox box = new DBox(coordinateI,coordinateJ);
 			color = box.getColor();
 			maze.setBox(coordinateI,coordinateJ, box);
 		}
@@ -106,7 +106,7 @@ public class EditionMazeButton extends JButton implements MouseListener{
  	}
  	
  	public void mousePressed(MouseEvent e) {
- 		if (e.getButton()==3) {
+ 		if (e.getButton()==1) {
  		trackOn.setStatusOn(true);
  		trackOn.setStatusBox(status);
  		mouseTrack();
