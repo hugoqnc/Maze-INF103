@@ -1,6 +1,6 @@
 package maze;
 
-public class MazeReadingException extends Exception {
+public final class MazeReadingException extends Exception {
 	
 	private final String messageErreur;
 	

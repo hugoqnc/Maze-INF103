@@ -1,7 +1,5 @@
 package ihm.buttons;
 import maze.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import java.awt.Color;
 import ihm.MouseTrackEdition;
@@ -9,7 +7,7 @@ import ihm.MouseTrackEdition;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 
-public class EditionMazeButton extends JButton implements MouseListener{
+public final class EditionMazeButton extends JButton implements MouseListener{
 	private String status;
 	private final int coordinateI;
 	private final int coordinateJ;

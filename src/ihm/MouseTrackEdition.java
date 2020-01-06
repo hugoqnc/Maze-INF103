@@ -1,6 +1,6 @@
 package ihm;
 
-public class MouseTrackEdition {
+public final class MouseTrackEdition {
 	private boolean statusOn;
 	private String statusBox;
 	

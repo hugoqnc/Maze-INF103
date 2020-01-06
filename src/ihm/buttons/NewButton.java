@@ -11,9 +11,8 @@ import javax.swing.JButton;
 
 import ihm.AskWindow;
 import ihm.Window;
-import maze.Maze;
 
-public class NewButton extends JButton implements ActionListener{
+public final class NewButton extends JButton implements ActionListener{
 	
 	private final Window window;
 	

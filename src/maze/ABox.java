@@ -2,7 +2,7 @@ package maze;
 
 import java.awt.Color;
 
-public class ABox extends Box{
+public final class ABox extends Box{
 	
 
 	private static final Color color = Color.RED;
