@@ -32,9 +32,9 @@ public class ResolvedMazePanel extends GeneralMazePanel {
 			for (int j=0; j<largeur; j++) {
 				Box box = mazeTable.get(i).get(j);
 				if (path.contains(box) && (box.equals(maze.getDepart())==false) && (box.equals(maze.getArrivee())==false)){
-					pathInt = 1;
+					pathInt = 1;//signale que ces cases se trouvent sur le chemin solution (hors celles de depart/arrivee)
 				}
-				BoxPanel boxPanel = new BoxPanel(box, pathInt);
+				BoxPanel boxPanel = new BoxPanel(box, pathInt);//ajoute un point bleu aux cases sur le chemin solution
 				add(boxPanel);
 				pathInt = 0;
 			}

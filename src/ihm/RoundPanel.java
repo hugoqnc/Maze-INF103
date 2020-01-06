@@ -11,7 +11,7 @@ public class RoundPanel extends JPanel {
 		int w = getWidth();
 		int h = getHeight();
 		g.setColor(Color.BLUE);
-		g.fillOval(w/4, h/4, w/2, h/2);
+		g.fillOval(w/4, h/4, w/2, h/2);//centre l'ovale en donnant l'emplacement de son pixel haut gauche
 		
 	}
 

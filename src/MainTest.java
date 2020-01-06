@@ -20,7 +20,7 @@ public class MainTest {
 		// On construit un Maze par défault
 	    Maze maze = new Maze("data/SampleMaze.txt");
 	    
-		new Window("Maze", maze);
+		new Window("Maze of Hugo & Julie", maze);
 
 	}
 

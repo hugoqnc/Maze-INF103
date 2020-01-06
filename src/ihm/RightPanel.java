@@ -8,9 +8,8 @@ import javax.swing.*;
 import maze.Maze;
 
 public class RightPanel extends JPanel{
-	private JPanel menu;
 	
-	private String message = 
+	private static final String message = //le message du RightPanel est ecrit en html
 			"<html><p></p>"
 			+ "<h1>Manual :</h1>"
 			+ "<h2>Load Maze :</h2>"

@@ -21,8 +21,7 @@ public class MazePanel extends GeneralMazePanel {
 		int longueur = maze.getLongeur();
 		int largeur = maze.getLargeur();
 		
-		setLayout(new GridLayout(longueur, largeur));
-		
+		setLayout(new GridLayout(longueur, largeur)); //cree un quadrillage de cases representees par des BoxPanel
 		for (int i=0; i<longueur; i++) {
 			for (int j=0; j<largeur; j++) {
 				Box box = mazeTable.get(i).get(j);
