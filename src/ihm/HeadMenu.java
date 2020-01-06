@@ -11,7 +11,7 @@ import ihm.buttons.*;
 
 public class HeadMenu extends JMenuBar{
 	
-	private Window window;
+	private final Window window;
 	
 	public HeadMenu(Window window) {//constructeur
 		super();

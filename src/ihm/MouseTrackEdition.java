@@ -1,6 +1,4 @@
 package ihm;
-import javax.swing.*;
-import java.awt.*;
 
 public class MouseTrackEdition {
 	private boolean statusOn;
@@ -10,17 +8,17 @@ public class MouseTrackEdition {
 		statusOn = false;
 	}
 	
-	public boolean getStatusOn() {
+	public final boolean getStatusOn() {
 		return statusOn ;
 	}
-	public String getStatusBox() {
+	public final String getStatusBox() {
 		return statusBox ;
 	}
 
-	public void setStatusOn(boolean bool) {
+	public final void setStatusOn(boolean bool) {
 		statusOn = bool;
 	}
-	public void setStatusBox(String s) {
+	public final void setStatusBox(String s) {
 		statusBox = s;
 	}
 }
