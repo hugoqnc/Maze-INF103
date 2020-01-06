@@ -1,4 +1,5 @@
 package ihm.buttons;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -15,7 +16,7 @@ import maze.Maze;
 
 public class SaveButton extends JButton implements ActionListener{
 	
-	private Window window;
+	private final Window window;
 	private String fileName;
 	
 	public SaveButton(Window window) {
@@ -23,9 +24,10 @@ public class SaveButton extends JButton implements ActionListener{
 		this.window = window;
 		addActionListener(this);
 		fileName = window.getMaze().getFileName();
+		setBackground(Color.WHITE);
 	}
 	
-	public void actionPerformed(ActionEvent evt) {
+	public final void actionPerformed(ActionEvent evt) {
 		window.setMazeMode(0);
 			try{
 				//Methode : on cree une copie EDITED du fichier txt comprenant la version editee du labyrinthe

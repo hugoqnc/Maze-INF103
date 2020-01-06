@@ -2,7 +2,7 @@ package maze;
 
 public class MazeReadingException extends Exception {
 	
-	private String messageErreur;
+	private final String messageErreur;
 	
 
 	public MazeReadingException(String fileName, int lineError, String message){//constructeur, indique ligne de l'erreur dans le labyrinthe
@@ -10,11 +10,11 @@ public class MazeReadingException extends Exception {
 		messageErreur = "Error at line number "+ lineError + " of the file \"" + fileName + "\"" + System.getProperty("line.separator") + message;
 	}
 	
-	public String getMessage() {
+	public final String getMessage() {
 		return messageErreur;
 	}
 	
-	public String getTitle() {
+	public final String getTitle() {
 		return "Reading Maze Error";
 	}
 }

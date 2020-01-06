@@ -11,12 +11,12 @@ public class WBox extends Box{//case Wall
 		}
 	
 	@Override
-	public String status() {
+	public final String status() {
 		return("W");
 	}
 	
 	@Override
-	public Color getColor() {
+	public final Color getColor() {
 		return color;
 	}
 	

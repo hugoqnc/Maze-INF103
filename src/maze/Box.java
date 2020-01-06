@@ -10,22 +10,21 @@ public abstract class Box
 	{
 	private final int coordinateI;
 	private final int coordinateJ;
-	private static Color color;
+
 	
 	public Box(int coordinateI, int coordinateJ) {//constructeur de Box
 		this.coordinateI = coordinateI;
 		this.coordinateJ= coordinateJ;}
 	
-	public int getCoordinateI() {
+	public final int getCoordinateI() {
 		return coordinateI;}
 	
-	public int getCoordinateJ() {
+	public final int getCoordinateJ() {
 		return coordinateJ;}
 	
-	public Color getColor() {
-		return color;}
+	public abstract Color getColor() ;
 	
-	public String getLabel() {//renvoie identifiant de la box par "coordinateI,coordinateJ"
+	public final String getLabel() {//renvoie identifiant de la box par "coordinateI,coordinateJ"
 		return(String.valueOf(coordinateI) +","+ String.valueOf(coordinateJ));
 	}
 	

@@ -11,19 +11,22 @@ import ihm.*;
 
 public class LoadButton extends JButton implements ActionListener{
 	
-	private Window window;
+	private final Window window;
 	
 	public LoadButton(Window window) {
 		super("Load Maze");
 		this.window = window;
+		setBackground(Color.WHITE);
 		addActionListener(this);
 	}
 	
-	public void actionPerformed(ActionEvent evt) {
+	public final void actionPerformed(ActionEvent evt) { //construction du nouveau Maze déterminer par l'utilisateur
 		window.setMazeMode(0);
 		JFileChooser chooser = new JFileChooser();
 		chooser.setDialogTitle("Choose the maze you want to load");
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files","txt");
+	    
+	    //verification que le fichier est .txt
 	    chooser.setFileFilter(filter);
 	    int returnVal = chooser.showOpenDialog(window);
 	    if(returnVal == JFileChooser.APPROVE_OPTION) {
