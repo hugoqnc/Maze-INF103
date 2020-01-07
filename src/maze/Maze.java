@@ -29,7 +29,6 @@ public class Maze implements GraphInterface
 	
 
 	public Maze(String fileName) { 
-		//BufferedReader reader = new BufferedReader(new FileReader("data/labyrinthe.txt"));
 		this.fileName = fileName;
 		maze = new ArrayList< ArrayList<Box> >();
 		
@@ -75,7 +74,7 @@ public class Maze implements GraphInterface
 					}
 				}
 				else {
-						throw new MazeReadingException(fileName,i+1,"There is a character other than E,W,A,D in the text file."); //ligne de 1 � n, et non de 0 � n-1	
+						throw new MazeReadingException(fileName,i+1,"There is a character other than E,W,A,D in the text file."); //ligne de 1 a n, et non de 0 a n-1	
 
 				}
 				larg.add(box);
@@ -93,7 +92,6 @@ public class Maze implements GraphInterface
 		
 		}
 		catch(MazeReadingException mre){
-			//mre.printStackTrace();
 			new ErrorWindow(mre.getTitle(), mre.getMessage());
 			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException."); //permet de stopper l'execution du programme
 		}
@@ -128,23 +126,12 @@ public class Maze implements GraphInterface
 		return emptyVoisin(box);
 	}
 	
-	public final int getWeight(VertexInterface src,VertexInterface dst) {// à modifier si graph pondéré.
+	public final int getWeight(VertexInterface src,VertexInterface dst) {// à modifier pour un graphe pondere.
 		Box boxSrc = (Box)src ;
 		Box boxDst = (Box)dst ;
 		return 1;
 	}
-	
-	/* private final void initFromTextFile() {//permet de lire ligne par ligne les fichiers txt de data
-	    // https://waytolearnx.com/2018/11/comment-lire-un-fichier-en-java-avec-bufferedreader.html
-		try (BufferedReader bufferedreader = new BufferedReader(new FileReader(fileName))) {
-	        String strCurrentLine;
-	        while ((strCurrentLine = bufferedreader.readLine()) != null) {
-	          System.out.println(strCurrentLine);
-	        }
-	      } catch (IOException ioe) {
-	        ioe.printStackTrace();
-	      }	}
-	*/
+
 	
 	public final ArrayList<String> lecteur(String fileName) {
 		//creation d'une liste de string a traiter
@@ -158,7 +145,7 @@ public class Maze implements GraphInterface
 			lecteur.add(strFirstLine);
 			
 			String strCurrentLine;
-			int lineNumber = 2; //on donne numerote les lignes de 1 � n, pas de 0 � n-1
+			int lineNumber = 2; //on donne numerote les lignes de 1 a n, pas de 0 a n-1
 			while ((strCurrentLine = bufferedreader.readLine()) != null) {//trim supprime espaces superflux eventuels en fin de texte
 				strCurrentLine = strCurrentLine.trim();
 				if (strCurrentLine.length() != largeurLine1) {
@@ -176,7 +163,6 @@ public class Maze implements GraphInterface
 			ioe.printStackTrace();
 		}
 		catch (MazeReadingException mre) {
-			//mre.printStackTrace();
 			new ErrorWindow(mre.getTitle(), mre.getMessage());
 			throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur MazeReadingException."); //permet de stopper l'execution du programme
 		}
@@ -248,9 +234,7 @@ public class Maze implements GraphInterface
 			}
 		}
 		catch(DijkstraResolveException dre){
-			//dre.printStackTrace();
 			new ErrorWindow(dre.getTitle(), dre.getMessage());
-			//throw new RuntimeException("Message : Fin du programme. Il faut corriger l'erreur DijkstraResolveException."); //permet de stopper l'execution du programme
 			
 		}
 		return path;

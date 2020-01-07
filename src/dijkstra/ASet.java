@@ -16,7 +16,7 @@ public class ASet extends HashSet<VertexInterface> implements ASetInterface{
 		ensembleA.add(e);
 	}
 	
-	public boolean contains(VertexInterface e) {
+	public boolean contains(VertexInterface e) {//verifie si l'ensemble A contient le vecteur e
 		if (ensembleA.contains(e) == true) {
 			return true;
 		}
