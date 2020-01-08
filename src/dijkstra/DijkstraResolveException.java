@@ -1,7 +1,5 @@
 package dijkstra;
 
-import java.util.ArrayList;
-
 public class DijkstraResolveException extends Exception{
 	
 	private String messageErreur;

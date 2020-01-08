@@ -10,7 +10,8 @@ import ihm.Window;
 public class MainTest {
 
 	public static void main(String[] args) {
-		//Le bloc try/catch sert a resoudre des problemes de compatibilite avec macOS
+		
+		//Le bloc try/catch suivant sert a resoudre des problemes de compatibilite avec macOS
 		try {
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		}
@@ -20,7 +21,7 @@ public class MainTest {
 		// On construit un Maze par défault
 	    Maze maze = new Maze("data/SampleMaze.txt");
 	    
-		new Window("Maze", maze);
+		new Window("Maze of Hugo & Julie", maze);
 
 	}
 

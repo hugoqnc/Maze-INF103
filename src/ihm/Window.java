@@ -1,41 +1,34 @@
 package ihm;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import java.awt.*;
-import javax.swing.JPanel;
 import maze.*;
 
 public class Window extends JFrame {
 	
-	public JFrame window;
+
 	private String title;
 	
-	//taille (en pixel)
-	private int longueur;
-	private int largeur;
+	//taille fixee de la fenetre(en pixel)
+	private static final int longueur = 1100;
+	private static final int largeur = 700;
 	private Maze maze;
 	
 	private MainPanel mainPanel;
-	private int mazeMode; //vaut 0 si le maze est en mode affichage, 1 pour resolu et 2 pour edition
+	private int mazeMode; //vaut 0 si le maze est en mode affichage, 1 pour resolution et 2 pour edition
 	
-	//interface graphique
-	public Window(String title, Maze maze) {//constructeur
+	public Window(String title, Maze maze) {
 		super();
-
 		this.maze = maze;
-		this.longueur = 1100;
-		this.largeur = 700;
 		this.title = title;
-		mazeMode = 0;
+		mazeMode = 0;//au lancement du programme, on affiche le labyrinthe par defaut
 		
-		//window = new JFrame();
 		setTitle(this.title);//nom de la fenetre
-		setSize(this.longueur, this.largeur);//taille (en pixel)
+		setSize(longueur, largeur);
 		
 		ImageIcon img = new ImageIcon("data/MazeIcon2.png"); //creation de l'icone de la fenetre
 		setIconImage(img.getImage());
 
-		mainPanel = new MainPanel(this);
+		mainPanel = new MainPanel(this);//Panel principal avec le contenu affiche dans la fenetre
 	    setContentPane(mainPanel);
 		
 		setLocationRelativeTo(null);//position centrale sur l'ecran
@@ -45,12 +38,12 @@ public class Window extends JFrame {
 	    setVisible(true);
 		}
 	
-	public void resolveMaze() {
+	public void resolveMaze() {//afficher le ResolvedMainPanel
 		setContentPane(new MainPanel(this));
 		revalidate(); //pour reactualiser le panel
 
 	}
-	public void editMaze() {
+	public void editMaze() {//afficher le EditPanel
 		setContentPane(new MainPanel(this));
 		revalidate(); //pour reactualiser le panel
 	}
@@ -66,7 +59,7 @@ public class Window extends JFrame {
 		return maze;
 	}
 	
-	public void setMazeMode(int value) {
+	public void setMazeMode(int value) {//permet d'alterner entre le labyrinthe en mode affichage, resolution ou edition
 		mazeMode = value;
 	}
 	

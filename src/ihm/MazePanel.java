@@ -7,15 +7,13 @@ import maze.Box;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class MazePanel extends JPanel {
+public class MazePanel extends GeneralMazePanel {
 	
-	Maze maze;	
-	Window window;
+	private Maze maze;
 	
 	public MazePanel(Window window) {
-		super();
-		this.window = window;
-		this.maze = window.getMaze();
+		super(window);
+		maze = getMaze();
 
 		ArrayList<ArrayList<Box>> mazeTable = maze.getMaze();
 		mazeTable = maze.getMaze();
@@ -23,8 +21,7 @@ public class MazePanel extends JPanel {
 		int longueur = maze.getLongeur();
 		int largeur = maze.getLargeur();
 		
-		setLayout(new GridLayout(longueur, largeur));
-		
+		setLayout(new GridLayout(longueur, largeur)); //cree un quadrillage de cases representees par des BoxPanel
 		for (int i=0; i<longueur; i++) {
 			for (int j=0; j<largeur; j++) {
 				Box box = mazeTable.get(i).get(j);

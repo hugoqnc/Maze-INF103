@@ -10,15 +10,13 @@ import maze.Box;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class ResolvedMazePanel extends JPanel {
+public class ResolvedMazePanel extends GeneralMazePanel {
 	
-	Maze maze;
-	Window window;
+	private Maze maze;
 	
 	public ResolvedMazePanel(Window window) {
-		super();
-		this.window = window;
-		this.maze = window.getMaze();
+		super(window);
+		maze = getMaze();
 		
 		ArrayList<ArrayList<Box>> mazeTable = maze.getMaze();
 		
@@ -34,9 +32,9 @@ public class ResolvedMazePanel extends JPanel {
 			for (int j=0; j<largeur; j++) {
 				Box box = mazeTable.get(i).get(j);
 				if (path.contains(box) && (box.equals(maze.getDepart())==false) && (box.equals(maze.getArrivee())==false)){
-					pathInt = 1;
+					pathInt = 1;//signale que ces cases se trouvent sur le chemin solution (hors celles de depart/arrivee)
 				}
-				BoxPanel boxPanel = new BoxPanel(box, pathInt);
+				BoxPanel boxPanel = new BoxPanel(box, pathInt);//ajoute un point bleu aux cases sur le chemin solution
 				add(boxPanel);
 				pathInt = 0;
 			}

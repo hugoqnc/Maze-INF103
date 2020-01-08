@@ -13,7 +13,7 @@ public class MainPanel extends JPanel{
 	private JPanel labyrinthePanel;
 	private RightPanel rightPanel;
 	private Window window;
-	private int labyrinthePanelInsideSize;
+	private static int labyrinthePanelInsideSize = 600;//taille fixe du panel qui va contenir l'afficahge du labyrinthe
 	
 	public MainPanel(Window window) {
 		super();
@@ -38,12 +38,10 @@ public class MainPanel extends JPanel{
 		else {
 			labyrinthePanelInside = new MazePanel(window);
 		}
-		//labyrinthePanelInside.setBackground(Color.LIGHT_GRAY);
 		
 		//Les deux paragraphes qui suivent ont pour but de centrer un MazePanel rectangulaire dans le labyrinthePanel carre
 		//Je cree un BorderLayout, dans lequel je met au centre le MazePanel a la bonne dimension
 		//Je complete le BorderLayout avec highPanel et lowPanel qui completent le vide
-		labyrinthePanelInsideSize = 600;
 		int length = maze.getLongeur();
 		int width = maze.getLargeur();
 		int cote = Math.min(labyrinthePanelInsideSize/length,labyrinthePanelInsideSize/width);
@@ -71,7 +69,7 @@ public class MainPanel extends JPanel{
 		}
 		
 		
-		
+		//on rempli enfin le MainPanel avec son contenu
 		BorderLayout bLayout = new BorderLayout();
 		setLayout(bLayout);
 		bLayout.setHgap(3);
