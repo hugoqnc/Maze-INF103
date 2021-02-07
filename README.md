@@ -1,4 +1,4 @@
-# Maze Designer & solver
+# Maze Designer & Solver
 
 ![](/Screenshots/main.png)
 
